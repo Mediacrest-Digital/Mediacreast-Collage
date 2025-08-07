@@ -1,0 +1,133 @@
+body {
+  background: #fff !important;
+}
+  .logo-img {
+    height: 48px;
+    width: auto;
+  }
+
+  @media (min-width: 640px) {
+    .logo-img {
+      height: 64px;
+    }
+  }
+
+  .btn-contact {
+    border: 1px solid #f05a28;
+    color: #f05a28;
+  }
+
+  .btn-contact:hover {
+    background-color: #f05a28;
+    color: white;
+  }
+
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item:focus {
+    background-color: #f05a28 !important;
+    color: white !important;
+  }
+
+
+.logo-img {
+    height: 48px;
+    width: auto;
+  }
+
+  @media (min-width: 640px) {
+    .logo-img {
+      height: 64px;
+    }
+  }
+
+  .btn-contact {
+    border: 1px solid #f05a28;
+    color: #f05a28;
+  }
+
+  .btn-contact:hover {
+    background-color: #f05a28;
+    color: white;
+  }
+
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item:focus {
+    background-color: #f05a28 !important;
+    color: white !important;
+  }
+
+.homeImg3{
+  z-index: 1;
+}
+.txtReg{
+  z-index: 9;
+  left:0;
+}
+.eventsText{
+    color:white;
+
+    z-index: 9;
+}
+.textDec{
+  max-width:800px;
+  height:300px;
+}
+.imgT{
+      width: 100%;
+    top:0;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 4;
+  
+}
+@media only screen and (min-width:321px) and  (max-width:430px){
+  .SearchHome{
+  width:300px;
+  font-size:14px;
+}
+.imgT{
+      width:100%;
+    top:0;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 7;
+  
+}
+.Dimg{
+  inset: 0;
+
+}
+.SCJoin *{
+}
+.Seindex{
+
+}
+.SquiggleT{
+  width:130px;
+  right:-15px;
+  top:-15%;
+  font-size: 20px;;
+}
+.YellowDot{
+  right:-20px;
+}
+}
+
+@media only screen and (max-width:320px){
+  .SearchHome{
+  width:260px;
+  font-size: 11px;
+  
+}
+.SquiggleT{
+  width:130px;
+  right:-15px;
+  top:-15%;
+  font-size: 20px;;
+}
+.YellowDot{
+  right:-20px;
+}
+}

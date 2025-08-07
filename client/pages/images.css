@@ -1,0 +1,6 @@
+.img1{
+    border:22px solid red;
+    top:10%;
+    position: absolute;
+    z-index: 99;
+}

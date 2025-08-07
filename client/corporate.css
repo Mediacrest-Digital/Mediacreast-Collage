@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root{
+    --bgOrange: var(#eb4823)
+
+  }
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 9% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 9% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 9% 16%;
+
+    --primary: 10 90% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 26 42% 96%;
+    --secondary-foreground: 220 9% 16%;
+
+    --muted: 26 42% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 26 42% 96%;
+    --accent-foreground: 220 9% 16%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 10 90% 53%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217 91% 60%;
+  }
+
+  .dark {
+    --background: 220 9% 16%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 9% 16%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 9% 16%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 10 90% 53%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 33% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 10 90% 53%;
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 240 5% 96%;
+    --sidebar-primary: 10 90% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4% 16%;
+    --sidebar-accent-foreground: 240 5% 96%;
+    --sidebar-border: 240 4% 16%;
+    --sidebar-ring: 10 90% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family:
+      "Poppins",
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      "Roboto",
+      "Oxygen",
+      "Ubuntu",
+      "Cantarell",
+      "Fira Sans",
+      "Droid Sans",
+      "Helvetica Neue",
+      sans-serif;
+  }
+}
+
+#herocontent {
+  color: white;
+  margin-top:0;
+  z-index: 10;;
+  position:absolute;
+  left:60px;
+  top:240px;
+
+letter-spacing: 1px;
+}
+@media only screen and (max-width:320px) {
+  #herocontent {
+  color: white;
+  margin-top:0;
+  z-index: 10;;
+  position:absolute;
+  left:3px;
+  top:130px;
+  
+  width:100%;
+}
+.CoText{
+  display: none;
+  border:1px solid red;
+}
+}
+@media only screen and (min-width:321px) and (max-width:450px) {
+  #herocontent {
+  color: white;
+  margin-top:0;
+  z-index: 10;;
+  position:absolute;
+  left:3px;
+  top:130px;
+  width:100%;
+}
+.CoText{
+  display: none;
+  border:1px solid red;
+}
+}
+.imgbg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index:4
+}
+#op, .op{
+  z-index: 7;
+  opacity: 0.4;
+  height: 100%;;
+  width: 100%;
+}
+.btns{
+  background-color:#eb4823;
+}
+.allHover:hover {
+  background-color: #eb4823;
+  color: white;
+  border:1px solid red
+}.allHover>div{
+  color:#eb4823
+}
+.allHover:hover > div {
+  color: white;
+}
+@media only  screen and (min-width:500px) {
+  .TestT{
+    margin-top:-30px;
+  }
+}

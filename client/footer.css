@@ -1,0 +1,5 @@
+        @media (min-width: 393px) and (max-width: 440px) {
+          .mt-footer-adjust {
+            margin-top: 20px;
+          }
+        }
