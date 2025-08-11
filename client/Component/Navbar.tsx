@@ -139,7 +139,7 @@ const Navbar = () => {
               to="/CountyModels" 
               className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
             >
-              County Models
+              County Model
             </Link>
 
 

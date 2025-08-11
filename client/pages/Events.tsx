@@ -47,6 +47,7 @@ const Events = () => {
       description:
         "Mediacrest Training College and Mediacrest Digital powered media and PR for the prestigious awards, ensuring strong coverage throughout the event.",
     },
+    
      {
        month: "APRIL",
       day: "12",

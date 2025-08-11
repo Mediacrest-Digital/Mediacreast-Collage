@@ -21,7 +21,11 @@ export default function Index() {
   const courses = [
     { value: 'digital-marketing', label: 'Digital Marketing' },
     { value: 'graphic-design', label: 'Graphic Design' },
-    { value: 'photography', label: 'Photography & Videography' }
+    { value: 'Photography & Videography', label: 'Photography & Videography' },
+    
+    { value: 'Cyber Security', label: 'Cyber Security' },
+    { value: 'Data Science', label: 'Data Science' },
+    { value: 'Software Engineering', label: 'Software Engineering' },
   ];
 
   // Close dropdown when clicking outside
