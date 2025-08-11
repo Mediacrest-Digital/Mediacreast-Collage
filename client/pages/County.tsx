@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import backgroun from "../images/CountyImage1.jpg";
 import bgMobil from "../images/countypic.jpeg";
+import county from "../images/countyHero.jpg"
 import Navbar from "../Component/Navbar";
 import { Briefcase, BarChart, Share2, Cpu, Users, Lightbulb } from "lucide-react"; // ✅ Add the new icons here
 
@@ -52,7 +53,7 @@ const CountyModels = () => {
         {/* Replace 'mobileBackground' with your mobile background image variable */}
         <img 
           className="w-full h-full object-cover" 
-          src={bgMobil} 
+          src={county} 
           alt="Mobile background" 
         />
         {/* Mobile overlay with opacity for better text readability */}
@@ -110,9 +111,10 @@ const CountyModels = () => {
 
         {/* Text Section */}
         <div className="w-full lg:w-1/2">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-            Why Partner with Us?
+          <h2 className="text-xl md:text-2xl font-bold mb-6 text-white">
+            Kisii County Government in Partnership with Mediacrest Training College
           </h2>
+
           <p className="text-white/90 text-lg leading-relaxed mb-8">
             This program is designed to equip youth, entrepreneurs and public service professionals with essential digital competencies for the 21st century. Aligned with Kenya's digital transformation agenda and global digital literacy standards, the program offers tailored modules that range from basic computer skills to advanced digital marketing, Artificial Intelligence and online business strategies.
             <br/>
