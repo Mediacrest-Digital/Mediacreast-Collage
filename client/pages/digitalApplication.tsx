@@ -4,19 +4,21 @@ import Footer from "../Component/Footer";
 
 export default function Index() {
   const [formData, setFormData] = useState({
-    course: "Digital Marketing",
+    course: "digital-marketing",
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
   });
 
+  const courseDisplayName = "Digital Marketing";
+
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -38,17 +40,41 @@ export default function Index() {
     setLoading(true);
 
     try {
-      const response = await fetch('https://admin.mediacrestcollege.com/applications/api/submit/', {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      // Submit to the existing external API
+      const response = await fetch(
+        "https://admin.mediacrestcollege.com/applications/api/submit/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
+        // Also send confirmation email via our local API
+        try {
+          const emailResponse = await fetch("/api/application", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ...formData, course: "digital-marketing" }),
+          });
+
+          if (!emailResponse.ok) {
+            console.warn("Application submitted but email confirmation failed");
+          }
+        } catch (emailError) {
+          console.warn(
+            "Application submitted but email service unavailable:",
+            emailError,
+          );
+        }
+
         setFormData({
-          course: "Digital Marketing",
+          course: "digital-marketing",
           firstName: "",
           lastName: "",
           email: "",
@@ -89,8 +115,14 @@ export default function Index() {
               Apply Today!
             </h1>
             <p className="text-[14px] md:text-[16px] leading-[24px] md:leading-[28px] max-w-full md:max-w-[513px] text-[#CDCDCD]">
-              Join us at Mediacrest Training College, where you'll not only learn the theory but also gain valuable hands-on experiences from our affiliate digital marketing agency,
-              <span className="text-[#EB4823] underline"> Mediacrest Digital</span>, that sets you apart in today's competitive job market.
+              Join us at Mediacrest Training College, where you'll not only
+              learn the theory but also gain valuable hands-on experiences from
+              our affiliate digital marketing agency,
+              <span className="text-[#EB4823] underline">
+                {" "}
+                Mediacrest Digital
+              </span>
+              , that sets you apart in today's competitive job market.
             </p>
           </div>
         </div>
@@ -100,24 +132,31 @@ export default function Index() {
           <h2 className="text-black text-[24px] md:text-[28px] font-bold leading-[40px] md:leading-[54px] capitalize mb-[24px] md:mb-[32px]">
             Application Form
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-[32px] md:space-y-[40px]">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-[32px] md:space-y-[40px]"
+          >
             <div className="space-y-[16px] md:space-y-[18px]">
               {/* Course Field */}
               <div className="space-y-[5px]">
-                <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">Course</label>
+                <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                  Course
+                </label>
                 <input
                   type="text"
-                  name="course"
-                  value="Digital Marketing"
+                  value={courseDisplayName}
                   readOnly
                   className="w-full h-[53px] px-[14px] py-[15px] border border-[rgba(145,158,171,0.32)] bg-gray-100 rounded-[8px] text-[14px] leading-[24px] text-gray-700 cursor-not-allowed"
                 />
+                <input type="hidden" name="course" value={formData.course} />
               </div>
 
               {/* First and Last Name */}
               <div className="flex flex-col md:flex-row gap-[16px] md:gap-[18px]">
                 <div className="flex-1 space-y-[5px]">
-                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">First Name</label>
+                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                    First Name
+                  </label>
                   <input
                     type="text"
                     name="firstName"
@@ -128,7 +167,9 @@ export default function Index() {
                   />
                 </div>
                 <div className="flex-1 space-y-[5px]">
-                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">Last Name</label>
+                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                    Last Name
+                  </label>
                   <input
                     type="text"
                     name="lastName"
@@ -143,7 +184,9 @@ export default function Index() {
               {/* Email and Phone */}
               <div className="flex flex-col md:flex-row gap-[16px] md:gap-[18px]">
                 <div className="flex-1 space-y-[5px]">
-                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">Email Address</label>
+                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                    Email Address
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -154,7 +197,9 @@ export default function Index() {
                   />
                 </div>
                 <div className="flex-1 space-y-[5px]">
-                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">Phone Number</label>
+                  <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                    Phone Number
+                  </label>
                   <input
                     type="tel"
                     name="phone"
@@ -230,7 +275,9 @@ export default function Index() {
                 d="M4 12a8 8 0 018-8v8H4z"
               ></path>
             </svg>
-            <p className="text-gray-800 font-medium text-sm">Submitting your application...</p>
+            <p className="text-gray-800 font-medium text-sm">
+              Submitting your application...
+            </p>
           </div>
         </div>
       )}
@@ -239,14 +286,21 @@ export default function Index() {
       {showSuccess && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
           <div className="bg-white p-6 rounded-xl shadow-xl border border-green-200 flex flex-col items-center max-w-xs text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-600 mb-2" viewBox="0 0 20 20" fill="currentColor">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 text-green-600 mb-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
               <path
                 fillRule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
                 clipRule="evenodd"
               />
             </svg>
-            <p className="text-green-700 font-semibold">Form submitted successfully!</p>
+            <p className="text-green-700 font-semibold">
+              Form submitted successfully!
+            </p>
           </div>
         </div>
       )}
@@ -255,7 +309,12 @@ export default function Index() {
       {errorMessage && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/40">
           <div className="bg-white p-6 rounded-xl shadow-xl border border-red-300 flex flex-col items-center max-w-xs text-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-600 mb-2" viewBox="0 0 20 20" fill="currentColor">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 text-red-600 mb-2"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
               <path
                 fillRule="evenodd"
                 d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v4a1 1 0 002 0V7zm-1 8a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"

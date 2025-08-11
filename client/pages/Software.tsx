@@ -317,7 +317,7 @@ This course provides a comprehensive curriculum and equips participants with the
 
               <div className="flex items-center justify-center md:justify-start md:ml-8 pt-8 md:pt-0">
                 <Link
-                  to="/digital-marketing-application"
+                  to="/software-engineering-application"
                   className="w-fit px-6 py-3 bg-[#EB4823] text-white rounded-lg font-semibold flex items-center gap-3 hover:bg-[#d63e1e] transition-colors text-lg whitespace-nowrap"
                 >
                   Apply Now
