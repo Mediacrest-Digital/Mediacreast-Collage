@@ -187,8 +187,7 @@ export default function Index() {
                   </svg>
                 </div>
                 <p className="text-white text-lg leading-7 max-w-lg">
-                  Step into the digital marketing world with the knowledge and
-                  confidence to make an impact.
+This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
                 </p>
               </div>
 
@@ -233,7 +232,7 @@ export default function Index() {
                 </div>
                 <div>
                   <p className="text-[#1B1D1F] text-lg font-medium">Duration</p>
-                  <p className="text-[#1B1D1F] text-xl font-bold">6 Weeks</p>
+                  <p className="text-[#1B1D1F] text-xl font-bold">25 Weeks</p>
                 </div>
               </div>
 
@@ -311,7 +310,7 @@ export default function Index() {
                     Tuition Fee
                   </p>
                   <p className="text-[#1B1D1F] text-xl font-bold">
-                    KSH. 36,500
+                    Ksh. 150,500
                   </p>
                 </div>
               </div>
@@ -348,27 +347,12 @@ export default function Index() {
                   About this course
                 </h2>
                 <p className="text-[#7A746D] leading-relaxed">
-                  This Digital Marketing Short Course is designed to equip you
-                  with the essential skills and strategies needed to thrive in
-                  today's fast-paced digital landscape. As the world continues
-                  to evolve digitally, businesses are increasingly relying on
-                  digital marketing to connect with their audiences, making
-                  expertise in this field more crucial than ever. In this
-                  course, you will gain hands-on experience with key digital
-                  tools and platforms. Through practical projects you will also
-                  develop the skills to craft effective campaigns, optimize
-                  online presence and drive measurable results. By the end of
-                  the course, you'll be well prepared to step into the digital
-                  marketing world with the knowledge and confidence to make an
-                  impact.
+Accelerate your tech career with our immersive Software Engineering course, designed to equip you with advanced skills in coding, in web development, software architecture, and collaborative tools.
                 </p>
                 <div className="pl-4 border-l-4 border-[#EB4823]">
                   <p className="text-[#7A746D] leading-relaxed">
-                    Join us at Mediacrest Training College, where you'll not
-                    only learn the theory but also gain valuable hand-on
-                    experiences from our affiliate digital marketing agency,
-                    Mediacrest Digital that sets you apart in today's
-                    competitive job market.
+Upon completion, learners will receive an internationally recognized certification, gain practical programming language skills such as Python and R, and experience working with large datasets.
+
                   </p>
                 </div>
               </div>
