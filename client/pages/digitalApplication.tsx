@@ -4,7 +4,7 @@ import Footer from "../Component/Footer";
 
 export default function Index() {
   const [formData, setFormData] = useState({
-    course: "Digital Marketing",
+    course: "Photography and Videography",
     firstName: "",
     lastName: "",
     email: "",
@@ -48,7 +48,7 @@ export default function Index() {
 
       if (response.ok) {
         setFormData({
-          course: "Digital Marketing",
+          course: "Photography and Videography",
           firstName: "",
           lastName: "",
           email: "",

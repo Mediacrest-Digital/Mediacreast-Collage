@@ -310,7 +310,7 @@ export default function Index() {
 
               <div className="flex items-center justify-center md:justify-start md:ml-8 pt-8 md:pt-0">
                 <Link
-                  to="/digital-marketing-application"
+                  to="/photography-videography-application"
                   className="w-fit px-6 py-3 bg-[#EB4823] text-white rounded-lg font-semibold flex items-center gap-3 hover:bg-[#d63e1e] transition-colors text-lg whitespace-nowrap"
                 >
                   Apply Now
@@ -465,15 +465,12 @@ export default function Index() {
       }
     >
       <p className="text-[#7B7B7B] leading-8 mb-4">
-        This course introduces students to core principles in digital
-        communication and marketing. Through hands-on projects and expert-led
-        lectures, learners gain real-world skills in campaign creation,
-        audience engagement, and analytics.
+        This course provides a comprehensive introduction to the world of photography and videography. 
+        It covers essential skills such as camera operation, lighting techniques, composition, and post-production editing. 
+        Students will engage in hands-on projects that allow them to apply their knowledge in real-world scenarios, 
+        ensuring they are well-prepared for careers in the creative industry.
       </p>
-      <p className="text-[#7B7B7B] leading-8">
-        The curriculum is designed for both beginners and professionals
-        transitioning into the digital space.
-      </p>
+
     </CollapsibleSection>
 
     <CollapsibleSection
@@ -484,10 +481,14 @@ export default function Index() {
       }
     >
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Develop and manage digital marketing campaigns</li>
-        <li>Use SEO and analytics tools effectively</li>
-        <li>Understand customer behavior across digital platforms</li>
-        <li>Design optimized content strategies</li>
+  <li>Master the use of professional-grade cameras and photography and videography equipment</li>
+  <li>Develop strong composition and lighting skills</li>
+  <li>Gain expertise in editing and post-processing techniques</li>
+  <li>Build proficiency in various photography and videography genres</li>
+  <li>Learn the principles of visual storytelling through photography and videography</li>
+  <li>Understand the business aspects of professional photography and videography</li>
+  <li>Develop a professional portfolio showcasing your best photography and videography work</li>
+
       </ul>
     </CollapsibleSection>
 
@@ -502,10 +503,19 @@ export default function Index() {
         Upon completion, graduates are equipped to pursue roles such as:
       </p>
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Digital Marketing Specialist</li>
-        <li>Content Strategist</li>
-        <li>SEO Analyst</li>
-        <li>Social Media Manager</li>
+  <li>Event Photographer/Videographer</li>
+  <li>Portrait and Studio Artist</li>
+  <li>Commercial & Product Visual Creator</li>
+  <li>Fashion Photographer & Videographer</li>
+  <li>Documentary & Storytelling Filmmaker</li>
+  <li>Travel, Landscape & Wildlife Creator</li>
+  <li>Real Estate Visual Specialist</li>
+  <li>Drone Photographer/Videographer</li>
+  <li>Video Editor & Post-Production Specialist</li>
+  <li>Multimedia Journalist</li>
+  <li>Content Creator/Influencer</li>
+  <li>Corporate Visual Producer</li>
+  <li>Freelance Creative Professional</li>
       </ul>
     </CollapsibleSection>
   </div>

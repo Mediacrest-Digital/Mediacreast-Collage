@@ -64,52 +64,35 @@ export default function WhyTakeCourseSection() {
   ];
 
   return (
-    <section className="flex flex-col items-center gap-[50px] py-[65px] bg-gray-50">
-      <div className="flex flex-col items-center gap-[19px]">
-        <h2 className="text-gray-800 text-center font-semibold text-[32px] leading-[48px] capitalize max-w-[607px]">
+    <section className="flex flex-col items-center gap-12 py-16 px-4 bg-gray-50">
+      <div className="flex flex-col items-center gap-5 text-center">
+        <h2 className="text-gray-800 font-semibold text-2xl sm:text-3xl leading-snug max-w-xl">
           Why you should take this course?
         </h2>
       </div>
 
-      <div className="flex flex-col items-center gap-[33px]">
-        {/* First Row */}
-        <div className="flex items-start gap-[33px]">
-          {features.slice(0, 3).map((feature, index) => (
-            <div key={index} className="flex flex-col items-start gap-[24px] w-[404px] h-[359px] p-[32px] bg-white border border-gray-200 rounded-[16px]">
-              <div className={`flex items-start justify-center p-[20px] gap-[10px] rounded-[8px] ${feature.bgColor}`}>
-                {feature.icon}
-              </div>
-              <div className="flex flex-col items-start gap-[12px] pt-[4px]">
-                <h3 className="text-mediacrest-orange text-[20px] font-semibold leading-[28px] max-w-[320px]">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-[14px] font-normal leading-[24px] max-w-[342px] h-[221px]">
-                  {feature.description}
-                </p>
-              </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-start gap-6 w-full max-w-sm p-8 bg-white border border-gray-200 rounded-2xl"
+          >
+            <div
+              className={`flex items-center justify-center p-5 rounded-lg ${feature.bgColor}`}
+            >
+              {feature.icon}
             </div>
-          ))}
-        </div>
-
-        {/* Second Row */}
-        <div className="flex items-start gap-[33px]">
-          {features.slice(3, 5).map((feature, index) => (
-            <div key={index + 3} className="flex flex-col items-start gap-[24px] w-[404px] h-[359px] p-[32px] bg-white border border-gray-200 rounded-[16px]">
-              <div className={`flex items-start justify-center p-[20px] gap-[10px] rounded-[8px] ${feature.bgColor}`}>
-                {feature.icon}
-              </div>
-              <div className="flex flex-col items-start gap-[12px] pt-[4px]">
-                <h3 className="text-mediacrest-orange text-[20px] font-semibold leading-[28px] max-w-[334px]">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-[14px] font-normal leading-[24px] max-w-[340px]">
-                  {feature.description}
-                </p>
-              </div>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-mediacrest-orange text-lg sm:text-xl font-semibold leading-7">
+                {feature.title}
+              </h3>
+              <p className="text-gray-600 text-sm sm:text-base leading-6">
+                {feature.description}
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </section>
-  );
+  )
 }
