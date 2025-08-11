@@ -5,7 +5,7 @@ import Try from "./Try";
 import Footer from "../Component/Footer";
 import FAQAccordion from "../Component/courseDropdown3";
 import photopic from "../images/photo.png";
-import "../photography.css"
+import "../photography.css";
 const AccordionItem = ({
   question,
   isOpen,
@@ -83,7 +83,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const handleToggle = (index: number) => {
-    setOpenIndex(prev => (prev === index ? null : index));
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -125,7 +125,6 @@ const FAQ = () => {
   );
 };
 
-
 export default function Index() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
   const [openSection, setOpenSection] = useState<string | null>(null);
@@ -147,15 +146,14 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="photoHero relative md:bg-[#1D2026] lg:bg-[#1D2026] py-16 md:py-20 overflow-hidden">
-<div className="absolute inset-y-0 right-0 w-full sm:w-1/2 z-0">
-  <img
-    src={photopic}
-    alt="Digital Marketing Background"
-    className="imgP w-full h-full object-cover "
-  />
-  <div className="opPV"></div>
-</div>
-
+        <div className="absolute inset-y-0 right-0 w-full sm:w-1/2 z-0">
+          <img
+            src={photopic}
+            alt="Digital Marketing Background"
+            className="imgP w-full h-full object-cover "
+          />
+          <div className="opPV"></div>
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-4 md:px-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -180,7 +178,9 @@ export default function Index() {
                   </svg>
                 </div>
                 <p className="text-white text-lg leading-7 max-w-lg">
-                  This course is designed to give you a comprehensive learning experience with a strong focus on practical skills, hands-on projects
+                  This course is designed to give you a comprehensive learning
+                  experience with a strong focus on practical skills, hands-on
+                  projects
                 </p>
               </div>
 
@@ -201,7 +201,7 @@ export default function Index() {
       </section>
 
       {/* Course Info Cards */}
-<section className="CourseCardsCP py-8 px-4 md:px-16">
+      <section className="CourseCardsCP py-8 px-4 md:px-16">
         <div className="max-w-7xl mx-auto">
           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-10">
             <div className="grid md:grid-cols-4 gap-8 items-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
@@ -312,6 +312,11 @@ export default function Index() {
                 <Link
                   to="/photography-videography-application"
                   className="w-fit px-6 py-3 bg-[#EB4823] text-white rounded-lg font-semibold flex items-center gap-3 hover:bg-[#d63e1e] transition-colors text-lg whitespace-nowrap"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.location.href =
+                      "/photography-videography-application";
+                  }}
                 >
                   Apply Now
                   <svg
@@ -341,27 +346,32 @@ export default function Index() {
                   About this course
                 </h2>
                 <p className="text-[#7A746D] leading-relaxed">
-                  This course is designed to give you a comprehensive learning experience 
-                  with a strong focus on practical, hands-on projects. Throughout the course,
-                   you’ll spend a majority of your time working on real-time projects and fieldwork experience, 
-                   supported by our affiliate digital marketing agency, Mediacrest Digital. This will give you valuable
-                    exposure to industry standard equipment and workflows, ensuring you gain the practical experience 
-                    needed to excel in professional environments.
-                  The program emphasizes practical experience, ensuring that graduates
-                   are ready to meet the challenges of real-world photography and videography environments. 
-                   You'll learn to light, shoot, edit, and print photos and videos using state-of-the-art cameras 
-                   and equipment.
+                  This course is designed to give you a comprehensive learning
+                  experience with a strong focus on practical, hands-on
+                  projects. Throughout the course, you’ll spend a majority of
+                  your time working on real-time projects and fieldwork
+                  experience, supported by our affiliate digital marketing
+                  agency, Mediacrest Digital. This will give you valuable
+                  exposure to industry standard equipment and workflows,
+                  ensuring you gain the practical experience needed to excel in
+                  professional environments. The program emphasizes practical
+                  experience, ensuring that graduates are ready to meet the
+                  challenges of real-world photography and videography
+                  environments. You'll learn to light, shoot, edit, and print
+                  photos and videos using state-of-the-art cameras and
+                  equipment.
                 </p>
                 <div className="pl-4 border-l-4 border-[#EB4823]">
                   <p className="text-[#7A746D] leading-relaxed">
-                  With classes held at Mediacrest’ state-of-the-art campus, equipped 
-                  with professional-grade photography and videography equipment and facilities,
-                   this certificate equips you with the skills, creativity, and industry connections 
-                   needed to thrive in the competitive field of photography and videography.
+                    With classes held at Mediacrest’ state-of-the-art campus,
+                    equipped with professional-grade photography and videography
+                    equipment and facilities, this certificate equips you with
+                    the skills, creativity, and industry connections needed to
+                    thrive in the competitive field of photography and
+                    videography.
                   </p>
                 </div>
               </div>
-
             </div>
 
             <div className="relative">
@@ -402,10 +412,11 @@ export default function Index() {
                 Unlock Your Creative Vision
               </h3>
               <p className="text-[#42526B] leading-relaxed">
-                Immerse yourself in a curriculum designed to bring out your unique
-                 perspective. From understanding your camera to mastering composition, 
-                 each module is crafted to empower you with the skills needed to create compelling 
-                 and visually stunning photographs and videos.
+                Immerse yourself in a curriculum designed to bring out your
+                unique perspective. From understanding your camera to mastering
+                composition, each module is crafted to empower you with the
+                skills needed to create compelling and visually stunning
+                photographs and videos.
               </p>
             </div>
 
@@ -422,8 +433,9 @@ export default function Index() {
                 Practical Learning with Industry-Standard Equipment
               </h3>
               <p className="text-[#42526B] leading-relaxed">
-              Gain hands-on experience with professional equipment and industry-standard techniques.
-               Our course ensures you are well-equipped to navigate the ever-evolving field of photography
+                Gain hands-on experience with professional equipment and
+                industry-standard techniques. Our course ensures you are
+                well-equipped to navigate the ever-evolving field of photography
                 and videography, from basic principles to advanced techniques.
               </p>
             </div>
@@ -432,7 +444,7 @@ export default function Index() {
               <div className="p-5 bg-[#FFF2EF] rounded-lg w-fit mb-6">
                 <svg className="w-9 h-9" viewBox="0 0 37 36" fill="none">
                   <path
-                    fillRule="evenodd"  
+                    fillRule="evenodd"
                     clipRule="evenodd"
                     d="M25.0343 17.9997L25.3824 19.7935C26.1615 20.0556 26.8683 20.4833 27.4638 21.0362L29.1438 20.4508L30.5958 23.0488L29.2659 24.2581C29.349 24.6668 29.3907 25.0827 29.3905 25.4998C29.3905 25.9254 29.3475 26.3408 29.2659 26.7414L30.5958 27.9507L29.1438 30.5488L27.4638 29.9633C26.8683 30.5163 26.1615 30.9439 25.3824 31.206L25.0343 32.9998H22.1301L21.7835 31.2065C21.0038 30.9444 20.2965 30.5166 19.7006 29.9633L18.0206 30.5488L16.5686 27.9507L17.8988 26.743C17.8155 26.3338 17.7737 25.9173 17.7739 25.4998C17.7739 25.0735 17.817 24.6577 17.8988 24.2566L16.949 23.3938L17.1043 22.5958L17.1219 22.5894C17.8031 22.2844 18.4461 21.9003 19.0375 21.4449L19.0501 21.4332L20.6407 21.9895L21.6325 22.3359C20.6221 23.0018 19.9521 24.1699 19.9521 25.4998C19.9521 27.5708 21.5773 29.2497 23.5822 29.2497C25.5871 29.2497 27.2123 27.5708 27.2123 25.4998C27.2123 23.4287 25.5871 21.7498 23.5822 21.7498C22.9847 21.7493 22.3968 21.9008 21.874 22.1901L22.3628 21.3184L24.2166 17.9997H25.0343ZM15.3519 2.99976L15.8394 5.51104C16.9304 5.87807 17.9201 6.47699 18.7539 7.25141L21.1053 6.43108L23.1382 10.0684L21.2761 11.7603C21.3924 12.3328 21.4509 12.9156 21.4506 13.4997C21.4506 14.0961 21.3905 14.678 21.2761 15.2392L23.1382 16.9311L21.1053 20.5684L18.7539 19.7481C17.9201 20.5225 16.9304 21.1215 15.8394 21.4885L15.3519 23.9998H11.2862L10.8003 21.489C9.70838 21.1219 8.71796 20.5225 7.88363 19.7475L5.53288 20.5684L3.5 16.9311L5.36237 15.2407C5.24578 14.6677 5.18722 14.0844 5.18757 13.4997C5.18757 12.9034 5.24769 12.3216 5.36209 11.7603L3.5 10.0684L5.53288 6.43115L7.88363 7.25204C8.71831 6.47664 9.70923 5.87708 10.8017 5.51005L11.2862 2.99976H15.3519ZM13.3191 8.24978C10.5123 8.24978 8.23688 10.6003 8.23688 13.4997C8.23688 16.3993 10.5123 18.7498 13.3191 18.7498C16.1259 18.7498 18.4013 16.3993 18.4013 13.4997C18.4013 10.6002 16.1259 8.24978 13.3191 8.24978ZM27.9384 2.99976L28.2865 4.7935C29.0656 5.05562 29.7724 5.48326 30.368 6.03627L32.0479 5.45071L33.5 8.04883L32.1701 9.25813C32.2531 9.66679 32.2948 10.0828 32.2946 10.4998C32.2948 10.9168 32.2531 11.3328 32.1701 11.7414L33.5 12.9507L32.0479 15.5488L30.368 14.9632C29.7724 15.5162 29.0656 15.9439 28.2865 16.206L27.9384 17.9997H25.0343L24.6876 16.2065L24.4344 16.1113L24.0972 15.8048L22.8342 14.6578L22.851 14.5333C22.8854 14.1915 22.9027 13.8467 22.9027 13.4997L22.8897 12.9811C22.8812 12.8092 22.8682 12.6375 22.851 12.4663L22.8342 12.3403L23.1729 12.0341C23.7406 13.3401 25.0106 14.2498 26.4864 14.2498C28.4912 14.2498 30.1165 12.5708 30.1165 10.4998C30.1165 8.42872 28.4912 6.74973 26.4864 6.74973C25.3713 6.74973 24.3736 7.26913 23.7077 8.08637L22.551 6.01778L22.6047 6.03627C23.2006 5.48291 23.9079 5.05506 24.6876 4.79301L25.0343 2.99976H27.9384Z"
                     fill="#EB4823"
@@ -443,10 +455,11 @@ export default function Index() {
                 Real-World Photography & Videography Experience
               </h3>
               <p className="text-[#42526B] leading-relaxed">
-                Move beyond theory and step into real-world scenarios of photography and videography. 
-                Through our digital marketing agency, you will engage in practical projects and collaborative
-                ventures that mirror the challenges and opportunities of the professional photography and videography
-                landscape.
+                Move beyond theory and step into real-world scenarios of
+                photography and videography. Through our digital marketing
+                agency, you will engage in practical projects and collaborative
+                ventures that mirror the challenges and opportunities of the
+                professional photography and videography landscape.
               </p>
             </div>
           </div>
@@ -454,76 +467,66 @@ export default function Index() {
       </section>
 
       {/* Course Sections */}
-       {/* Course Sections */}
-<section className="py-16 px-4 md:px-16">
-  <div className="max-w-5xl mx-auto space-y-8">
-    <CollapsibleSection
-      title="Course Description"
-      isOpen={openSection === "description"}
-      onToggle={() =>
-        setOpenSection(openSection === "description" ? null : "description")
-      }
-    >
-      <p className="text-[#7B7B7B] leading-8 mb-4">
-        This course provides a comprehensive introduction to the world of photography and videography. 
-        It covers essential skills such as camera operation, lighting techniques, composition, and post-production editing. 
-        Students will engage in hands-on projects that allow them to apply their knowledge in real-world scenarios, 
-        ensuring they are well-prepared for careers in the creative industry.
-      </p>
+      {/* Course Sections */}
+      <section className="py-16 px-4 md:px-16">
+        <div className="max-w-5xl mx-auto space-y-8">
+          <CollapsibleSection
+            title="Course Description"
+            isOpen={openSection === "description"}
+            onToggle={() =>
+              setOpenSection(
+                openSection === "description" ? null : "description",
+              )
+            }
+          >
+            <p className="text-[#7B7B7B] leading-8 mb-4">
+              This course introduces students to core principles in digital
+              communication and marketing. Through hands-on projects and
+              expert-led lectures, learners gain real-world skills in campaign
+              creation, audience engagement, and analytics.
+            </p>
+            <p className="text-[#7B7B7B] leading-8">
+              The curriculum is designed for both beginners and professionals
+              transitioning into the digital space.
+            </p>
+          </CollapsibleSection>
 
-    </CollapsibleSection>
+          <CollapsibleSection
+            title="Learning Outcomes"
+            isOpen={openSection === "outcomes"}
+            onToggle={() =>
+              setOpenSection(openSection === "outcomes" ? null : "outcomes")
+            }
+          >
+            <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
+              <li>Develop and manage digital marketing campaigns</li>
+              <li>Use SEO and analytics tools effectively</li>
+              <li>Understand customer behavior across digital platforms</li>
+              <li>Design optimized content strategies</li>
+            </ul>
+          </CollapsibleSection>
 
-    <CollapsibleSection
-      title="Learning Outcomes"
-      isOpen={openSection === "outcomes"}
-      onToggle={() =>
-        setOpenSection(openSection === "outcomes" ? null : "outcomes")
-      }
-    >
-      <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-  <li>Master the use of professional-grade cameras and photography and videography equipment</li>
-  <li>Develop strong composition and lighting skills</li>
-  <li>Gain expertise in editing and post-processing techniques</li>
-  <li>Build proficiency in various photography and videography genres</li>
-  <li>Learn the principles of visual storytelling through photography and videography</li>
-  <li>Understand the business aspects of professional photography and videography</li>
-  <li>Develop a professional portfolio showcasing your best photography and videography work</li>
-
-      </ul>
-    </CollapsibleSection>
-
-    <CollapsibleSection
-      title="Career Options"
-      isOpen={openSection === "career"}
-      onToggle={() =>
-        setOpenSection(openSection === "career" ? null : "career")
-      }
-    >
-      <p className="text-[#7B7B7B] leading-8 mb-4">
-        Upon completion, graduates are equipped to pursue roles such as:
-      </p>
-      <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-  <li>Event Photographer/Videographer</li>
-  <li>Portrait and Studio Artist</li>
-  <li>Commercial & Product Visual Creator</li>
-  <li>Fashion Photographer & Videographer</li>
-  <li>Documentary & Storytelling Filmmaker</li>
-  <li>Travel, Landscape & Wildlife Creator</li>
-  <li>Real Estate Visual Specialist</li>
-  <li>Drone Photographer/Videographer</li>
-  <li>Video Editor & Post-Production Specialist</li>
-  <li>Multimedia Journalist</li>
-  <li>Content Creator/Influencer</li>
-  <li>Corporate Visual Producer</li>
-  <li>Freelance Creative Professional</li>
-      </ul>
-    </CollapsibleSection>
-  </div>
-</section>
-
+          <CollapsibleSection
+            title="Career Options"
+            isOpen={openSection === "career"}
+            onToggle={() =>
+              setOpenSection(openSection === "career" ? null : "career")
+            }
+          >
+            <p className="text-[#7B7B7B] leading-8 mb-4">
+              Upon completion, graduates are equipped to pursue roles such as:
+            </p>
+            <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
+              <li>Digital Marketing Specialist</li>
+              <li>Content Strategist</li>
+              <li>SEO Analyst</li>
+              <li>Social Media Manager</li>
+            </ul>
+          </CollapsibleSection>
+        </div>
+      </section>
 
       {/* Course Leader */}
-  
 
       {/* Application Process */}
       <section className="py-16 px-4 md:px-16">
@@ -535,13 +538,12 @@ export default function Index() {
             <p className="text-[#66708A] max-w-2xl mx-auto">
               The application process is straightforward and designed to guide
               you step-by-step. To apply online please visit:
-<Link to="/application" className="text-[#EB4823] underline ml-1">
-  https://mediacrestcollege.com/apply
-</Link>
-
+              <Link to="/application" className="text-[#EB4823] underline ml-1">
+                https://mediacrestcollege.com/apply
+              </Link>
             </p>
           </div>
- 
+
           <div className="grid md:grid-cols-3 gap-8">
             <div className="space-y-8">
               <div className="flex items-center gap-4">
@@ -566,7 +568,7 @@ export default function Index() {
                 <div className="w-20 h-20 bg-[#EB4823] rounded-full flex items-center justify-center text-white font-bold text-xl">
                   02
                 </div>
-                 <div className=" borderD hidden md:block h-px  flex-1"></div>
+                <div className=" borderD hidden md:block h-px  flex-1"></div>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-[#0E0E0F] mb-3">
@@ -584,7 +586,8 @@ export default function Index() {
                 <div className="w-20 h-20 bg-[#EB4823] rounded-full flex items-center justify-center text-white font-bold text-xl">
                   03
                 </div>
- <div className=" borderD hidden md:block h-px  flex-1"></div>              </div>
+                <div className=" borderD hidden md:block h-px  flex-1"></div>{" "}
+              </div>
               <div>
                 <h3 className="text-xl font-bold text-[#0E0E0F] mb-3">
                   We'll Reach Out
@@ -600,7 +603,7 @@ export default function Index() {
       </section>
 
       {/* FAQ */}
-    <FAQAccordion/>
+      <FAQAccordion />
 
       {/* CTA Section */}
       <section className="py-16 px-4 md:px-16">
@@ -652,7 +655,7 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-     <Footer/>
+      <Footer />
     </div>
   );
 }

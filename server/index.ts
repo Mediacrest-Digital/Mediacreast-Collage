@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleContactForm } from "./routes/contact";
+import { handleApplicationEmail } from "./routes/application";
 
 export function createServer() {
   const app = express();
@@ -16,6 +18,8 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+  app.post("/api/contact", handleContactForm);
+  app.post("/api/application", handleApplicationEmail);
 
   return app;
 }
