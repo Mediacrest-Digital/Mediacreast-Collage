@@ -187,8 +187,7 @@ export default function Index() {
                   </svg>
                 </div>
                 <p className="text-white text-lg leading-7 max-w-lg">
-This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
-                </p>
+Accelerate your tech career with our immersive Software Engineering course, designed to equip you with advanced skills in coding, in web development, software architecture, and collaborative tools.                </p>
               </div>
 
               <div className="flex flex-wrap gap-4">
@@ -347,12 +346,11 @@ This course provides a comprehensive curriculum and equips participants with the
                   About this course
                 </h2>
                 <p className="text-[#7A746D] leading-relaxed">
-Accelerate your tech career with our immersive Software Engineering course, designed to equip you with advanced skills in coding, in web development, software architecture, and collaborative tools.
-                </p>
+Accelerate your tech career with our immersive Software Engineering course, designed to equip you with advanced skills in coding, in web development, software architecture, and collaborative tools. Master industry-standard languages like Python and JavaScript, sharpen your problem-solving abilities and gain hands-on experience with collaborative tools like Git. 
+              </p>
                 <div className="pl-4 border-l-4 border-[#EB4823]">
                   <p className="text-[#7A746D] leading-relaxed">
-Upon completion, learners will receive an internationally recognized certification, gain practical programming language skills such as Python and R, and experience working with large datasets.
-
+This intensive, project-based program prepares you to thrive in the fast-paced tech and AI industry, whether you're launching your career or leveling up your coding expertise. Part-Time and Full-Time (Hybrid and online) options available with admissions entry guided by a technical assessment to ensure you’re ready to excel in this course.
                   </p>
                 </div>
               </div>
@@ -381,26 +379,26 @@ Upon completion, learners will receive an internationally recognized certificati
 <section className="py-16 px-4 md:px-16">
   <div className="max-w-5xl mx-auto space-y-8">
     <CollapsibleSection
-      title="Course Description"
+      title="Course Requirements"
       isOpen={openSection === "description"}
       onToggle={() =>
         setOpenSection(openSection === "description" ? null : "description")
       }
     >
       <p className="text-[#7B7B7B] leading-8 mb-4">
-        Elevate your career with Mediacrest College`s Digital Marketing Certification designed 
-        specifically for working professionals like you. This comprehensive program offers a flexible 
-        learning schedule with part-time evening classes, allowing you to balance your work commitments
-         while gaining essential skills in digital marketing. From social media strategies to search engine
-          optimization (SEO), you'll master the key elements of creating effective digital marketing campaigns.
-           Throughout this certificate program, you'll engage in dynamic lectures, case studies, and group discussions,
-            gaining exposure to the latest methods, techniques, and tools to improve your organization's digital marketing
-             and brand-building efforts. Whether your goal is to enhance your current career, transition into the digital marketing industry,
-              or boost your company's online presence, this course will provide you with the expertise to succeed in the digital realm.
-      </p>
+<li>Have basic computer knowledge </li> 
+<li>Have graduated from high school</li> 
+<li>Complete the application process by taking a technical assessment test </li> 
+<li>Have a laptop with the following specs (core i5 upwards, 8GB RAM, 500GB upwards of storage)</li> 
+<li>Have stable internet access</li> 
+
+
+
+
+</p>
     </CollapsibleSection>
 
-    <CollapsibleSection
+    {/* <CollapsibleSection
       title="Learning Outcomes"
       isOpen={openSection === "outcomes"}
       onToggle={() =>
@@ -422,10 +420,10 @@ Upon completion, learners will receive an internationally recognized certificati
         <li>Understand design principles for digital content</li>
 
       </ul>
-    </CollapsibleSection>
+    </CollapsibleSection> */}
 
     <CollapsibleSection
-      title="Career Options"
+      title="Career Opportunities"
       isOpen={openSection === "career"}
       onToggle={() =>
         setOpenSection(openSection === "career" ? null : "career")
@@ -435,12 +433,19 @@ Upon completion, learners will receive an internationally recognized certificati
         Upon completion, graduates are equipped to pursue roles such as:
       </p>
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Digital Marketing Specialist</li>
-        <li>Content Manager</li>
-        <li>Search Engine Optimization (SEO) Manager</li>
-        <li>Social Media Manager</li>
-        <li>Marketing Analyst</li>
-        <li>Marketing Assistant</li>
+<li>Full Stack Developer</li>
+<li>Web Developer</li>
+<li>Software Engineer</li>
+<li>DevOps Engineer</li>
+<li>Mobile App Developer</li>
+<li>API Developer</li>
+<li>Data Engineer</li>
+<li>Cloud Engineer</li>
+<li>Product Manager</li>
+<li>Technical Architect</li>
+<li>Entrepreneur</li>
+<li>Game Developer</li>
+
       </ul>
     </CollapsibleSection>
   </div>
@@ -448,7 +453,6 @@ Upon completion, learners will receive an internationally recognized certificati
 
 
       {/* Course Leader */}
-     <Try/>
 
       {/* Application Process */}
       <section className="py-16 px-4 md:px-16">
@@ -524,8 +528,8 @@ Upon completion, learners will receive an internationally recognized certificati
         </div>
       </section>
 
- 
-      <FAQAccordion/>
+{/*  
+      <FAQAccordion/> */}
 
       {/* CTA Section */}
       <section className="py-16 px-4 md:px-16">

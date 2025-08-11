@@ -464,15 +464,10 @@ export default function Index() {
       }
     >
       <p className="text-[#7B7B7B] leading-8 mb-4">
-        This course introduces students to core principles in digital
-        communication and marketing. Through hands-on projects and expert-led
-        lectures, learners gain real-world skills in campaign creation,
-        audience engagement, and analytics.
+This certificate program provides a comprehensive education in graphic design. You'll learn everything from design fundamentals to advanced digital techniques, preparing you for a successful career in the creative industry. The curriculum is structured to progressively build your skills, starting with core principles and advancing to complex design projects. The unique curriculum leverages Adobe Education learning resources, practice tests, and real-world applications enabling students to graduate the program with impressive portfolios.
+
       </p>
-      <p className="text-[#7B7B7B] leading-8">
-        The curriculum is designed for both beginners and professionals
-        transitioning into the digital space.
-      </p>
+
     </CollapsibleSection>
 
     <CollapsibleSection
@@ -483,11 +478,15 @@ export default function Index() {
       }
     >
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Develop and manage digital marketing campaigns</li>
-        <li>Use SEO and analytics tools effectively</li>
-        <li>Understand customer behavior across digital platforms</li>
-        <li>Design optimized content strategies</li>
-      </ul>
+  <li>Master industry-standard design software including Adobe Creative Suite</li>
+  <li>Develop a strong understanding of design principles, colour theory, and typography</li>
+  <li>Gain expertise in branding, packaging design, and advertising</li>
+  <li>Build proficiency in digital design and user interface basics</li>
+  <li>Learn the principles of visual communication and storytelling through design</li>
+  <li>Understand the business aspects of professional graphic design</li>
+  <li>Cultivate critical thinking and problem-solving skills for design challenges</li>
+  <li>Develop a professional portfolio showcasing your best design work</li>
+ </ul>
     </CollapsibleSection>
 
     <CollapsibleSection
@@ -501,10 +500,14 @@ export default function Index() {
         Upon completion, graduates are equipped to pursue roles such as:
       </p>
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Digital Marketing Specialist</li>
-        <li>Content Strategist</li>
-        <li>SEO Analyst</li>
-        <li>Social Media Manager</li>
+  <li>Graphic Designer: Create visual concepts for various media</li>
+  <li>Brand Identity Designer: Develop cohesive visual identities for businesses</li>
+  <li>Packaging Designer: Create innovative and functional product packaging</li>
+  <li>Web Designer: Design user-friendly and visually appealing websites</li>
+  <li>UI/UX Designer: Craft intuitive interfaces for digital products</li>
+  <li>Art Director: Lead design teams in advertising or publishing</li>
+  <li>Freelance Designer: Work independently with diverse clients</li>
+  <li>Print Production Artist: Prepare designs for high-quality printing</li>
       </ul>
     </CollapsibleSection>
   </div>

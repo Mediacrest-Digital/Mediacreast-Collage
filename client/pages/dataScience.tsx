@@ -189,8 +189,8 @@ export default function Index() {
                   </svg>
                 </div>
                 <p className="text-white text-lg leading-7 max-w-lg">
-                  Step into the digital marketing world with the knowledge and
-                  confidence to make an impact.
+This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
+
                 </p>
               </div>
 
@@ -235,7 +235,7 @@ export default function Index() {
                 </div>
                 <div>
                   <p className="text-[#1B1D1F] text-lg font-medium">Duration</p>
-                  <p className="text-[#1B1D1F] text-xl font-bold">6 Weeks</p>
+                  <p className="text-[#1B1D1F] text-xl font-bold">25 Weeks</p>
                 </div>
               </div>
 
@@ -313,7 +313,7 @@ export default function Index() {
                     Tuition Fee
                   </p>
                   <p className="text-[#1B1D1F] text-xl font-bold">
-                    KSH. 36,500
+                    KSH. 150,500
                   </p>
                 </div>
               </div>
@@ -350,27 +350,13 @@ export default function Index() {
                   About this course
                 </h2>
                 <p className="text-[#7A746D] leading-relaxed">
-                  This Digital Marketing Short Course is designed to equip you
-                  with the essential skills and strategies needed to thrive in
-                  today's fast-paced digital landscape. As the world continues
-                  to evolve digitally, businesses are increasingly relying on
-                  digital marketing to connect with their audiences, making
-                  expertise in this field more crucial than ever. In this
-                  course, you will gain hands-on experience with key digital
-                  tools and platforms. Through practical projects you will also
-                  develop the skills to craft effective campaigns, optimize
-                  online presence and drive measurable results. By the end of
-                  the course, you'll be well prepared to step into the digital
-                  marketing world with the knowledge and confidence to make an
-                  impact.
+This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
+You’ll gain hands-on experience through practical projects and receive mentorship from industry experts.
                 </p>
                 <div className="pl-4 border-l-4 border-[#EB4823]">
                   <p className="text-[#7A746D] leading-relaxed">
-                    Join us at Mediacrest Training College, where you'll not
-                    only learn the theory but also gain valuable hand-on
-                    experiences from our affiliate digital marketing agency,
-                    Mediacrest Digital that sets you apart in today's
-                    competitive job market.
+Upon completion, learners will receive an internationally recognized certification, gain practical programming language skills such as Python and R, and experience working with large datasets.
+
                   </p>
                 </div>
               </div>
@@ -399,23 +385,18 @@ export default function Index() {
 <section className="py-16 px-4 md:px-16">
   <div className="max-w-5xl mx-auto space-y-8">
     <CollapsibleSection
-      title="Course Description"
+      title="Course Requirements"
       isOpen={openSection === "description"}
       onToggle={() =>
         setOpenSection(openSection === "description" ? null : "description")
       }
     >
       <p className="text-[#7B7B7B] leading-8 mb-4">
-        Elevate your career with Mediacrest College`s Digital Marketing Certification designed 
-        specifically for working professionals like you. This comprehensive program offers a flexible 
-        learning schedule with part-time evening classes, allowing you to balance your work commitments
-         while gaining essential skills in digital marketing. From social media strategies to search engine
-          optimization (SEO), you'll master the key elements of creating effective digital marketing campaigns.
-           Throughout this certificate program, you'll engage in dynamic lectures, case studies, and group discussions,
-            gaining exposure to the latest methods, techniques, and tools to improve your organization's digital marketing
-             and brand-building efforts. Whether your goal is to enhance your current career, transition into the digital marketing industry,
-              or boost your company's online presence, this course will provide you with the expertise to succeed in the digital realm.
-      </p>
+  <li>Have a basic understanding or strong background in tech, programming, math &amp; statistics</li>
+  <li>Have a university/college education (ongoing or graduated).</li>
+  <li>Complete the application process by taking a technical assessment test</li>
+  <li>Have a laptop with the following specs (Core i5, 8GB RAM, 500GB storage).</li>
+  <li>Have stable internet access</li> </p>
     </CollapsibleSection>
 
     <CollapsibleSection
@@ -443,7 +424,7 @@ export default function Index() {
     </CollapsibleSection>
 
     <CollapsibleSection
-      title="Career Options"
+      title="Career Opportunities"
       isOpen={openSection === "career"}
       onToggle={() =>
         setOpenSection(openSection === "career" ? null : "career")
@@ -466,7 +447,7 @@ export default function Index() {
 
 
       {/* Course Leader */}
-     <Try/>
+     
 
       {/* Application Process */}
       <section className="py-16 px-4 md:px-16">
@@ -543,7 +524,7 @@ export default function Index() {
       </section>
 
  
-      <FAQAccordion/>
+      {/* <FAQAccordion/> */}
 
       {/* CTA Section */}
       <section className="py-16 px-4 md:px-16">
