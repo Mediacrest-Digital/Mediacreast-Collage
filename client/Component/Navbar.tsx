@@ -257,6 +257,33 @@ const Navbar = () => {
                   Photography & Videography
                   <ChevronRight className="w-4 h-4 text-mediacrest-orange" />
                 </Link>
+
+                                <Link 
+                  to="/CyberSecurity" 
+                  className="flex justify-between items-center pl-4 pr-2 py-2 text-gray-600 hover:text-mediacrest-orange transition-colors"
+                  onClick={closeMenu}
+                >
+                  Cyber Security
+                  <ChevronRight className="w-4 h-4 text-mediacrest-orange" />
+                </Link>
+
+                                <Link 
+                  to="/DataScience" 
+                  className="flex justify-between items-center pl-4 pr-2 py-2 text-gray-600 hover:text-mediacrest-orange transition-colors"
+                  onClick={closeMenu}
+                >
+                  Data Science
+                  <ChevronRight className="w-4 h-4 text-mediacrest-orange" />
+                </Link>
+
+                                <Link 
+                  to="/SoftwareEngineering" 
+                  className="flex justify-between items-center pl-4 pr-2 py-2 text-gray-600 hover:text-mediacrest-orange transition-colors"
+                  onClick={closeMenu}
+                >
+                  Software Engineering
+                  <ChevronRight className="w-4 h-4 text-mediacrest-orange" />
+                </Link>
               </div>
             </div>
                           <Link 
