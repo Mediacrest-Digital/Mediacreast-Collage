@@ -176,7 +176,7 @@ testEmail();
     
     process.exit(1);
   }
-}
+
 
 // Run the test
 testEmailConfiguration();

@@ -101,10 +101,10 @@ async function testGmailConfiguration() {
 
     console.log("\n💡 Alternative: You could also:");
     console.log(
-      "- Use your regular mediacrestdigital@gmail.com with correct password",
+      "- Use your regular mediacresttrainingcollege@gmail.com with correct password",
     );
     console.log(
-      "- Set up a proper email server for application@mediacrestcollege.com",
+      "- Set up a proper email server for application@mediacresttrainingcollege.com",
     );
   }
 }

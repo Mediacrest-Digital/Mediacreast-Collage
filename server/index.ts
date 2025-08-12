@@ -3,7 +3,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { handleContactForm } from "./routes/contact";
 import { handleApplicationEmail } from "./routes/application";
-import { handleMasterclassApplication } from "./routes/masterclass";
+// import { handleMasterclassApplication } from "./routes/masterclass";
 import { testEmail } from "./routes/email-test";
 
 export function createServer() {
@@ -22,7 +22,7 @@ export function createServer() {
   app.get("/api/demo", handleDemo);
   app.post("/api/contact", handleContactForm);
   app.post("/api/application", handleApplicationEmail);
-  app.post("/api/masterclass", handleMasterclassApplication);
+  // app.post("/api/masterclass", handleMasterclassApplication);
   app.get("/api/test-email", testEmail);
 
   return app;
