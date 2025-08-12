@@ -173,6 +173,117 @@ const courseInfo = {
       'Complete enrollment and development environment setup',
       'Begin your software engineering journey'
     ]
+  },
+  'masterclass': {
+    title: 'Digital Marketing Masterclass',
+    duration: '1 Day (3 Hours)',
+    description: 'Join our intensive masterclass and learn advanced digital marketing strategies from industry experts.',
+    modules: [
+      'Advanced Social Media Marketing Strategies',
+      'Content Creation & Personal Branding',
+      'SEO & Search Engine Marketing',
+      'Conversion Optimization Techniques',
+      'Analytics & Performance Measurement',
+      'Digital Marketing Trends & Future Outlook'
+    ],
+    outcomes: [
+      'Master advanced digital marketing techniques',
+      'Develop effective personal branding strategies',
+      'Create high-converting social media content',
+      'Understand SEO and search marketing fundamentals',
+      'Accelerate your digital marketing career'
+    ],
+    nextSteps: [
+      'Payment confirmation and seat reservation',
+      'Receive masterclass materials and pre-reading',
+      'Join us on Saturday, August 23, 2025 at 10:00 AM',
+      'Network with industry professionals and fellow marketers'
+    ]
+  },
+  // Alternative keys to match client applications
+  'cyber security': {
+    title: 'Cyber Security',
+    duration: '8 Months',
+    description: 'Become a cybersecurity expert with hands-on training in protecting digital assets and systems.',
+    modules: [
+      'Network Security Fundamentals',
+      'Ethical Hacking & Penetration Testing',
+      'Risk Assessment & Management',
+      'Security Information and Event Management (SIEM)',
+      'Incident Response & Digital Forensics',
+      'Cloud Security',
+      'Compliance & Governance',
+      'Security Awareness Training'
+    ],
+    outcomes: [
+      'Identify and mitigate security vulnerabilities',
+      'Conduct ethical hacking and penetration testing',
+      'Implement robust security frameworks',
+      'Respond effectively to security incidents',
+      'Work as a cybersecurity analyst or consultant'
+    ],
+    nextSteps: [
+      'Security clearance background check',
+      'Technical skills assessment',
+      'Complete enrollment and security orientation',
+      'Begin your cybersecurity career journey'
+    ]
+  },
+  'data science': {
+    title: 'Data Science',
+    duration: '7 Months',
+    description: 'Master data analysis, machine learning, and statistical modeling to derive insights from complex datasets.',
+    modules: [
+      'Python Programming for Data Science',
+      'Statistics & Probability',
+      'Data Visualization with Tableau & Power BI',
+      'Machine Learning Algorithms',
+      'SQL & Database Management',
+      'Big Data Technologies',
+      'Data Mining & Preprocessing',
+      'Business Intelligence & Analytics'
+    ],
+    outcomes: [
+      'Build predictive models using machine learning',
+      'Create compelling data visualizations',
+      'Extract insights from large datasets',
+      'Develop data-driven business solutions',
+      'Work as a data scientist or business analyst'
+    ],
+    nextSteps: [
+      'Mathematical aptitude assessment',
+      'Python programming skills evaluation',
+      'Complete enrollment and receive data tools access',
+      'Start your data science transformation'
+    ]
+  },
+  'software engineering': {
+    title: 'Software Engineering',
+    duration: '10 Months',
+    description: 'Learn full-stack development and software engineering principles to build scalable applications.',
+    modules: [
+      'Programming Fundamentals (Python/JavaScript)',
+      'Web Development (HTML, CSS, React)',
+      'Backend Development (Node.js, Express)',
+      'Database Design & Management',
+      'Software Architecture & Design Patterns',
+      'Version Control & DevOps',
+      'Mobile App Development',
+      'Project Management & Agile Methodologies'
+    ],
+    outcomes: [
+      'Build full-stack web applications',
+      'Develop mobile applications',
+      'Design scalable software architectures',
+      'Work with modern development frameworks',
+      'Secure a software engineering position'
+    ],
+    nextSteps: [
+      'Coding aptitude assessment',
+      'Technical interview with senior developers',
+      'Complete enrollment and development environment setup',
+      'Begin your software engineering journey'
+    ]
   }
 };
 
@@ -214,25 +325,45 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       });
     }
 
-    // Create transporter
+    // Create transporter using custom mail server
     const transporter = nodemailer.default.createTransport({
-      service: process.env.EMAIL_SERVICE || "gmail",
+      host: process.env.EMAIL_HOST || "mail.mediacrestcollege.com",
+      port: parseInt(process.env.EMAIL_PORT || "587"),
+      secure: process.env.EMAIL_SECURE === "true", // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+      // Add additional options for better reliability
+      tls: {
+        // Do not fail on invalid certs
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000, // 30 seconds
+      socketTimeout: 60000, // 60 seconds
     });
 
-    // Verify transporter configuration
-    try {
-      await transporter.verify();
-      console.log("Email transporter verified successfully");
-    } catch (verifyError) {
-      console.error("Email transporter verification failed:", verifyError);
-      return res.status(500).json({
-        success: false,
-        message: "Email service configuration error. Please check your credentials.",
-      });
+    // Verify transporter configuration (skip in development to avoid blocking)
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.error("Email transporter verification failed:", verifyError);
+        return res.status(500).json({
+          success: false,
+          message: "Email service configuration error. Please check your credentials.",
+        });
+      }
+    } else {
+      // In development, try to verify but don't fail if it doesn't work
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.warn("Email verification failed in development mode, but continuing:", verifyError);
+      }
     }
 
     // Get course information
@@ -246,9 +377,9 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
     // Email content for the applicant
     const applicantMailOptions = {
-      from: process.env.EMAIL_USER,
+      from: `"MediaCrest Applications" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: `Welcome to MediaCrest College - ${courseData.title} Application Received!`,
+      subject: `Welcome to Mediacrest Training College - ${courseData.title} Application Received!`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <!-- Header -->
@@ -338,8 +469,8 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
     // Email notification for admin/HR
     const adminMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.RECIPIENT_EMAIL || "hr@mediacrest.africa",
+      from: `"MediaCrest Applications" <${process.env.EMAIL_USER}>`,
+      to: process.env.RECIPIENT_EMAIL || "application@mediacrestcollege.com",
       subject: `New Course Application: ${courseData.title} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
