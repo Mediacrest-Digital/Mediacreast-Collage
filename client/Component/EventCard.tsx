@@ -1,7 +1,7 @@
 import { Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../Events.css";
-import "../global.css"
+import "../global.css";
 
 interface EventCardProps {
   month: string;
@@ -12,6 +12,7 @@ interface EventCardProps {
   description: string;
   showRegisterButton?: boolean;
   imageUrl?: string;
+  link?: string;
 }
 
 export default function EventCard({
@@ -23,6 +24,7 @@ export default function EventCard({
   description,
   showRegisterButton = false,
   imageUrl = "https://cdn.builder.io/api/v1/image/assets/TEMP/573fd834a6c44528728fc81e951ce411a622e1fa?width=758",
+  link = "/registration",
 }: EventCardProps) {
   const cardHeight = showRegisterButton ? "h-[600px]" : "h-[496px]"; //mike changed from 570 to 600
 
@@ -66,7 +68,8 @@ export default function EventCard({
               </span>
             </div>
             <div className="flex items-center gap-[6px] py-3">
-              <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />  {/*changed */}
+              <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />{" "}
+              {/*changed */}
               <span className="text-text-light font-medium text-sm leading-[19.6px]">
                 {location}
               </span>
@@ -82,7 +85,7 @@ export default function EventCard({
         {/* Register Button */}
         {showRegisterButton && (
           <Link
-            to="/registration"
+            to={link}
             className="ToReg mediacrest-orange text-orange font-semibold text-[15px] leading-[26px] px-[10px] py-[10px] rounded-lg hover:bg-mediacrest-orange hover:text-white transition-colors text-center capitalize mt-auto block"
           >
             Register for the event
