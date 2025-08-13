@@ -70,7 +70,7 @@ testEmail();
     console.log('   EMAIL_HOST=mail.mediacrestcollege.com');
     console.log('   EMAIL_PORT=587');
     console.log('   EMAIL_SECURE=false');
-    console.log('   EMAIL_USER=application@mediacrestcollege.com');
+    console.log('   EMAIL_USER=applications@mediacrestcollege.com');
     console.log('   EMAIL_PASS=your_actual_password');
     process.exit(1);
   }
@@ -128,7 +128,7 @@ testEmail();
               </ul>
             </div>
             <p style="color: #666; font-style: italic;">
-              Your contact forms and application forms will now work properly using the application@mediacrestcollege.com email address.
+              Your contact forms and application forms will now work properly using the applications@mediacrestcollege.com email address.
             </p>
           </div>
         </div>

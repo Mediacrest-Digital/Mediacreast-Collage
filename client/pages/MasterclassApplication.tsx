@@ -252,14 +252,15 @@ export default function MasterclassApplication() {
               <img
                 src="./client/images/events.jpg"
                 alt="Digital Marketing Masterclass"
-                className="w-full h-full object-cover rounded-lg"
+                className="w-full h-full object-contain rounded-lg"
               />
             </div>
+
 
             {/* Right Side - Registration Form */}
             <div className="flex flex-col gap-[17px] w-full">
               <h2 className="text-black font-bold text-2xl lg:text-[28px] leading-[54px] capitalize">
-                Masterclass Registration Form
+                Digital Marketing Masterclass Registration Form
               </h2>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-10">

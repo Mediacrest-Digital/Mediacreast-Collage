@@ -92,7 +92,7 @@ export const handleContactForm = async (req: Request, res: Response) => {
     // Email content for the recipient
     const mailOptions = {
       from: `"MediaCrest College" <${process.env.EMAIL_USER}>`,
-      to: process.env.RECIPIENT_EMAIL || "application@mediacrestcollege.com",
+      to: process.env.RECIPIENT_EMAIL || "applications@mediacrestcollege.com",
       subject: `New Contact Form Submission: ${subject}`,
       html: `
       <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f5f5f5; border-radius: 8px; overflow: hidden;">

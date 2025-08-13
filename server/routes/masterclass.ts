@@ -86,7 +86,7 @@
 //       // Email to admin
 //       const adminEmail = {
 //         from: `"Mediacrest Applications" <${process.env.EMAIL_USER}>`,
-//         to: process.env.RECIPIENT_EMAIL || "application@mediacrestcollege.com",
+//         to: process.env.RECIPIENT_EMAIL || "applications@mediacrestcollege.com",
 //         subject: `New Masterclass Application: ${firstName} ${lastName}`,
 //         html: `
 //           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
