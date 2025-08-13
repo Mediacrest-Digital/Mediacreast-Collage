@@ -232,7 +232,7 @@ export default function MasterclassApplication() {
             {/* Left Side - Promotional Image */}
             <div className="w-full lg:w-[451px] h-[300px] lg:h-[451px] flex-shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
               <img
-                src={events}
+                src="./client/images/graphic2.png"
                 alt="Digital Marketing Masterclass"
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
