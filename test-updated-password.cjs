@@ -9,8 +9,8 @@ async function testGmailWithUpdatedPassword() {
     port: 587,
     secure: false, // TLS
     auth: {
-      user: "mediacrestdigital@gmail.com",
-      pass: "bahp wzhh kbol crfz", // Original App Password
+      user: "mediacresttrainingcollege@gmail.com",
+      pass: "qkmg erfp ehua ladn", 
     },
     debug: true,
     logger: true,
@@ -23,11 +23,11 @@ async function testGmailWithUpdatedPassword() {
 
     console.log("\n📧 Sending test email...");
     const info = await transporter.sendMail({
-      from: '"MediaCrest College Test" <mediacrestdigital@gmail.com>',
-      to: "mediacrestdigital@gmail.com",
-      subject: "Test Email - MediaCrest Digital Account",
-      text: "This is a test email sent using the original MediaCrest Digital Gmail account.",
-      html: "<p>This is a test email sent using the <strong>original MediaCrest Digital Gmail account</strong>.</p>",
+      from: '"MediaCrest College Test" <mediacresttrainingcollege@gmail.com>',
+      to: "mediacresttrainingcollege@gmail.com",
+      subject: "Test Email - MediaCrest Training College Account",
+      text: "This is a test email sent using the original MediaCrest Training College Gmail account.",
+      html: "<p>This is a test email sent using the <strong>original MediaCrest Training College Gmail account</strong>.</p>",
     });
 
     console.log("✅ Email sent successfully!");
