@@ -55,7 +55,7 @@ export const testEmail = async (req: Request, res: Response) => {
     const testEmailOptions = {
       from: `"MediaCrest Test" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER, // Send to same email for testing
-      subject: "Email Configuration Test - MediaCrest College",
+      subject: "Email Configuration Test - Mediacrest College",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #621909;">Email Test Successful! 🎉</h2>
