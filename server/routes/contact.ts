@@ -136,14 +136,14 @@ export const handleContactForm = async (req: Request, res: Response) => {
         <!-- Footer Note -->
         <div style="margin-top: 24px; padding: 16px; background-color: #e8f4fd; border-radius: 6px; font-size: 14px; color: #555;">
           <p style="margin: 0; line-height: 1.4;">
-            <strong>Note:</strong> This email was sent from the MediaCrest College contact form on ${new Date().toLocaleString()}.
+            <strong>Note:</strong> This email was sent from the Mediacrest College contact form on ${new Date().toLocaleString()}.
           </p>
         </div>
       </div>
 
       <!-- Footer -->
       <div style="background-color: #621909; color: #ffffff; padding: 16px; text-align: center; font-size: 12px;">
-        <p style="margin: 0;">&copy; ${new Date().getFullYear()} MediaCrest College. All rights reserved.</p>
+        <p style="margin: 0;">&copy; ${new Date().getFullYear()} Mediacrest College. All rights reserved.</p>
       </div>
     </div>
       `,
