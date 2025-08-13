@@ -160,7 +160,7 @@ export default function MasterclassApplication() {
         <div className="hidden md:block">
           <div className="absolute inset-0 bg-black h-[536px] top-0 z-0"></div>
           <img
-            src="./client/images/New events.jpg"
+            src="./client/images/graphic2.png"  
             alt="Digital Marketing Masterclass"
             className="absolute right-0 top-0 w-[1007px] h-[536px] object-cover z-0"
           />
@@ -202,8 +202,8 @@ export default function MasterclassApplication() {
           {/* Image Section */}
           <div className="relative w-full h-[280px] sm:h-[320px]">
             <img
-              src="./client/images/New events.jpg"
-              alt="Digital Marketing Masterclass"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a84cefdfc260ec165c4c5727755dfb33d7f68e7b?width=1722"
+              alt="Digital Marketing Background"
               className="w-full h-full object-cover"
             />
           </div>
@@ -248,14 +248,13 @@ export default function MasterclassApplication() {
         <div className="max-w-[1441px] mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-[40px] p-9 bg-[#F8F3F1] border-2 border-[#EFDDD5] rounded-xl">
             {/* Left Side - Promotional Image */}
-            <div className="w-full lg:w-[451px] h-[451px] flex-shrink-0">
+            <div className="w-full lg:w-[451px] h-[300px] lg:h-[451px] flex-shrink-0 overflow-hidden rounded-xl bg-white shadow-sm">
               <img
-                src="./client/images/events.jpg"
+                src="./client/images/graphic2.png"
                 alt="Digital Marketing Masterclass"
-                className="w-full h-full object-contain rounded-lg"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-
 
             {/* Right Side - Registration Form */}
             <div className="flex flex-col gap-[17px] w-full">
