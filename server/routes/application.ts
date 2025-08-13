@@ -173,6 +173,7 @@ const courseInfo = {
       'Complete enrollment and development environment setup',
       'Begin your software engineering journey'
     ]
+
   }
 };
 
@@ -203,6 +204,20 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       });
     }
 
+
+    // Check if application emails are disabled
+    if (process.env.APPLICATION_EMAIL_DISABLED === 'true') {
+      console.log("⚠️  APPLICATION EMAILS DISABLED: No application email will be sent!");
+      console.log("APPLICATION_EMAIL_DISABLED: Application email would be sent to:", email);
+      console.log("APPLICATION_EMAIL_DISABLED: Course application data:", { course, firstName, lastName, email, phone });
+      
+      return res.status(200).json({
+        success: true,
+        message: "Application received successfully! We'll contact you soon with next steps.",
+      });
+    }
+
+
     // Check if email credentials are configured
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || 
         process.env.EMAIL_USER.includes('placeholder') || 
@@ -217,10 +232,18 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
     // Create transporter
     const transporter = nodemailer.default.createTransport({
       service: process.env.EMAIL_SERVICE || "gmail",
+
+    // Create transporter using custom mail server
+    const transporter = nodemailer.default.createTransport({
+      host: process.env.EMAIL_HOST || "mail.mediacrestcollege.com",
+      port: parseInt(process.env.EMAIL_PORT || "587"),
+      secure: process.env.EMAIL_SECURE === "true", // true for 465, false for other ports
+
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+
     });
 
     // Verify transporter configuration
@@ -233,6 +256,38 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
         success: false,
         message: "Email service configuration error. Please check your credentials.",
       });
+
+      // Add additional options for better reliability
+      tls: {
+        // Do not fail on invalid certs
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000, // 30 seconds
+      socketTimeout: 60000, // 60 seconds
+    });
+
+    // Verify transporter configuration (skip in development to avoid blocking)
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.error("Email transporter verification failed:", verifyError);
+        return res.status(500).json({
+          success: false,
+          message: "Email service configuration error. Please check your credentials.",
+        });
+      }
+    } else {
+      // In development, try to verify but don't fail if it doesn't work
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.warn("Email verification failed in development mode, but continuing:", verifyError);
+      }
+
     }
 
     // Get course information
@@ -249,11 +304,18 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       from: process.env.EMAIL_USER,
       to: email,
       subject: `Welcome to MediaCrest College - ${courseData.title} Application Received!`,
+
+      from: `"Mediacrest Applications" <${process.env.EMAIL_USER}>`,
+      to: email,
+      subject: `Welcome to Mediacrest Training College - ${courseData.title} Application Received!`,
+
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <!-- Header -->
           <div style="background-color: #621909; color: white; padding: 30px; text-align: center;">
+
             <h1 style="margin: 0; font-size: 28px;">MediaCrest College</h1>
+
             <p style="margin: 10px 0 0 0; font-size: 16px;">Your Application Has Been Received!</p>
           </div>
 
@@ -329,7 +391,9 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
           <!-- Footer -->
           <div style="background-color: #f5f5f5; padding: 20px; text-align: center; color: #666; font-size: 12px;">
+
             <p>© 2024 MediaCrest College. All rights reserved.</p>
+
             <p>This email was sent because you applied for our ${courseData.title} program.</p>
           </div>
         </div>
@@ -338,8 +402,10 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
     // Email notification for admin/HR
     const adminMailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.RECIPIENT_EMAIL || "hr@mediacrest.africa",
+
+      from: `"Mediacrest Collage" <${process.env.EMAIL_USER}>`,
+      to: process.env.RECIPIENT_EMAIL || "applications@mediacrestcollege.com",
+
       subject: `New Course Application: ${courseData.title} - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -6,8 +6,10 @@ import Footer from "../Component/Footer";
 import FAQAccordion from "../Component/courseDropdown3";
 import photopic from "../images/photo.png";
 import "../photography.css";
+
 import CTAphotos from "@/Component/CTAphotos";
 import PhotoTry from "@/Component/PhotoTry";
+
 const AccordionItem = ({
   question,
   isOpen,
@@ -529,7 +531,9 @@ export default function Index() {
       </section>
 
       {/* Course Leader */}
+
 <PhotoTry />
+
       {/* Application Process */}
       <section className="py-16 px-4 md:px-16">
         <div className="max-w-7xl mx-auto">

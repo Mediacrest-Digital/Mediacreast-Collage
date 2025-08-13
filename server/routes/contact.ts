@@ -48,13 +48,18 @@ export const handleContactForm = async (req: Request, res: Response) => {
       });
     }
 
-    // Create transporter
+
+    // Create transporter using custom mail server
     const transporter = nodemailer.default.createTransport({
-      service: process.env.EMAIL_SERVICE || "gmail",
+      host: process.env.EMAIL_HOST || "mail.mediacrestcollege.com",
+      port: parseInt(process.env.EMAIL_PORT || "587"),
+      secure: process.env.EMAIL_SECURE === "true", // true for 465, false for other ports
+
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+
     });
 
     // Verify transporter configuration
@@ -73,6 +78,44 @@ export const handleContactForm = async (req: Request, res: Response) => {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: process.env.RECIPIENT_EMAIL || "hr@mediacrest.africa",
+
+      // Add additional options for better reliability
+      tls: {
+        // Do not fail on invalid certs
+        rejectUnauthorized: false
+      },
+      connectionTimeout: 60000, // 60 seconds
+      greetingTimeout: 30000, // 30 seconds
+      socketTimeout: 60000, // 60 seconds
+    });
+
+    // Verify transporter configuration (skip in development to avoid blocking)
+    if (process.env.NODE_ENV === 'production') {
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.error("Email transporter verification failed:", verifyError);
+        return res.status(500).json({
+          success: false,
+          message: "Email service configuration error. Please check your credentials.",
+        });
+      }
+    } else {
+      // In development, try to verify but don't fail if it doesn't work
+      try {
+        await transporter.verify();
+        console.log("Email transporter verified successfully");
+      } catch (verifyError) {
+        console.warn("Email verification failed in development mode, but continuing:", verifyError);
+      }
+    }
+
+    // Email content for the recipient
+    const mailOptions = {
+      from: `"MediaCrest College" <${process.env.EMAIL_USER}>`,
+      to: process.env.RECIPIENT_EMAIL || "applications@mediacrestcollege.com",
+
       subject: `New Contact Form Submission: ${subject}`,
       html: `
       <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #f5f5f5; border-radius: 8px; overflow: hidden;">
@@ -116,14 +159,18 @@ export const handleContactForm = async (req: Request, res: Response) => {
         <!-- Footer Note -->
         <div style="margin-top: 24px; padding: 16px; background-color: #e8f4fd; border-radius: 6px; font-size: 14px; color: #555;">
           <p style="margin: 0; line-height: 1.4;">
+
             <strong>Note:</strong> This email was sent from the MediaCrest College contact form on ${new Date().toLocaleString()}.
+
           </p>
         </div>
       </div>
 
       <!-- Footer -->
       <div style="background-color: #621909; color: #ffffff; padding: 16px; text-align: center; font-size: 12px;">
+
         <p style="margin: 0;">&copy; ${new Date().getFullYear()} MediaCrest College. All rights reserved.</p>
+
       </div>
     </div>
       `,

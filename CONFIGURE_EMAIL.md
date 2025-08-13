@@ -10,7 +10,11 @@
 ### 1. Get Gmail App Password
 
 1. Go to https://myaccount.google.com/
+
 2. Sign in with `mediacrestdigital@gmail.com`
+=======
+2. Sign in with `mediacresttrainingcollege@gmail.com`
+
 3. Navigate to Security → 2-Step Verification (enable if needed)
 4. Navigate to Security → App passwords
 5. Generate an app password for "Mail"
@@ -35,7 +39,10 @@ After updating credentials:
 
 ## Alternative: Use Different Gmail Account
 
+
 If you don't have access to `mediacrestdigital@gmail.com`, you can:
+If you don't have access to `mediacresttrainingcollege@gmail.com`, you can:
+
 
 1. Use any Gmail account you have access to
 2. Update `.env` with your email:

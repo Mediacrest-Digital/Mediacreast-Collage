@@ -1,16 +1,30 @@
+
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import "./images.css"
+
 import Footer from "@/Component/Footer";
 import EventCard from "@/Component/EventCard";
-import Link from "react-router-dom";
 import Navbar from "../Component/Navbar";
-import Img1 from "../images/events.png"
+import AnnouncementBanner from "../Component/AnnouncementBanner";
+import Img1 from "../images/events.png";
 
 const Events = () => {
+
   const [currentSlide, setCurrentSlide] = useState(0);
 
+
   const upcomingEvents = [
+    {
+      month: "AUG",
+      day: "23",
+      title: "Digital Marketing Masterclass",
+      time: "10:00AM - 1:00PM",
+      location: "Office Suites Block B",
+      description:
+        "Join our intensive masterclass and learn advanced digital marketing strategies from industry experts. Gain practical skills in social media marketing, content creation, SEO, and personal branding.",
+      link: "/masterclass-application",
+    },
     {
       month: "AUG",
       day: "20",
@@ -28,7 +42,7 @@ const Events = () => {
       day: "28",
       title: "Consumer Choice Awards Kenya",
       time: "6:00pm - 11:00pm",
-      location: "Argyle Grand Hotel ",
+      location: "Argyle Grand Hotel",
       description:
         "Mediacrest Training College and Mediacrest Digital powered media and PR for the prestigious awards, ensuring strong coverage throughout the event.",
       imageIndex: 0
@@ -38,10 +52,12 @@ const Events = () => {
       day: "12",
       title: "Digital Marketing & Personal Branding",
       time: "12:00pm - 4:00pm",
+
       location: "HH Towers, Nairobi ",
       description:
         "The masterclass equipped participants with practical strategies for social media, content creation, and personal branding to boost their online presence.",
       imageIndex: 1
+
     },
     {
       month: "AUG",
@@ -51,6 +67,7 @@ const Events = () => {
       location: "Virtual",
       description:
         "Our training tackled core digital marketing topics—from social media behavior to crisis management—empowering brands with timely, practical skills to thrive online.",
+
       imageIndex: 2
     },
   ];
@@ -71,6 +88,15 @@ const Events = () => {
     <div className="min-h-screen bg-white">
       <Navbar/>
       
+
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white pt-12">
+      <AnnouncementBanner />
+      <Navbar />
+
       {/* Hero Section */}
       <div className="relative homeImg3 h-[300px] lg:h-[600px] bg-cover bg-center flex items-center justify-center mt-0">
         <img className="imgt" src={Img1} alt="#" />
@@ -87,65 +113,28 @@ const Events = () => {
         </div>
       </div>
 
-      {/* Upcoming Events Section */}
+      {/* Upcoming Events */}
       <section className="w-full bg-white py-[80px] px-4 lg:px-[82px]">
         <div className="max-w-[1441px] mx-auto flex flex-col items-center gap-[52px]">
-          {/* Section Title */}
           <div className="relative w-[308px] h-[67px] flex flex-col items-center">
             <h2 className="text-black font-semibold text-[32px] leading-[54px] text-center">
               Upcoming Events
             </h2>
-            <svg
-              className="absolute bottom-[18px] left-[190px]"
-              width="118"
-              height="5"
-              viewBox="0 0 123 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.4148 5.29136C22.2941 2.46295 73.6963 -0.0993245 120.27 12.2788"
-                stroke="#EB4823"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </div>
 
-          {/* Events Grid */}
-          <div className="flex flex-wrap justify-center gap-[10px] items-start max-w-[1200px]">
+          <div className="flex flex-wrap justify-center gap-[20px] items-start max-w-[1200px]">
             {upcomingEvents.map((event, index) => (
               <EventCard key={index} {...event} showRegisterButton={true} />
             ))}
           </div>
         </div>
       </section>
-
-      {/* Past Events Section with Carousel */}
       <section className="w-full bg-[#F8F3F1] py-[80px] px-4 lg:px-[82px]">
         <div className="max-w-[1441px] mx-auto flex flex-col items-center gap-[52px]">
-          {/* Section Title */}
           <div className="relative w-[308px] h-[67px] flex flex-col items-center">
             <h2 className="text-black font-semibold text-[32px] leading-[54px] text-center">
               Past Events
             </h2>
-            <svg
-              className="absolute bottom-[18px] left-[144px]"
-              width="118"
-              height="5"
-              viewBox="0 0 122 15"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M2.00074 5.29136C21.8801 2.46295 73.2823 -0.0993245 119.856 12.2788"
-                stroke="#EB4823"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
           </div>
 
           {/* Carousel Container */}
@@ -255,6 +244,12 @@ const Events = () => {
                 ))}
               </div>
             </div>
+
+          <div className="flex flex-wrap justify-center gap-[20px] items-start max-w-[1200px]">
+            {pastEvents.map((event, index) => (
+              <EventCard key={index} {...event} showRegisterButton={false} />
+            ))}
+
           </div>
         </div>
       </section>
@@ -265,3 +260,4 @@ const Events = () => {
 };
 
 export default Events;
+

@@ -25,6 +25,10 @@ import PhotographyApplication from "./pages/PhotoApplication";
 import CyberSecurityApplication from "./pages/CyberSecurityApplication";
 import DataScienceApplication from "./pages/DataScienceApplication";
 import SoftwareEngineeringApplication from "./pages/SoftwareEngineeringApplication";
+
+
+import MasterclassApplication from "./pages/MasterclassApplication";
+
 import CourseDropDown from "./Component/courseDropdown";
 import ApplicationsFol from "./pages/ApplicationsList";
 import CountyModels from "./pages/County";
@@ -103,7 +107,15 @@ const App = () => {
                 path="/software-engineering-application"
                 element={<SoftwareEngineeringApplication />}
               />
+
               <Route path="/countyModel" element={<CountyModels />} />
+
+              <Route
+                path="/masterclass-application"
+                element={<MasterclassApplication />}
+              />
+              <Route path="/countyModels" element={<CountyModels />} />
+
               <Route path="/cyberSecurity" element={<CyberSecurity />} />
               <Route
                 path="/courses/cyber-security"

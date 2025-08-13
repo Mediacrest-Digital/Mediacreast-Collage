@@ -1,9 +1,11 @@
 import { Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../Events.css";
+
 import Img2 from "../images/ConsumerChoiceEvents.jpg";
 import Img3 from "../images/digitalMarketingPersonalBranding.jpg";
 import Img4 from "../images/countypic.jpeg";
+
 import "../global.css";
 
 interface EventCardProps {
@@ -15,7 +17,11 @@ interface EventCardProps {
   description: string;
   showRegisterButton?: boolean;
   imageUrl?: string;
+ 
   imageIndex?: number; // New prop to select which image to use
+
+  link?: string;
+
 }
 
 export default function EventCard({
@@ -26,8 +32,13 @@ export default function EventCard({
   location,
   description,
   showRegisterButton = false,
+
   imageUrl,
   imageIndex = 0, // Default to first image
+
+  imageUrl = "https://cdn.builder.io/api/v1/image/assets/TEMP/573fd834a6c44528728fc81e951ce411a622e1fa?width=758",
+  link = "/registration",
+
 }: EventCardProps) {
   // Array of 3 different images
   const eventImages = [
@@ -81,7 +92,12 @@ export default function EventCard({
               </span>
             </div>
             <div className="flex items-center gap-[6px] py-3">
+
               <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />
+
+              <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />{" "}
+              {/*changed */}
+
               <span className="text-text-light font-medium text-sm leading-[19.6px]">
                 {location}
               </span>
@@ -97,7 +113,7 @@ export default function EventCard({
         {/* Register Button */}
         {showRegisterButton && (
           <Link
-            to="/registration"
+            to={link}
             className="ToReg mediacrest-orange text-orange font-semibold text-[15px] leading-[26px] px-[10px] py-[10px] rounded-lg hover:bg-mediacrest-orange hover:text-white transition-colors text-center capitalize mt-auto block"
           >
             Register for the event
