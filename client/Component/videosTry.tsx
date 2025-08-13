@@ -13,6 +13,30 @@ const VideoCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   const videos: Video[] = [
+
+    { 
+      id: '1', 
+      youtubeId: 'bmyWtLa-d50',
+      thumbnail: 'https://img.youtube.com/vi/bmyWtLa-d50/maxresdefault.jpg',
+      title: 'Digital Marketing Course'
+    },
+    { 
+      id: '2', 
+      youtubeId: 'UvT6V18PCwg',
+      thumbnail: 'https://img.youtube.com/vi/UvT6V18PCwg/maxresdefault.jpg',
+      title: 'Graphic Design Fundamentals'
+    },
+    { 
+      id: '3', 
+      youtubeId: 'OsVZ7Jkczq4',
+      thumbnail: 'https://img.youtube.com/vi/OsVZ7Jkczq4/maxresdefault.jpg',
+      title: 'Photography Masterclass'
+    },
+        { 
+      id: '4', 
+      youtubeId: 'bBpAHXC3h1E',
+      thumbnail: 'https://youtu.be/bBpAHXC3h1E?si=WcpFYx5e7f05v1BE',
+      title: 'Photography Masterclass'
     {
       id: "1",
       youtubeId: "bmyWtLa-d50",
@@ -40,13 +64,21 @@ const VideoCarousel = () => {
     };
 
     checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+
     window.addEventListener("resize", checkIsMobile);
     return () => window.removeEventListener("resize", checkIsMobile);
+
   }, []);
 
   // Preload all video thumbnails immediately
   useEffect(() => {
+
+    videos.forEach(video => {
+
     videos.forEach((video) => {
+
       const img = new Image();
       img.src = video.thumbnail;
       // Also preload YouTube thumbnails for faster display
@@ -111,10 +143,14 @@ const VideoCarousel = () => {
   // Simple VideoFrame component - loads immediately
   const VideoFrame = ({ video }: { video: Video }) => {
     return (
+
+      <div className="relative bg-gray-900" style={{ aspectRatio: '16/9', minHeight: isMobile ? '400px' : '320px' }}>
+
       <div
         className={`relative bg-gray-900 w-full ${isMobile ? "aspect-video" : ""}`}
         style={!isMobile ? { aspectRatio: "16/9", minHeight: "320px" } : {}}
       >
+
         <iframe
           className="w-full h-full"
           src={`https://www.youtube.com/embed/${video.youtubeId}?controls=1&modestbranding=1&rel=0&enablejsapi=1`}
@@ -141,22 +177,24 @@ const VideoCarousel = () => {
           </p>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+
+        <div className="flex items-center gap-4 sm:gap-6 lg:gap-8">
           {/* Previous Button */}
           <button
             onClick={prevSlide}
-            className="hidden min-[450px]:flex bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-3 sm:p-4 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200 flex-shrink-0"
+            className="hidden min-[450px]:flex bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-4 sm:p-6 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200"
             aria-label="Previous video"
             disabled={videos.length <= 1}
           >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 text-gray-700" />
           </button>
 
           {/* Main Video Container */}
-          <div className="flex-1 w-full relative bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
-            <div className="relative overflow-hidden bg-gray-900 w-full">
+          <div className="flex-1 relative bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative overflow-hidden bg-gray-900">
               <div
-                className="flex transition-transform duration-500 ease-in-out h-full w-full"
+                className="flex transition-transform duration-500 ease-in-out h-full"
+
                 style={{ transform: `translateX(-${currentIndex * 100}%)` }}
               >
                 {videos.map((video, index) => (
@@ -191,16 +229,20 @@ const VideoCarousel = () => {
 
             {/* Dots Navigation */}
             {videos.length > 1 && (
-              <div className="bg-white p-3 sm:p-4">
-                <div className="flex justify-center space-x-2">
+
+              <div className="bg-white p-4 sm:p-6">
+                <div className="flex justify-center space-x-2 sm:space-x-3">
+
                   {videos.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
-                      className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full transition-all duration-200 ${
-                        index === currentIndex
-                          ? "bg-red-600 scale-125 shadow-lg"
-                          : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+
+                      className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
+                        index === currentIndex 
+                          ? 'bg-red-600 scale-125 shadow-lg' 
+                          : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+
                       }`}
                       aria-label={`Go to video ${index + 1}`}
                     />
@@ -213,11 +255,12 @@ const VideoCarousel = () => {
           {/* Next Button */}
           <button
             onClick={nextSlide}
-            className="hidden min-[450px]:flex bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-3 sm:p-4 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200 flex-shrink-0"
+
+            className="hidden min-[450px]:flex bg-white hover:bg-gray-50 border border-gray-200 rounded-full p-4 sm:p-6 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-200"
             aria-label="Next video"
             disabled={videos.length <= 1}
           >
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700" />
+
           </button>
         </div>
       </div>
@@ -233,8 +276,12 @@ const VideoCarousel = () => {
           Alumni Success Stories
         </h2>
         <p className="text-gray-600 text-xl max-w-3xl mx-auto">
+
+          Hear from our graduates who transformed their careers and achieved their dreams through our programs
+
           Hear from our graduates who transformed their careers and achieved
           their dreams through our programs
+
         </p>
       </div>
 
@@ -253,13 +300,27 @@ const VideoCarousel = () => {
         <div className="flex-1 relative">
           <div className="grid grid-cols-2 gap-8 lg:gap-10">
             {getCurrentVideos().map((video) => (
+
+              <div 
+                key={video.id} 
+
               <div
                 key={video.id}
+
                 className="bg-white rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl transition-all duration-300 hover:shadow-3xl"
               >
                 <VideoFrame video={video} />
               </div>
             ))}
+
+            
+            {/* Fill empty slot if odd number of videos on last page */}
+            {getCurrentVideos().length === 1 && (
+              <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl lg:rounded-3xl flex items-center justify-center shadow-xl" style={{ aspectRatio: '16/9', minHeight: '320px' }}>
+                <div className="text-center p-8">
+                  <div className="text-5xl mb-4">🎓</div>
+                  <p className="text-gray-600 font-medium text-xl mb-3">More Success Stories</p>
+
 
             {/* Fill empty slot if odd number of videos on last page */}
             {getCurrentVideos().length === 1 && (
@@ -269,6 +330,7 @@ const VideoCarousel = () => {
                   <p className="text-gray-600 font-medium text-xl mb-3">
                     More Success Stories
                   </p>
+
                   <p className="text-gray-500 text-lg">Coming Soon!</p>
                 </div>
               </div>
@@ -284,19 +346,25 @@ const VideoCarousel = () => {
                     key={index}
                     onClick={() => goToSlide(index)}
                     className={`w-4 h-4 rounded-full transition-all duration-200 ${
-                      index === currentIndex
+
+                        ? 'bg-red-600 scale-125 shadow-lg' 
+                        : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+
                         ? "bg-red-600 scale-125 shadow-lg"
                         : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+
                     }`}
                     aria-label={`Go to page ${index + 1}`}
                   />
                 ))}
               </div>
 
+
               {/* Page indicator */}
               <div className="text-center mt-4 text-sm text-gray-600">
                 Page {currentIndex + 1} of {totalPages}
               </div>
+
             </div>
           )}
         </div>

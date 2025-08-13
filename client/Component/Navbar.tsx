@@ -139,8 +139,10 @@ const Navbar = () => {
               </div>
             </div>
 
-            <Link
-              to="/CountyModels"
+
+            <Link 
+              to="/CountyModel" 
+
               className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
             >
               County Model
@@ -303,8 +305,10 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
-            <Link
-              to="/CountyModels"
+
+                          <Link 
+              to="/CountyModel" 
+
               className="block text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
               onClick={closeMenu}
             >

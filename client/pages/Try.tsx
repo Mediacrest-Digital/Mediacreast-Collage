@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ChevronUp, ChevronDown, Linkedin } from "lucide-react";
-import Img7 from "../images/elizapic.jpg"; // Adjust the path as necessary
+import Img7 from "../images/hurmphry.png"; // Adjust the path as necessary
 import "../try2.css";
 
 

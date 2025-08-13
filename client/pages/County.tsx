@@ -70,7 +70,7 @@ const CountyModels = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">
         <div className="max-w-2xl">
           <div className="relative mb-6">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h1 className="TGovernor text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
               Building Digital Futures and Innovation Across Counties
             </h1>
             {/* <svg

@@ -199,6 +199,24 @@ export default function Index() {
           <div className="absolute inset-0 bg-mediacrest-navy/20"></div>
         </div>
 
+  {/* Foreground Content */}
+  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">
+    <div className="max-w-2xl">
+      <div className="relative mb-6">
+        <h1 className="IHero text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          Empowering Growth, Shaping Futures
+        </h1>
+        <svg
+          className="absolute -right-[-40px] sm:-right-2 top-8 sm:top-12 lg:top-16 w-20 sm:w-24 lg:w-32 h-2"
+          viewBox="0 0 190 13"
+          fill="none"
+        >
+          <path
+            d="M2 5.29882C33.0528 2.116 113.664 -1.36098 187.684 10.1936"
+            stroke="#EB4823"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         {/* Mobile Background Image - Only visible on mobile */}
         <div className="absolute inset-0 z-0 md:hidden">
           {/* Replace 'mobileBackground' with your mobile background image variable */}
@@ -216,6 +234,12 @@ export default function Index() {
             <div className="absolute bottom-32 left-6 w-32 h-32 bg-white rounded-full blur-2xl animate-pulse delay-300"></div>
           </div>
         </div>
+
+      <p className=" text-mediacrest-gray-300 text-base lg:text-lg leading-relaxed mb-8 lg:mb-12 max-w-xl">
+        Mediacrest Training College blends passion with purpose, offering expert faculty, modern
+        facilities, and industry ties to equip Africa's brightest minds for success in competitive
+        fields.
+      </p>
 
         {/* Foreground Content */}
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">

@@ -1,6 +1,11 @@
 import { Clock, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../Events.css";
+
+import Img2 from "../images/ConsumerChoiceEvents.jpg";
+import Img3 from "../images/digitalMarketingPersonalBranding.jpg";
+import Img4 from "../images/countypic.jpeg";
+
 import "../global.css";
 
 interface EventCardProps {
@@ -12,7 +17,11 @@ interface EventCardProps {
   description: string;
   showRegisterButton?: boolean;
   imageUrl?: string;
+ 
+  imageIndex?: number; // New prop to select which image to use
+
   link?: string;
+
 }
 
 export default function EventCard({
@@ -23,17 +32,32 @@ export default function EventCard({
   location,
   description,
   showRegisterButton = false,
+
+  imageUrl,
+  imageIndex = 0, // Default to first image
+
   imageUrl = "https://cdn.builder.io/api/v1/image/assets/TEMP/573fd834a6c44528728fc81e951ce411a622e1fa?width=758",
   link = "/registration",
+
 }: EventCardProps) {
-  const cardHeight = showRegisterButton ? "h-[600px]" : "h-[496px]"; //mike changed from 570 to 600
+  // Array of 3 different images
+  const eventImages = [
+    Img2, // ConsumerChoiceEvents.jpg
+    Img3, // digitalMarketingPersonalBranding.jpg
+    Img4, // countypic.jpeg
+  ];
+
+  // Use provided imageUrl or select from array based on imageIndex
+  const selectedImage = imageUrl || eventImages[imageIndex % eventImages.length];
+
+  const cardHeight = showRegisterButton ? "h-[600px]" : "h-[496px]";
 
   return (
     <div
       className={`flex flex-col gap-7 bg-white rounded-lg shadow-[0px_12px_16px_-4px_rgba(16,24,40,0.08),0px_4px_6px_-2px_rgba(16,24,40,0.03)] w-[379px] ${cardHeight} max-w-full mx-auto`}
     >
       <img
-        src={imageUrl}
+        src={selectedImage}
         alt="Event"
         className="w-full h-[206px] object-cover rounded-t-lg flex-shrink-0"
       />
@@ -68,8 +92,12 @@ export default function EventCard({
               </span>
             </div>
             <div className="flex items-center gap-[6px] py-3">
+
+              <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />
+
               <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />{" "}
               {/*changed */}
+
               <span className="text-text-light font-medium text-sm leading-[19.6px]">
                 {location}
               </span>

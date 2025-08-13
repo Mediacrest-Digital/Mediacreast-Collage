@@ -38,7 +38,9 @@ export default function Index() {
     },
     {
       value: "cyber-security",
-      label: "Cyber Security",
+
+      label: "Cybersecurity",
+
       path: "/cyber-security-application",
     },
     {
