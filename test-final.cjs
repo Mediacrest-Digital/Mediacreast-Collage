@@ -86,7 +86,7 @@ async function fullTest() {
             </div>
 
             <p style="margin-top: 30px; color: #666; font-style: italic;">
-              This test email was sent from your MediaCrest College application system.
+              This test email was sent from your Mediacrest Training College application system.
             </p>
           </div>
         </div>

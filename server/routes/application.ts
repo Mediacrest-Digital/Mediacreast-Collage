@@ -314,6 +314,18 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       });
     }
 
+    // Check if application emails are disabled
+    if (process.env.APPLICATION_EMAIL_DISABLED === 'true') {
+      console.log("⚠️  APPLICATION EMAILS DISABLED: No application email will be sent!");
+      console.log("APPLICATION_EMAIL_DISABLED: Application email would be sent to:", email);
+      console.log("APPLICATION_EMAIL_DISABLED: Course application data:", { course, firstName, lastName, email, phone });
+      
+      return res.status(200).json({
+        success: true,
+        message: "Application received successfully! We'll contact you soon with next steps.",
+      });
+    }
+
     // Check if email credentials are configured
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || 
         process.env.EMAIL_USER.includes('placeholder') || 
@@ -377,14 +389,14 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
     // Email content for the applicant
     const applicantMailOptions = {
-      from: `"MediaCrest Applications" <${process.env.EMAIL_USER}>`,
+      from: `"Mediacrest Applications" <${process.env.EMAIL_USER}>`,
       to: email,
       subject: `Welcome to Mediacrest Training College - ${courseData.title} Application Received!`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <!-- Header -->
           <div style="background-color: #621909; color: white; padding: 30px; text-align: center;">
-            <h1 style="margin: 0; font-size: 28px;">MediaCrest College</h1>
+            <h1 style="margin: 0; font-size: 28px;">Mediacrest Training College</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">Your Application Has Been Received!</p>
           </div>
 
@@ -460,7 +472,7 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
           <!-- Footer -->
           <div style="background-color: #f5f5f5; padding: 20px; text-align: center; color: #666; font-size: 12px;">
-            <p>© 2024 MediaCrest College. All rights reserved.</p>
+            <p>© 2024 Mediacrest College. All rights reserved.</p>
             <p>This email was sent because you applied for our ${courseData.title} program.</p>
           </div>
         </div>
@@ -469,7 +481,7 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
 
     // Email notification for admin/HR
     const adminMailOptions = {
-      from: `"MediaCrest Applications" <${process.env.EMAIL_USER}>`,
+      from: `"Mediacrest Collage" <${process.env.EMAIL_USER}>`,
       to: process.env.RECIPIENT_EMAIL || "applications@mediacrestcollege.com",
       subject: `New Course Application: ${courseData.title} - ${firstName} ${lastName}`,
       html: `

@@ -142,7 +142,7 @@ export default function MasterclassApplication() {
         <div className="hidden md:block">
           <div className="absolute inset-0 bg-black h-[536px] top-0 z-0"></div>
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4699432c85f5209ac57325d012822c6052107235?width=2014"
+            src="./client/images/graphic2.png"  
             alt="Digital Marketing Masterclass"
             className="absolute right-0 top-0 w-[1007px] h-[536px] object-cover z-0"
           />

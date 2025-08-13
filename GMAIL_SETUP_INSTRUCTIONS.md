@@ -22,7 +22,7 @@ Gmail is rejecting the App Password with error: "Username and Password not accep
 
 - Go to https://myaccount.google.com/apppasswords
 - Select "Mail" as the app
-- Select "Other" as device and type "MediaCrest College"
+- Select "Other" as device and type "Mediacrest College"
 - Gmail will generate a 16-character password
 - Use this password in your .env file
 

@@ -10,7 +10,7 @@ async function testGmailWithUpdatedPassword() {
     secure: false, // TLS
     auth: {
       user: "mediacresttrainingcollege@gmail.com",
-      pass: "qkmg erfp ehua ladn", // Original App Password
+      pass: "qkmg erfp ehua ladn", 
     },
     debug: true,
     logger: true,
