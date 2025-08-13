@@ -109,7 +109,7 @@ testEmail();
     const testEmailOptions = {
       from: `"MediaCrest Test" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER, // Send to same email for testing
-      subject: "✅ Email Configuration Test - MediaCrest College",
+      subject: "✅ Email Configuration Test - Mediacrest Traning College",
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <div style="background-color: #621909; color: white; padding: 20px; text-align: center; border-radius: 10px 10px 0 0;">
