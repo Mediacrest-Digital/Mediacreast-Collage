@@ -21,7 +21,7 @@ const Corporate = () => {
               className="text-2xl sm:text-xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
               style={{ fontSize: "clamp(24px, 4vw, 47px)" }}
             >
-Upskill Your Teams with Our Industry-Driven Digital Media, Technology & All Training Programs
+Upskill Your Teams with Our Industry-Driven Digital Media, Technology & AI Training Programs
             </h1>
             {/* <p className="CoText text-[15.6px] text-gray-200 mb-8 max-w-2xl leading-relaxed">
               We offer customized and open digital media and technology training

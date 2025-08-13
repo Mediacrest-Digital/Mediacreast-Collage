@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import Navbar from "../Component/Navbar"; 
+import Navbar from "../Component/Navbar";
 import Footer from "@/Component/Footer";
-import "../contact.css"
+import "../contact.css";
 import Img2 from "../images/contact.png";
 import {
   ChevronDown,
@@ -14,8 +14,8 @@ import {
   Facebook,
   ArrowRight,
 } from "lucide-react";
- // Adjust the path as necessary
-import Img1 from "../images/f626028b8c3a308846168904722a3aea83d1b01a.png"
+// Adjust the path as necessary
+import Img1 from "../images/f626028b8c3a308846168904722a3aea83d1b01a.png";
 export default function Index() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -26,6 +26,12 @@ export default function Index() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
@@ -33,18 +39,90 @@ export default function Index() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    // Validate form fields
+    if (
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.subject ||
+      !formData.message
+    ) {
+      setSubmitStatus({
+        type: "error",
+        message: "Please fill in all required fields.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus({
+          type: "success",
+          message:
+            "Thank you! Your message has been sent successfully to hr@mediacrest.africa. We will get back to you soon.",
+        });
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setSubmitStatus({
+          type: "error",
+          message: data.message || "Failed to send message. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setSubmitStatus({
+        type: "error",
+        message: "An error occurred. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-    <Navbar/>
+      <Navbar />
 
       {/* Hero Section */}
-      <div className="homeImg4  bg-cover "><img className="imgtP  " src= {Img2} alt="#"/>
+      <div className="homeImg4  bg-cover ">
+        <img className="imgtP  " src={Img2} alt="#" />
         <div className=" opT absolute inset-0 bg-black opacity-10" />
         <div className="Ctxt relative  z-10 flex flex-col items-center  h-full text-center px-4">
           <h1 className="text-white font-poppins text-[48px] font-bold leading-[82px] mb-[7px]">
@@ -57,7 +135,7 @@ export default function Index() {
       </div>
 
       {/* Contact Section */}
-      <div className="contactSection relative lg:-mt-[px] md:-mt-[200px] z-20 px-4 mb-20" >
+      <div className="contactSection relative lg:-mt-[px] md:-mt-[200px] z-20 px-4 mb-20">
         <div className="max-w-[1150px] mx-auto bg-white rounded-[20px] shadow-2xl p-[17px]">
           <div className="flex flex-col lg:flex-row h-full min-h-[647px]">
             {/* Contact Information Panel */}
@@ -95,16 +173,63 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-[44px] mt-[215px]">
-                  <Instagram className="w-6 h-6 cursor-pointer hover:opacity-80" />
-                  <Linkedin className="w-6 h-6 cursor-pointer hover:opacity-80" />
-                  <Facebook className="w-6 h-6 cursor-pointer hover:opacity-80" />
+                <div className="flex items-center gap-[44px] mt-[25px]">
+                 <a href="https://www.instagram.com/mediacrest_college/?hl=en" target="_blank" rel="noopener noreferrer"><Instagram className="w-6 h-6 cursor-pointer hover:opacity-80" /></a> 
+                  <a href="https://www.linkedin.com/company/obuya-blogs/?originalSubdomain=ke" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" className="w-6 h-6 cursor-pointer hover:opacity-80" /></a>
+                 <a href="https://www.facebook.com/people/Mediacrest-Training-College/61562286963550/" target="_blank"> <Facebook className="w-6 h-6 cursor-pointer hover:opacity-80" /></a>
+                 
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="flex-1 p-[30px]">
+              {/* Status Message */}
+              {submitStatus.type && (
+                <div
+                  className={`mb-6 p-4 rounded-lg ${
+                    submitStatus.type === "success"
+                      ? "bg-green-50 text-green-700 border border-green-200"
+                      : "bg-red-50 text-red-700 border border-red-200"
+                  }`}
+                >
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      {submitStatus.type === "success" ? (
+                        <svg
+                          className="h-5 w-5 text-green-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      ) : (
+                        <svg
+                          className="h-5 w-5 text-red-400"
+                          viewBox="0 0 20 20"
+                          fill="currentColor"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm font-medium">
+                        {submitStatus.message}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-[18px]">
                 {/* First Row - Name Fields */}
                 <div className="flex flex-col sm:flex-row gap-[18px]">
@@ -199,9 +324,10 @@ export default function Index() {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-[200px] bg-[#EB4823] hover:bg-[#EB4823]/90 text-white rounded-lg px-[22px] py-[11px] text-[15px] font-semibold"
+                  disabled={isSubmitting}
+                  className="w-[200px] bg-[#EB4823] hover:bg-[#EB4823]/90 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-lg px-[22px] py-[11px] text-[15px] font-semibold"
                 >
-                  Submit
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </Button>
               </form>
             </div>
@@ -219,7 +345,7 @@ export default function Index() {
       </div>
 
       {/* Footer */}
-    <Footer/>
+      <Footer />
     </div>
   );
 }

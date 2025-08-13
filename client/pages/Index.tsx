@@ -219,7 +219,7 @@ export default function Index() {
   <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">
     <div className="max-w-2xl">
       <div className="relative mb-6">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+        <h1 className="IHero text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
           Empowering Growth, Shaping Futures
         </h1>
         <svg
@@ -237,7 +237,7 @@ export default function Index() {
         </svg>
       </div>
 
-      <p className="text-mediacrest-gray-300 text-base lg:text-lg leading-relaxed mb-8 lg:mb-12 max-w-xl">
+      <p className=" text-mediacrest-gray-300 text-base lg:text-lg leading-relaxed mb-8 lg:mb-12 max-w-xl">
         Mediacrest Training College blends passion with purpose, offering expert faculty, modern
         facilities, and industry ties to equip Africa's brightest minds for success in competitive
         fields.

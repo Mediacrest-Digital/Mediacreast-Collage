@@ -22,15 +22,17 @@ import Application from "./pages/Application";
 import DigitalApplication from "./pages/digitalApplication";
 import GraphicApplication from "./pages/GraphicApplication";
 import PhotographyApplication from "./pages/PhotoApplication";
+import CyberSecurityApplication from "./pages/CyberSecurityApplication";
+import DataScienceApplication from "./pages/DataScienceApplication";
+import SoftwareEngineeringApplication from "./pages/SoftwareEngineeringApplication";
 import CourseDropDown from "./Component/courseDropdown";
 import ApplicationsFol from "./pages/ApplicationsList";
-import CountyModels from "./pages/County"
+import CountyModels from "./pages/County";
 // Try the correct casing and path for WhatsAppButton
 import WhatsApp from "./pages/WhatsAppButton1";
 import CyberSecurity from "./pages/cyberSecurity";
-import Software from "./pages/Software"
-import DataScience from "./pages/dataScience"
-
+import Software from "./pages/Software";
+import DataScience from "./pages/dataScience";
 
 const queryClient = new QueryClient();
 
@@ -67,20 +69,53 @@ const App = () => {
               <Route path="/weare" element={<Weare />} />
               <Route path="/digital" element={<Digital />} />
               <Route path="/graphic-design" element={<Graphic />} />
-              <Route path="/photography-videography" element={<Photography />} />
+              <Route
+                path="/photography-videography"
+                element={<Photography />}
+              />
               <Route path="/events" element={<Events />} />
               <Route path="/registration" element={<Registration />} />
               <Route path="/application" element={<Application />} />
               <Route path="/digital-marketing" element={<Digital />} />
               <Route path="/trial" element={<CourseDropDown />} />
               <Route path="/Listapplications" element={<ApplicationsFol />} />
-              <Route path="/digital-marketing-application" element={<DigitalApplication />} />
-              <Route path="/graphic-design-application" element={<GraphicApplication />} />
-              <Route path="/photography-videography-application" element={<PhotographyApplication />} />
-                            <Route path="/countyModels" element={<CountyModels />} />
-                            <Route path="/cyberSecurity" element={<CyberSecurity/>}/>
-                            <Route path="/softwareEngineering" element={<Software/>}/>
-                              <Route path="/dataScience" element={<DataScience/>}/>
+              <Route
+                path="/digital-marketing-application"
+                element={<DigitalApplication />}
+              />
+              <Route
+                path="/graphic-design-application"
+                element={<GraphicApplication />}
+              />
+              <Route
+                path="/photography-videography-application"
+                element={<PhotographyApplication />}
+              />
+              <Route
+                path="/cyber-security-application"
+                element={<CyberSecurityApplication />}
+              />
+              <Route
+                path="/data-science-application"
+                element={<DataScienceApplication />}
+              />
+              <Route
+                path="/software-engineering-application"
+                element={<SoftwareEngineeringApplication />}
+              />
+              <Route path="/countyModel" element={<CountyModels />} />
+              <Route path="/cyberSecurity" element={<CyberSecurity />} />
+              <Route
+                path="/courses/cyber-security"
+                element={<CyberSecurity />}
+              />
+              <Route path="/softwareEngineering" element={<Software />} />
+              <Route
+                path="/courses/software-engineering"
+                element={<Software />}
+              />
+              <Route path="/dataScience" element={<DataScience />} />
+              <Route path="/courses/data-science" element={<DataScience />} />
 
               <Route path="*" element={<NotFound />} />
             </Routes>
