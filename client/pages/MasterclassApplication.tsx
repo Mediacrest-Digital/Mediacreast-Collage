@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
 import AnnouncementBanner from "../Component/AnnouncementBanner";
-
+import Mrnew from "../images/Mrnew.png"; 
+import events from "../images/events.jpg"
 export default function MasterclassApplication() {
   const [formData, setFormData] = useState({
     course: "masterclass",
@@ -46,7 +47,6 @@ export default function MasterclassApplication() {
     try {
       let applicationSubmitted = false;
       let localSubmitted = false;
-      let emailSent = false;
 
       // Priority 1: Submit to our local API (most reliable)
       try {
@@ -96,29 +96,11 @@ export default function MasterclassApplication() {
         // This is OK - we have local backup
       }
 
-      // Priority 3: Send confirmation email via regular application endpoint
-      try {
-        console.log("Sending confirmation email...");
-        const emailResponse = await fetch("/api/application", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ ...formData, course: "masterclass" }),
-        });
-
-        if (emailResponse.ok) {
-          console.log("Email confirmation sent successfully");
-          emailSent = true;
-        } else {
-          console.warn("Email confirmation failed");
-        }
-      } catch (emailError) {
-        console.warn("Email service unavailable:", emailError);
-      }
+      // Note: We don't need to call /api/application since /api/masterclass already handles email notifications
+      // The masterclass route sends emails only to admin (applications@mediacrestcollege.com) as requested
 
       // Show success if any method worked (prioritize local submission)
-      if (localSubmitted || applicationSubmitted || emailSent) {
+      if (localSubmitted || applicationSubmitted) {
         setFormData({
           course: "masterclass",
           firstName: "",
@@ -160,7 +142,7 @@ export default function MasterclassApplication() {
         <div className="hidden md:block">
           <div className="absolute inset-0 bg-black h-[536px] top-0 z-0"></div>
           <img
-            src="./client/images/New events.jpg"
+            src={Mrnew}
             alt="Digital Marketing Masterclass"
             className="absolute right-0 top-0 w-[1007px] h-[536px] object-cover z-0"
           />
@@ -202,7 +184,7 @@ export default function MasterclassApplication() {
           {/* Image Section */}
           <div className="relative w-full h-[280px] sm:h-[320px]">
             <img
-              src="./client/images/New events.jpg"
+              src={Mrnew}
               alt="Digital Marketing Masterclass"
               className="w-full h-full object-cover"
             />
@@ -250,12 +232,11 @@ export default function MasterclassApplication() {
             {/* Left Side - Promotional Image */}
             <div className="w-full lg:w-[451px] h-[451px] flex-shrink-0">
               <img
-                src="./client/images/events.jpg"
+                src={events}
                 alt="Digital Marketing Masterclass"
                 className="w-full h-full object-contain rounded-lg"
               />
             </div>
-
 
             {/* Right Side - Registration Form */}
             <div className="flex flex-col gap-[17px] w-full">
