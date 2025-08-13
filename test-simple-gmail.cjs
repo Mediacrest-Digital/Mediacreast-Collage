@@ -20,7 +20,7 @@ async function quickTest() {
 
     // Send test email
     const info = await transporter.sendMail({
-      from: `"Mediacrest College" <${process.env.EMAIL_USER}>`,
+      from: `"Mediacrest Tranining College" <${process.env.EMAIL_USER}>`,
       to: process.env.RECIPIENT_EMAIL,
       subject: "Test - Email Configuration Working ✅",
       text: `Test email sent at ${new Date().toLocaleString()}`,

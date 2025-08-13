@@ -61,7 +61,7 @@ EMAIL_SECURE=false
 
 The email includes:
 
-- Professional styling with MediaCrest College branding
+- Professional styling with Mediacrest College branding
 - Contact details in a formatted table
 - Full message content
 - Timestamp of submission

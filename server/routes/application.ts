@@ -396,7 +396,7 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
           <!-- Header -->
           <div style="background-color: #621909; color: white; padding: 30px; text-align: center;">
-            <h1 style="margin: 0; font-size: 28px;">Mediacrest College</h1>
+            <h1 style="margin: 0; font-size: 28px;">Mediacrest Training College</h1>
             <p style="margin: 10px 0 0 0; font-size: 16px;">Your Application Has Been Received!</p>
           </div>
 
