@@ -1,9 +1,10 @@
-import { Clock, MapPin } from "lucide-react";
+import { Clock, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../Events.css";
 import "../global.css";
 
 interface EventCardProps {
+  eventId?: string;
   month: string;
   day: string;
   title: string;
@@ -16,6 +17,7 @@ interface EventCardProps {
 }
 
 export default function EventCard({
+  eventId,
   month,
   day,
   title,
@@ -26,70 +28,70 @@ export default function EventCard({
   imageUrl = "https://cdn.builder.io/api/v1/image/assets/TEMP/573fd834a6c44528728fc81e951ce411a622e1fa?width=758",
   link = "/registration",
 }: EventCardProps) {
-  const cardHeight = showRegisterButton ? "h-[600px]" : "h-[496px]"; //mike changed from 570 to 600
-
   return (
-    <div
-      className={`flex flex-col gap-7 bg-white rounded-lg shadow-[0px_12px_16px_-4px_rgba(16,24,40,0.08),0px_4px_6px_-2px_rgba(16,24,40,0.03)] w-[379px] ${cardHeight} max-w-full mx-auto`}
-    >
-      <img
-        src={imageUrl}
-        alt="Event"
-        className="w-full h-[206px] object-cover rounded-t-lg flex-shrink-0"
-      />
-
-      <div className="px-[18px] pb-7 flex flex-col gap-7 flex-1">
-        <div className="flex gap-[19px] items-start">
-          {/* Date Box */}
-          <div className="flex flex-col items-center border border-[rgba(0,0,0,0.17)] rounded-md px-[14px] py-2 flex-shrink-0">
-            <span className="text-mediacrest-orange font-semibold text-[11px] leading-normal">
-              {month}
-            </span>
-            <span className="text-black font-semibold text-[28px] leading-normal">
-              {day}
-            </span>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow group">
+      <div className="aspect-video overflow-hidden relative">
+        <img
+          src={imageUrl}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        {/* Date Badge - positioned over the image */}
+        <div className="absolute top-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 text-center">
+          <div className="text-mediacrest-orange font-semibold text-xs uppercase">
+            {month}
           </div>
-
-          {/* Event Details */}
-          <div className="flex flex-col gap-[34px] flex-1">
-            <h3 className="text-text-medium font-semibold text-lg leading-8 max-w-[234px]">
-              {title}
-            </h3>
+          <div className="text-gray-900 font-bold text-lg leading-none">
+            {day}
           </div>
         </div>
+      </div>
+
+      <div className="p-4 sm:p-6">
+        {/* Title */}
+        <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-mediacrest-orange transition-colors">
+          {title.length > 60 ? `${title.substring(0, 60)}...` : title}
+        </h3>
 
         {/* Time and Location */}
-        <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-8 flex-wrap">
-            <div className="flex items-center gap-[6px] py-3">
-              <Clock className="w-4 h-4 text-mediacrest-orange flex-shrink-0" />
-              <span className="text-text-light font-medium text-sm leading-[19.6px]">
+        <div className="flex flex-col gap-2 mb-4">
+          <div className="flex items-center gap-2">
+            <div className="bg-mediacrest-light-beige rounded-full px-3 py-1 flex items-center gap-2">
+              <Clock className="w-4 h-4 text-mediacrest-orange" />
+              <span className="text-mediacrest-orange text-xs font-semibold">
                 {time}
               </span>
             </div>
-            <div className="flex items-center gap-[6px] py-3">
-              <MapPin className="w-[15px] h-[15px] text-mediacrest-orange flex-shrink-0" />{" "}
-              {/*changed */}
-              <span className="text-text-light font-medium text-sm leading-[19.6px]">
-                {location}
-              </span>
-            </div>
           </div>
-
-          {/* Description */}
-          <p className="text-text-light font-normal text-sm leading-6 max-w-[312px]">
-            {description}
-          </p>
+          <div className="flex items-center gap-2">
+            <MapPin className="w-4 h-4 text-gray-500 flex-shrink-0" />
+            <span className="text-gray-600 text-sm font-medium">
+              {location}
+            </span>
+          </div>
         </div>
 
-        {/* Register Button */}
-        {showRegisterButton && (
+        {/* Description */}
+        <p className="text-gray-600 text-sm leading-relaxed mb-6">
+          {description.length > 120
+            ? `${description.substring(0, 120)}...`
+            : description}
+        </p>
+
+        {/* Action Button or Link */}
+        {showRegisterButton ? (
           <Link
-            to={link}
-            className="ToReg mediacrest-orange text-orange font-semibold text-[15px] leading-[26px] px-[10px] py-[10px] rounded-lg hover:bg-mediacrest-orange hover:text-white transition-colors text-center capitalize mt-auto block"
+            to={`/event-registration?${eventId ? `eventId=${encodeURIComponent(eventId)}&` : ""}title=${encodeURIComponent(title)}&date=${encodeURIComponent(month + " " + day)}&time=${encodeURIComponent(time)}&location=${encodeURIComponent(location)}&description=${encodeURIComponent(description)}`}
+            className="w-full bg-mediacrest-orange hover:bg-mediacrest-orange/90 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
-            Register for the event
+            <span>Register for Event</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
+        ) : (
+          <div className="flex items-center gap-1 text-mediacrest-orange font-semibold cursor-pointer hover:gap-2 transition-all">
+            <span>View Details</span>
+            <ArrowRight className="w-4 h-4" />
+          </div>
         )}
       </div>
     </div>

@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
 import AnnouncementBanner from "../Component/AnnouncementBanner";
-import Mrnew from "../images/Mrnew.png"; 
-import events from "../images/events.jpg"
 export default function MasterclassApplication() {
   const [formData, setFormData] = useState({
     course: "masterclass",

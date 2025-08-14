@@ -18,6 +18,7 @@ import Graphic from "./pages/Graphic";
 import Photography from "./pages/Photograpy";
 import Events from "./pages/Events";
 import Registration from "./pages/Registration";
+import EventRegistration from "./pages/EventRegistration";
 import Application from "./pages/Application";
 import DigitalApplication from "./pages/digitalApplication";
 import GraphicApplication from "./pages/GraphicApplication";
@@ -76,6 +77,10 @@ const App = () => {
               />
               <Route path="/events" element={<Events />} />
               <Route path="/registration" element={<Registration />} />
+              <Route
+                path="/event-registration"
+                element={<EventRegistration />}
+              />
               <Route path="/application" element={<Application />} />
               <Route path="/digital-marketing" element={<Digital />} />
               <Route path="/trial" element={<CourseDropDown />} />
