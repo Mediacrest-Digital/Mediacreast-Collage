@@ -17,8 +17,8 @@ import Digital from "./pages/Digital";
 import Graphic from "./pages/Graphic";
 import Photography from "./pages/Photograpy";
 import Events from "./pages/Events";
-import Registration from "./pages/Registration";
 import EventRegistration from "./pages/EventRegistration";
+import Registration from "./pages/Registration";
 import Application from "./pages/Application";
 import DigitalApplication from "./pages/digitalApplication";
 import GraphicApplication from "./pages/GraphicApplication";
@@ -26,10 +26,10 @@ import PhotographyApplication from "./pages/PhotoApplication";
 import CyberSecurityApplication from "./pages/CyberSecurityApplication";
 import DataScienceApplication from "./pages/DataScienceApplication";
 import SoftwareEngineeringApplication from "./pages/SoftwareEngineeringApplication";
-import MasterclassApplication from "./pages/MasterclassApplication";
 import CourseDropDown from "./Component/courseDropdown";
 import ApplicationsFol from "./pages/ApplicationsList";
 import CountyModels from "./pages/County";
+import MasterclassApplication from "./pages/MasterclassApplication";
 // Try the correct casing and path for WhatsAppButton
 import WhatsApp from "./pages/WhatsAppButton1";
 import CyberSecurity from "./pages/cyberSecurity";
@@ -68,19 +68,17 @@ const App = () => {
               <Route path="/" element={<Index />} />
               <Route path="/corporate" element={<Corporate />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/weare" element={<Weare />} />
+              <Route path="/who_we_are" element={<Weare />} />
               <Route path="/digital" element={<Digital />} />
               <Route path="/graphic-design" element={<Graphic />} />
+              <Route path="/masterclass-application" element={<MasterclassApplication />} />
               <Route
                 path="/photography-videography"
                 element={<Photography />}
               />
+              <Route path="/events-registration" element={<EventRegistration />} />
               <Route path="/events" element={<Events />} />
               <Route path="/registration" element={<Registration />} />
-              <Route
-                path="/event-registration"
-                element={<EventRegistration />}
-              />
               <Route path="/application" element={<Application />} />
               <Route path="/digital-marketing" element={<Digital />} />
               <Route path="/trial" element={<CourseDropDown />} />
@@ -109,11 +107,7 @@ const App = () => {
                 path="/software-engineering-application"
                 element={<SoftwareEngineeringApplication />}
               />
-              <Route
-                path="/masterclass-application"
-                element={<MasterclassApplication />}
-              />
-              <Route path="/countyModels" element={<CountyModels />} />
+              <Route path="/countyModel" element={<CountyModels />} />
               <Route path="/cyberSecurity" element={<CyberSecurity />} />
               <Route
                 path="/courses/cyber-security"

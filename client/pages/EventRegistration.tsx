@@ -86,20 +86,20 @@ export default function EventRegistration() {
       });
 
       // Use local proxy endpoint instead of external API directly
-      const response = await fetch("/api/events/register", {
+      const response = await fetch("https://admin.mediacrestcollege.com/events/api/register-event/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          event: parseInt(eventId), // Django expects event ID as number
-          name: `${firstName} ${lastName}`, // Use single name field
+          event: parseInt(eventId),
+          name: `${firstName} ${lastName}`,
           email: email,
           phone: phone,
           expectations: formData.expectations,
-          // Remove course field completely - not needed for events
         }),
       });
+
 
       if (response.ok) {
         const result = await response.json();

@@ -109,6 +109,11 @@ body {
   width:0px;
   border:1px solid red;
 }
+.TGovernor{
+  margin:250px 0 0;
+}.IHero{
+  margin:250px 0 0;
+}
 }
 .Wimages{
   border:1px solid red;
@@ -122,4 +127,11 @@ color:white
 }
 .SCJoin{
   padding:0;
+
+}
+.imgEliza{
+  width:10%;
+  height: 40%;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }

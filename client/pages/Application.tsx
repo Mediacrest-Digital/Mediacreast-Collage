@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
+import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Component/Navbar";
 import Footer from "../Component/Footer";
 import { ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
 import "../Application.css";
 export default function Index() {
   const navigate = useNavigate();
@@ -38,7 +41,7 @@ export default function Index() {
     },
     {
       value: "cyber-security",
-      label: "Cyber Security",
+      label: "Cybersecurity",
       path: "/cyber-security-application",
     },
     {
@@ -183,24 +186,29 @@ export default function Index() {
           alt="Students group photo"
           className="Appimg absolute right-0 top-0 w-full  md:w-[1007px] h-[400px] md:h-[536px] object-cover z-0"
         />
-        <div className="opApp"></div>
-        <div className="relative z-10 px-4 md:px-[70px] pt-[60px] md:pt-[98px] pb-[100px] md:pb-[140px]">
-          <div className="flex flex-col gap-[16px] md:gap-[22px] max-w-full md:max-w-[522px]">
-            <h1 className="text-white text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[72px]">
-              Apply Today!
-            </h1>
-            <p className="text-[14px] md:text-[16px] leading-[24px] md:leading-[28px] max-w-full md:max-w-[513px] text-white">
-              Join us at Mediacrest Training College, where you'll not only
-              learn the theory but also gain valuable hands-on experiences from
-              our affiliate digital marketing agency,
-              <span className="text-[#EB4823] underline">
-                {" "}
-                Mediacrest Digital
-              </span>
-              , that sets you apart in today's competitive job market.
-            </p>
-          </div>
-        </div>
+<div className="opApp"></div>
+<div className="relative z-10 px-4 md:px-[70px] pt-[60px] md:pt-[98px] pb-[100px] md:pb-[140px]">
+  <div className="flex flex-col gap-[16px] md:gap-[22px] max-w-full md:max-w-[522px]">
+    <h1 className="text-white text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[72px]">
+      Apply Today!
+    </h1>
+    <p className="text-[14px] md:text-[16px] leading-[24px] md:leading-[28px] max-w-full md:max-w-[513px] text-white">
+      Join us at Mediacrest Training College, where you'll not only
+      learn the theory but also gain valuable hands-on experiences from
+      our affiliate digital marketing agency,
+      <Link
+        to="https://www.mediacrest.africa"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="lg:w-[200px] inline-flex items-center space-x-2 px-2 py-1 text-[#EB4823] underline hover:text-mediacrest-orange transition-colors font-semibold"
+      >
+        <span>Mediacrest Digital</span>
+        <ArrowRight className="w-4 h-4" />
+      </Link>
+      , that sets you apart in today's competitive job market.
+    </p>
+  </div>
+</div>
 
         {/* Form Section */}
         <div className="absolute left-1/2 top-[350px] md:top-[489px] transform -translate-x-1/2 w-[calc(100%-2rem)] max-w-[1030px] bg-white rounded-[24px] shadow-[0px_8px_16px_0px_rgba(0,0,0,0.10)] p-[32px_24px] md:p-[52px_46px] z-20">

@@ -1,160 +1,133 @@
 body {
   background: #fff !important;
 }
-.logo-img {
-  height: 48px;
-  width: auto;
-}
-
-@media (min-width: 640px) {
   .logo-img {
-    height: 64px;
+    height: 48px;
+    width: auto;
   }
-}
 
-.btn-contact {
-  border: 1px solid #f05a28;
-  color: #f05a28;
-}
+  @media (min-width: 640px) {
+    .logo-img {
+      height: 64px;
+    }
+  }
 
-.btn-contact:hover {
-  background-color: #f05a28;
-  color: white;
-}
+  .btn-contact {
+    border: 1px solid #f05a28;
+    color: #f05a28;
+  }
 
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  background-color: #f05a28 !important;
-  color: white !important;
-}
+  .btn-contact:hover {
+    background-color: #f05a28;
+    color: white;
+  }
+
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item:focus {
+    background-color: #f05a28 !important;
+    color: white !important;
+  }
+
 
 .logo-img {
-  height: 48px;
-  width: auto;
-}
-
-@media (min-width: 640px) {
-  .logo-img {
-    height: 64px;
+    height: 48px;
+    width: auto;
   }
-}
 
-.btn-contact {
-  border: 1px solid #f05a28;
-  color: #f05a28;
-}
+  @media (min-width: 640px) {
+    .logo-img {
+      height: 64px;
+    }
+  }
 
-.btn-contact:hover {
-  background-color: #f05a28;
-  color: white;
-}
+  .btn-contact {
+    border: 1px solid #f05a28;
+    color: #f05a28;
+  }
 
-.dropdown-menu .dropdown-item:hover,
-.dropdown-menu .dropdown-item:focus {
-  background-color: #f05a28 !important;
-  color: white !important;
-}
+  .btn-contact:hover {
+    background-color: #f05a28;
+    color: white;
+  }
 
-.homeImg3 {
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item:focus {
+    background-color: #f05a28 !important;
+    color: white !important;
+  }
+
+.homeImg3{
   z-index: 1;
 }
-.txtReg {
+.txtReg{
   z-index: 9;
-  left: 0;
+  left:0;
 }
-.eventsText {
-  color: white;
+.eventsText{
+    color:white;
 
-  z-index: 9;
+    z-index: 9;
 }
-.textDec {
-  max-width: 800px;
-  height: 300px;
+.textDec{
+  max-width:800px;
+  height:300px;
 }
-.imgT {
-  width: 100%;
-  top: 0;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  z-index: 4;
+.imgT{
+      width: 100%;
+    top:0;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 4;
+  
 }
-@media only screen and (min-width: 321px) and (max-width: 430px) {
-  .SearchHome {
-    width: 300px;
-    font-size: 14px;
-  }
-  .imgT {
-    width: 100%;
-    top: 0;
+@media only screen and (min-width:321px) and  (max-width:430px){
+  .SearchHome{
+  width:300px;
+  font-size:14px;
+}
+.imgT{
+      width:100%;
+    top:0;
     height: 100%;
     object-fit: cover;
     position: absolute;
     z-index: 7;
-  }
-  .Dimg {
-    inset: 0;
-  }
-  .SCJoin * {
-  }
-  .Seindex {
-  }
-  .SquiggleT {
-    width: 130px;
-    right: -15px;
-    top: -15%;
-    font-size: 20px;
-  }
-  .YellowDot {
-    right: -20px;
-  }
+  
+}
+.Dimg{
+  inset: 0;
+
+}
+.SCJoin *{
+}
+.Seindex{
+
+}
+.SquiggleT{
+  width:130px;
+  right:-15px;
+  top:-15%;
+  font-size: 20px;;
+}
+.YellowDot{
+  right:-20px;
+}
 }
 
-@media only screen and (max-width: 320px) {
-  .SearchHome {
-    width: 260px;
-    font-size: 11px;
-  }
-  .SquiggleT {
-    width: 130px;
-    right: -15px;
-    top: -15%;
-    font-size: 20px;
-  }
-  .YellowDot {
-    right: -20px;
-  }
+@media only screen and (max-width:320px){
+  .SearchHome{
+  width:260px;
+  font-size: 11px;
+  
 }
-
-/* Line clamp utilities */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.SquiggleT{
+  width:130px;
+  right:-15px;
+  top:-15%;
+  font-size: 20px;;
 }
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+.YellowDot{
+  right:-20px;
 }
-
-/* Custom scrollbar for better UI */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #eb4823;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #d63914;
 }

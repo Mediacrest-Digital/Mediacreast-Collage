@@ -8,6 +8,7 @@ import FAQAccordion from "../Component/courseDropdown";
 import AboutUno from "../images/Aboutpic.png";
 import DataHero from "../images/DataHero.png"
 import WhyTakeCourseSection from "../Component/whyDataScience";
+import CTAdata from "@/Component/CTAdata";
 
 
 
@@ -350,12 +351,13 @@ This course provides a comprehensive curriculum and equips participants with the
                   About this course
                 </h2>
                 <p className="text-[#7A746D] leading-relaxed">
-This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
-You’ll gain hands-on experience through practical projects and receive mentorship from industry experts.
+                This course provides a comprehensive curriculum and equips participants with the tools and techniques to extract data insights and make informed business decisions.
+                You’ll gain hands-on experience through practical projects and receive mentorship from industry experts.
                 </p>
                 <div className="pl-4 border-l-4 border-[#EB4823]">
                   <p className="text-[#7A746D] leading-relaxed">
-Upon completion, learners will receive an internationally recognized certification, gain practical programming language skills such as Python and R, and experience working with large datasets.
+                Upon completion, learners will receive an internationally recognized certification, 
+                gain practical programming language skills such as Python and R, and experience working with large datasets.
 
                   </p>
                 </div>
@@ -407,18 +409,10 @@ Upon completion, learners will receive an internationally recognized certificati
       }
     >
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Create and manage marketing campaigns</li>
-        <li>Manage Google and Meta Ad campaigns</li>
-        <li>Manage social media pages for brands</li>
-        <li>Optimize websites for SEO</li>
-        <li>Use Google Analytics</li>
-        <li>Master social media marketing strategies</li>
-        <li>Develop content writing skills for digital platforms</li>
-        <li>Understand inbound marketing principles</li>
-        <li>Gain expertise in email marketing techniques</li>
-        <li>Learn SEO and SEM strategies</li>
-        <li>Build proficiency in data analysis for digital marketing</li>
-        <li>Understand design principles for digital content</li>
+          <li>Describe the applications of data science in a wide range of data-related fields</li>
+          <li>Analyze and adapt the latest data science technologies to solve real-world problems in a broad range of sectors</li>
+          <li>Formulate appropriate models of data analysis and undertake a project in an independent or collaborative environment</li>
+          <li>Exhibit an in-depth understanding to the codes of ethics and conduct of data science professions</li>
 
       </ul>
     </CollapsibleSection>
@@ -434,12 +428,13 @@ Upon completion, learners will receive an internationally recognized certificati
         Upon completion, graduates are equipped to pursue roles such as:
       </p>
       <ul className="list-disc ml-6 text-[#7B7B7B] space-y-2 leading-8">
-        <li>Digital Marketing Specialist</li>
-        <li>Content Manager</li>
-        <li>Search Engine Optimization (SEO) Manager</li>
-        <li>Social Media Manager</li>
-        <li>Marketing Analyst</li>
-        <li>Marketing Assistant</li>
+          <li>Data Scientist</li>
+          <li>Data Analyst</li>
+          <li>Data Engineer</li>
+          <li>Machine Learning Engineer</li>
+          <li>Data Architect</li>
+          <li>Business Intelligence Analyst</li>
+          <li>Healthcare Data Scientist</li>
       </ul>
     </CollapsibleSection>
   </div>
@@ -527,53 +522,7 @@ Upon completion, learners will receive an internationally recognized certificati
       {/* <FAQAccordion/> */}
 
       {/* CTA Section */}
-      <section className="py-16 px-4 md:px-16">
-        <div className="CtastE  max-w-7xl mx-auto">
-          <div className="Ctast relative bg-mediacrest-orange/90 rounded-3xl overflow-hidden">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/00aba66a0e0097d23456fe458bdc0e7b5150db81?width=2200"
-              alt="Start Your Journey"
-              className="CtastImg absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="relative p-12 md:p-16">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div className="space-y-6">
-                  <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                    Start Your Journey in Digital Marketing
-                  </h2>
-                  <p className="text-white leading-relaxed max-w-lg">
-                    Join us at Mediacrest Training College, where you'll not
-                    only learn the theory but also gain valuable hand-on
-                    experiences from our affiliate digital marketing agency,
-                    Mediacrest Digital that sets you apart in today's
-                    competitive job market.
-                  </p>
-                  {/* <button className=" hidden px-8 py-3 bg-[#1D2026] text-white rounded-lg font-semibold flex items-center gap-3 hover:bg-gray-800 transition-colors">
-                    Apply Now
-                    <svg
-                      className="w-4 h-4 rotate-180"
-                      viewBox="0 0 17 16"
-                      fill="none"
-                    >
-                      <path
-                        d="M11.9953 8.66676L9.362 11.3001C9.29833 11.3616 9.24754 11.4352 9.2126 11.5165C9.17766 11.5978 9.15927 11.6853 9.1585 11.7738C9.15773 11.8623 9.1746 11.9501 9.20812 12.0321C9.24164 12.114 9.29114 12.1884 9.35374 12.251C9.41633 12.3136 9.49077 12.3631 9.5727 12.3966C9.65463 12.4302 9.74241 12.447 9.83093 12.4463C9.91945 12.4455 10.0069 12.4271 10.0883 12.3922C10.1696 12.3572 10.2432 12.3064 10.3047 12.2428L14.076 8.47143C14.201 8.34641 14.2712 8.17687 14.2712 8.0001C14.2712 7.82332 14.201 7.65378 14.076 7.52876L10.3047 3.75743C10.1789 3.63599 10.0105 3.56879 9.83573 3.57031C9.66093 3.57183 9.49373 3.64195 9.37012 3.76555C9.24652 3.88916 9.1764 4.05637 9.17488 4.23116C9.17337 4.40596 9.24056 4.57436 9.362 4.7001L11.9953 7.33343L3.16667 7.33343C2.98986 7.33343 2.82029 7.40367 2.69526 7.52869C2.57024 7.65372 2.5 7.82329 2.5 8.0001C2.5 8.17691 2.57024 8.34648 2.69526 8.4715C2.82029 8.59653 2.98986 8.66676 3.16667 8.66676H11.9953Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </button> */}
-                </div>
-                <div className="hidden lg:block">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/f5fb5eb7248b4df72a32409e8af17df8940d0be8?width=756"
-                    alt="Student"
-                    className="w-full h-auto max-w-md ml-auto"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <CTAdata/>
 
       {/* Footer */}
      <Footer/>

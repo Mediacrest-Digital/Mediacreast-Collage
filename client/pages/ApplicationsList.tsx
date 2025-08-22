@@ -22,7 +22,7 @@ const ApplicationsList: React.FC = () => {
   useEffect(() => {
     const fetchApplications = async () => {
       try {
-        const response = await fetch("https://admin.mediacrestcollege.com/applications/api/submit/");
+        const response = await fetch("/api/applications");
         const data = await response.json();
         setApplications(data);
       } catch (err) {

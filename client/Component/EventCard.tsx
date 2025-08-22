@@ -37,11 +37,13 @@ export default function EventCard({
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
         {/* Date Badge - positioned over the image */}
+
         <div className="absolute top-4 left-4 bg-white rounded-lg shadow-md px-3 py-2 text-center">
           <div className="text-mediacrest-orange font-semibold text-xs uppercase">
             {month}
           </div>
           <div className="text-gray-900 font-bold text-lg leading-none">
+            
             {day}
           </div>
         </div>
@@ -51,6 +53,8 @@ export default function EventCard({
         {/* Title */}
         <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-mediacrest-orange transition-colors">
           {title.length > 60 ? `${title.substring(0, 60)}...` : title}
+          {/* If you want to show the full title on hover, you can add a tooltip or similar */}
+          {/* <span className="text-sm text-gray-500">{title}</span> */}
         </h3>
 
         {/* Time and Location */}
@@ -81,7 +85,7 @@ export default function EventCard({
         {/* Action Button or Link */}
         {showRegisterButton ? (
           <Link
-            to={`/event-registration?${eventId ? `eventId=${encodeURIComponent(eventId)}&` : ""}title=${encodeURIComponent(title)}&date=${encodeURIComponent(month + " " + day)}&time=${encodeURIComponent(time)}&location=${encodeURIComponent(location)}&description=${encodeURIComponent(description)}`}
+            to={`/events-registration?${eventId ? `eventId=${encodeURIComponent(eventId)}&` : ""}title=${encodeURIComponent(title)}&date=${encodeURIComponent(month + " " + day)}&time=${encodeURIComponent(time)}&location=${encodeURIComponent(location)}&description=${encodeURIComponent(description)}`}
             className="w-full bg-mediacrest-orange hover:bg-mediacrest-orange/90 text-white font-semibold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
           >
             <span>Register for Event</span>

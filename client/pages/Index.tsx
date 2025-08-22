@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import {
   Search,
@@ -17,13 +18,15 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
-import AnnouncementBanner from "../Component/AnnouncementBanner";
 import background from "../images/background.png";
-import bgMobile from "../images/indexImg.jpg";
+import bgMobile from "../images/indexImg.jpg"
 import JoinUs from "@/Component/JoinUs";
 import VideoCarousel from "@/Component/videos";
-import VideoTry from "../Component/videosTry";
+import VideoTry from "../Component/videosTry"
 import VideoPlayer from "@/Component/videosTry";
+ 
+
+
 
 const courses = [
   {
@@ -72,7 +75,7 @@ const courses = [
     link: "/courses/data-science",
   },
   {
-    title: "CyberSecurity",
+    title: "Cybersecurity",
     duration: "8 weeks",
     description:
       "An Industry-Aligned and Practical Cybersecurity Certification course! Launch a lucrative career with...",
@@ -179,73 +182,68 @@ const partnerLogos = [
 ];
 
 export default function Index() {
-  return (
-    <div className="min-h-screen bg-white text-mediacrest-gray-900 pt-12">
-      {/* Announcement Banner */}
-      <AnnouncementBanner />
 
+
+  return (
+    <div className="min-h-screen bg-white text-mediacrest-gray-900">
       {/* Navigation */}
       <Navbar />
       {/* Hero Section */}
-      <section className="Seindex relative h-[80vh] bg-gradient-to-r from-mediacrest-navy to-mediacrest-navy/90">
-        {/* Desktop/Tablet Background Image - Hidden on mobile */}
-        <div className="Dimg absolute inset-0 z-0 hidden md:block">
-          <img
-            className="imgT w-full h-full object-cover"
-            src={background}
-            alt="Desktop background"
+<section className="Seindex relative h-[80vh] bg-gradient-to-r from-mediacrest-navy to-mediacrest-navy/90">
+  {/* Desktop/Tablet Background Image - Hidden on mobile */}
+  <div className="Dimg absolute inset-0 z-0 hidden md:block">
+    <img className="imgT w-full h-full object-cover" src={background} alt="Desktop background" />
+    {/* Optional overlay for desktop */}
+    <div className="absolute inset-0 bg-mediacrest-navy/20"></div>
+  </div>
+  
+  {/* Mobile Background Image - Only visible on mobile */}
+  <div className="absolute inset-0 z-0 md:hidden">
+    {/* Replace 'mobileBackground' with your mobile background image variable */}
+    <img 
+      className="w-full h-full object-cover" 
+      src={bgMobile} 
+      alt="Mobile background" 
+    />
+    {/* Mobile overlay with opacity for better text readability */}
+    <div className="absolute inset-0 bg-gradient-to-t from-mediacrest-navy/90 via-mediacrest-navy/70 to-mediacrest-navy/50"></div>
+    
+    {/* Optional: Add subtle floating elements for mobile */}
+    <div className="absolute inset-0 opacity-10">
+      <div className="absolute top-20 right-8 w-24 h-24 bg-mediacrest-orange rounded-full blur-xl animate-pulse"></div>
+      <div className="absolute bottom-32 left-6 w-32 h-32 bg-white rounded-full blur-2xl animate-pulse delay-300"></div>
+    </div>
+  </div>
+
+  {/* Foreground Content */}
+  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">
+    <div className="max-w-2xl">
+      <div className="relative mb-6">
+        <h1 className="IHero text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+          Empowering Growth, Shaping Futures
+        </h1>
+        <svg
+          className="absolute -right-[-40px] sm:-right-2 top-8 sm:top-12 lg:top-16 w-20 sm:w-24 lg:w-32 h-2"
+          viewBox="0 0 190 13"
+          fill="none"
+        >
+          <path
+            d="M2 5.29882C33.0528 2.116 113.664 -1.36098 187.684 10.1936"
+            stroke="#EB4823"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           />
-          {/* Optional overlay for desktop */}
-          <div className="absolute inset-0 bg-mediacrest-navy/20"></div>
-        </div>
+        </svg>
+      </div>
 
-        {/* Mobile Background Image - Only visible on mobile */}
-        <div className="absolute inset-0 z-0 md:hidden">
-          {/* Replace 'mobileBackground' with your mobile background image variable */}
-          <img
-            className="w-full h-full object-cover"
-            src={bgMobile}
-            alt="Mobile background"
-          />
-          {/* Mobile overlay with opacity for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-mediacrest-navy/90 via-mediacrest-navy/70 to-mediacrest-navy/50"></div>
+      <p className=" text-mediacrest-gray-300 text-base lg:text-lg leading-relaxed mb-8 lg:mb-12 max-w-xl">
+        Mediacrest Training College blends passion with purpose, offering expert faculty, modern
+        facilities, and industry ties to equip Africa's brightest minds for success in competitive
+        fields.
+      </p>
 
-          {/* Optional: Add subtle floating elements for mobile */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-20 right-8 w-24 h-24 bg-mediacrest-orange rounded-full blur-xl animate-pulse"></div>
-            <div className="absolute bottom-32 left-6 w-32 h-32 bg-white rounded-full blur-2xl animate-pulse delay-300"></div>
-          </div>
-        </div>
-
-        {/* Foreground Content */}
-        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-[74px] pt-16 lg:pt-20 pb-16 lg:pb-20 h-full flex items-center">
-          <div className="max-w-2xl">
-            <div className="relative mb-6">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                Empowering Growth, Shaping Futures
-              </h1>
-              <svg
-                className="absolute -right-[-40px] sm:-right-2 top-8 sm:top-12 lg:top-16 w-20 sm:w-24 lg:w-32 h-2"
-                viewBox="0 0 190 13"
-                fill="none"
-              >
-                <path
-                  d="M2 5.29882C33.0528 2.116 113.664 -1.36098 187.684 10.1936"
-                  stroke="#EB4823"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-
-            <p className="text-mediacrest-gray-300 text-base lg:text-lg leading-relaxed mb-8 lg:mb-12 max-w-xl">
-              Mediacrest Training College blends passion with purpose, offering
-              expert faculty, modern facilities, and industry ties to equip
-              Africa's brightest minds for success in competitive fields.
-            </p>
-
-            {/* <div className="SearchHome bg-white/95 backdrop-blur-sm md:bg-white rounded-xl border shadow-lg p-2 flex flex-col sm:flex-row gap-2 max-w-lg">
+      {/* <div className="SearchHome bg-white/95 backdrop-blur-sm md:bg-white rounded-xl border shadow-lg p-2 flex flex-col sm:flex-row gap-2 max-w-lg">
         <input
           type="text"
           placeholder="What course are you looking for?"
@@ -256,187 +254,174 @@ export default function Index() {
           Search
         </Button>
       </div> */}
-          </div>
-        </div>
-      </section>
+    </div>
+  </div>
+</section>
 
       {/* Statistics Section */}
-      <section className="bg-mediacrest-orange py-8 lg:py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-[110px]">
-          <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-y-10 gap-x-6 text-center text-white relative">
-            {/* Item 1 */}
-            <div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
-                300+
-              </div>
-              <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
-                Trained Professionals
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden lg:block absolute left-1/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
-
-            {/* Item 2 */}
-            <div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
-                20+
-              </div>
-              <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
-                Employers that trust us
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden lg:block absolute left-2/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
-
-            {/* Item 3 */}
-            <div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
-                95%
-              </div>
-              <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
-                Graduate Satisfaction Rating
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="hidden lg:block absolute left-3/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
-
-            {/* Item 4 */}
-            <div>
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
-                2022
-              </div>
-              <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200 max-w-[200px] mx-auto">
-                Year Mediacrest Training College was founded
-              </div>
-            </div>
-          </div>
+   <section className="bg-mediacrest-orange py-8 lg:py-12">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-[110px]">
+    <div className="grid grid-cols-2 lg:grid-cols-4 items-center gap-y-10 gap-x-6 text-center text-white relative">
+      {/* Item 1 */}
+      <div>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">300+</div>
+        <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
+          Trained Professionals
         </div>
-      </section>
+      </div>
+
+      {/* Divider */}
+      <div className="hidden lg:block absolute left-1/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
+
+      {/* Item 2 */}
+      <div>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">20+</div>
+        <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
+          Employers that trust us
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="hidden lg:block absolute left-2/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
+
+      {/* Item 3 */}
+      <div>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">95%</div>
+        <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200">
+          Graduate Satisfaction Rating
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="hidden lg:block absolute left-3/4 top-0 bottom-0 w-px bg-gray-300 mx-auto" />
+
+      {/* Item 4 */}
+      <div>
+        <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">2022</div>
+        <div className="text-xs sm:text-sm lg:text-base text-mediacrest-gray-200 max-w-[200px] mx-auto">
+          Year Mediacrest Training College was founded
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Popular Courses Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-20">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-mediacrest-gray-900 mb-4">
-              Browse Our Popular Courses
-            </h2>
-            <p className="text-mediacrest-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-              Explore a wide range of in-demand courses designed to boost your
-              skills and advance your career. Whether you're starting out or
-              looking to specialize, we have something for everyone.
-            </p>
-          </div>
+<section className="py-12 sm:py-16 lg:py-20 bg-white">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-20">
+    <div className="text-center mb-12 lg:mb-16">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-mediacrest-gray-900 mb-4">
+        Browse Our Popular Courses
+      </h2>
+      <p className="text-mediacrest-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
+        Explore a wide range of in-demand courses designed to boost your skills and advance your career. 
+        Whether you're starting out or looking to specialize, we have something for everyone.
+      </p>
+    </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
-            {courses.map((course, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4 sm:p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="bg-mediacrest-light-beige rounded-full px-3 py-1 flex items-center gap-2">
-                      <Clock className="w-4 h-4 text-mediacrest-orange" />
-                      <span className="text-mediacrest-orange text-xs font-semibold">
-                        {course.duration}
-                      </span>
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-mediacrest-gray-900 mb-2">
-                    {course.title}
-                  </h3>
-                  <p className="text-mediacrest-gray-600 text-sm leading-relaxed mb-6">
-                    {course.description}
-                  </p>
-                  <Link
-                    to={course.link}
-                    className="flex items-center gap-1 text-mediacrest-orange font-semibold cursor-pointer hover:gap-2 transition-all"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
+      {courses.map((course, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-lg shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow"
+        >
+          <div className="aspect-video overflow-hidden">
+            <img
+              src={course.image}
+              alt={course.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="p-4 sm:p-6">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="bg-mediacrest-light-beige rounded-full px-3 py-1 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-mediacrest-orange" />
+                <span className="text-mediacrest-orange text-xs font-semibold">
+                  {course.duration}
+                </span>
               </div>
-            ))}
+            </div>
+            <h3 className="text-lg font-bold text-mediacrest-gray-900 mb-2">
+              {course.title}
+            </h3>
+            <p className="text-mediacrest-gray-600 text-sm leading-relaxed mb-6">
+              {course.description}
+            </p>
+            <Link
+              to={course.link}
+              className="flex items-center gap-1 text-mediacrest-orange font-semibold cursor-pointer hover:gap-2 transition-all"
+            >
+              <span>Learn More</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+
 
       {/* Why Choose Us Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-mediacrest-beige">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-20">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 lg:mb-16">
-            Why <span className="text-mediacrest-orange">Choose</span>{" "}
-            Mediacrest Training College?
-          </h2>
+<section className="py-12 sm:py-16 lg:py-20 bg-mediacrest-beige">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-20">
+    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center mb-12 lg:mb-16">
+      Why <span className="text-mediacrest-orange">Choose</span>{" "}
+      Mediacrest Training College?
+    </h2>
 
-          <div className="space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {whyChooseFeatures.slice(0, 3).map((feature, index) => (
-                <div
-                  key={index}
-                  className="relative group rounded-xl overflow-hidden shadow-md bg-white"
-                >
-                  <div className="aspect-[4/3]">
-                    <img
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {whyChooseFeatures.slice(3).map((feature, index) => (
-                <div
-                  key={index}
-                  className="relative group rounded-xl overflow-hidden shadow-md bg-white"
-                >
-                  <div className="aspect-[4/3]">
-                    <img
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                    <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2">
-                        {feature.title}
-                      </h3>
-                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
-                        {feature.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+    <div className="space-y-6 sm:space-y-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {whyChooseFeatures.slice(0, 3).map((feature, index) => (
+          <div key={index} className="relative group rounded-xl overflow-hidden shadow-md bg-white">
+            <div className="aspect-[4/3]">
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      {/**Video section */}
-      <VideoTry />
+        ))}
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {whyChooseFeatures.slice(3).map((feature, index) => (
+          <div key={index} className="relative group rounded-xl overflow-hidden shadow-md bg-white">
+            <div className="aspect-[4/3]">
+              <img
+                src={feature.image}
+                alt={feature.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-white">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+{/**Video section */}
+<VideoTry/>
       {/* Where Our Graduates Work */}
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-20">
@@ -461,12 +446,13 @@ export default function Index() {
 
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-8 lg:gap-12 items-center justify-items-center">
             {companyLogos.map((logo, index) => (
-              <img
-                key={index}
-                src={logo}
-                alt="Company logo"
-                className="h-6 sm:h-8 lg:h-12 w-auto "
-              />
+            <img
+              key={index}
+              src={logo}
+              alt="Company logo"
+              className="h-6 sm:h-8 lg:h-12 w-auto "
+            />
+
             ))}
           </div>
         </div>
@@ -520,32 +506,32 @@ export default function Index() {
       </section>
 
       {/* Join Us Section */}
-      <JoinUs />
+     <JoinUs/>
 
       {/* Partners Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-32">
-          <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-center text-mediacrest-gray-900 mb-8 sm:mb-12">
-            Our Partners
-          </h2>
+<section className="py-12 sm:py-16 lg:py-20 bg-white">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-32">
+    <h2 className="text-2xl sm:text-3xl lg:text-3xl font-bold text-center text-mediacrest-gray-900 mb-8 sm:mb-12">
+      Our Partners
+    </h2>
 
-          <div className="overflow-hidden">
-            <div className="flex gap-6 sm:gap-8 lg:gap-20 animate-scroll-partners w-max">
-              {partnerLogos.concat(partnerLogos).map((logo, index) => (
-                <img
-                  key={index}
-                  src={logo}
-                  alt="Partner logo"
-                  className="h-8 sm:h-10 lg:h-14 w-auto"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className="overflow-hidden">
+      <div className="flex gap-6 sm:gap-8 lg:gap-20 animate-scroll-partners w-max">
+        {partnerLogos.concat(partnerLogos).map((logo, index) => (
+          <img
+            key={index}
+            src={logo}
+            alt="Partner logo"
+            className="h-8 sm:h-10 lg:h-14 w-auto"
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Footer */}
-      <Footer />
+      <Footer/>
     </div>
   );
 }

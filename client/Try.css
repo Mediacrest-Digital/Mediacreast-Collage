@@ -9,11 +9,18 @@
     }
   }
 
-  @media only screen and (max-width:435px) {
-    .HumpheryO{
-max-width: 400px;
-}
+@media only screen and (max-width: 435px) {
+  .HumpheryO {
+    max-width:1000px;
+    width:100%; 
+    height: auto; 
+     /* keeps aspect ratio */
   }
+    .HumpheryO .imgEliza {
+      width:80px;
+    }
+}
+
 
     @media only screen and (min-width:768px) {
     .HumpheryO{

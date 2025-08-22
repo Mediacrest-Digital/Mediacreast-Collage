@@ -173,10 +173,11 @@ export default function Index() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-[44px] mt-[215px]">
-                  <Instagram className="w-6 h-6 cursor-pointer hover:opacity-80" />
-                  <Linkedin className="w-6 h-6 cursor-pointer hover:opacity-80" />
-                  <Facebook className="w-6 h-6 cursor-pointer hover:opacity-80" />
+                <div className="flex items-center gap-[44px] mt-[25px]">
+                 <a href="https://www.instagram.com/mediacrest_college/?hl=en" target="_blank" rel="noopener noreferrer"><Instagram className="w-6 h-6 cursor-pointer hover:opacity-80" /></a> 
+                  <a href="https://www.linkedin.com/company/obuya-blogs/?originalSubdomain=ke" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" className="w-6 h-6 cursor-pointer hover:opacity-80" /></a>
+                 <a href="https://www.facebook.com/people/Mediacrest-Training-College/61562286963550/" target="_blank"> <Facebook className="w-6 h-6 cursor-pointer hover:opacity-80" /></a>
+                 
                 </div>
               </div>
             </div>
