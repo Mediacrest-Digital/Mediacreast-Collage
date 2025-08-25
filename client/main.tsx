@@ -35,6 +35,7 @@ import WhatsApp from "./pages/WhatsAppButton1";
 import CyberSecurity from "./pages/cyberSecurity";
 import Software from "./pages/Software";
 import DataScience from "./pages/dataScience";
+import Scholarship from "./pages/Scholarship";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +83,7 @@ const App = () => {
               <Route path="/application" element={<Application />} />
               <Route path="/digital-marketing" element={<Digital />} />
               <Route path="/trial" element={<CourseDropDown />} />
+              <Route path="/Scholarships" element={<Scholarship />} />
               <Route path="/Listapplications" element={<ApplicationsFol />} />
               <Route
                 path="/digital-marketing-application"

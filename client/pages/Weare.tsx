@@ -257,11 +257,12 @@ export default function Weare() {
                   Mediacrest Foundation
                 </h3>
                 <p className="text-mediacrest-text-medium text-sm leading-relaxed">
-                  Lorem ipsum dolor sit amet consectetur. Orci vulputate at
-                  euismod nibh amet molestie gravida vel. Facilisi tellus tellus
-                  volutpat habitant cum scelerisque donec egestas massa.
-                  Maecenas ultrices felis tempus aliquam. Nam quis nunc volutpat
-                  eleifend.
+                    The Mediacrest Foundation is dedicated to driving social impact through
+                    education, empowerment, and community initiatives. By creating
+                    opportunities and supporting meaningful causes, the foundation works
+                    towards building a more inclusive and sustainable future for individuals
+                    and communities.
+
                 </p>
                 <Link to="" className="lg:w-[200px] flex items-center space-x-2 px-6 py-3 border border-mediacrest-blue text-mediacrest-blue rounded-lg hover:bg-mediacrest-blue hover:text-white transition-colors font-semibold">
                   <span>Visit Website</span>
@@ -282,11 +283,12 @@ export default function Weare() {
                   Consumer Champions Awards
                 </h3>
                 <p className="text-mediacrest-text-medium text-sm leading-relaxed">
-                  Lorem ipsum dolor sit amet consectetur. Facilisis tincidunt
-                  sed faucibus vulputate dignissim at at in. Duis odio morbi
-                  malesuada sit sapien nec nisl porta. Ut amet mauris fermentum
-                  non eu amet. Duis odio morbi malesuada sit sapien nec nisl
-                  porta.
+                    The Consumer Champions Awards celebrates brands, businesses, and
+                    individuals who put customers first. Through recognition of excellence
+                    in service and innovation, the awards highlight those creating
+                    meaningful connections and delivering real value to consumers across
+                    industries.
+
                 </p>
                 <Link to="https://ccawardskenya.co.ke" className=" lg:w-[200px] flex items-center space-x-2 px-6 py-3 border border-mediacrest-purple text-mediacrest-purple rounded-lg hover:bg-mediacrest-purple hover:text-white transition-colors font-semibold">
                   <span>Visit Website</span>

@@ -135,6 +135,8 @@ const Navbar = () => {
               </div>
             </div>
 
+
+
             <Link 
               to="/CountyModel" 
               className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
@@ -149,6 +151,14 @@ const Navbar = () => {
             >
               Corporate
             </Link>
+
+            <Link 
+              to="/Scholarships" 
+              className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
+            >
+              Scholarships
+            </Link>
+
                         <Link 
               to="/Application" 
               className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
@@ -286,6 +296,9 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
+
+
+
                           <Link 
               to="/CountyModel" 
               className="block text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
@@ -303,6 +316,14 @@ const Navbar = () => {
               onClick={closeMenu}
             >
               Corporate
+            </Link>
+
+            <Link 
+              to="/Scholarships" 
+              className="block text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
+              onClick={closeMenu}
+            >
+              Scholarships
             </Link>
 
                         <Link 
