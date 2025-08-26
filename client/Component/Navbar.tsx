@@ -153,7 +153,7 @@ const Navbar = () => {
             </Link>
 
             <Link 
-              to="/Scholarships" 
+              to="/scholarships" 
               className="text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
             >
               Scholarships
@@ -319,7 +319,7 @@ const Navbar = () => {
             </Link>
 
             <Link 
-              to="/Scholarships" 
+              to="/scholarships" 
               className="block text-gray-700 hover:text-mediacrest-orange font-medium transition-colors"
               onClick={closeMenu}
             >

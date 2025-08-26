@@ -77,12 +77,13 @@ export default function InterestForm() {
         {/* Section Header */}
         <div className="text-center mb-[36px] space-y-[13px]">
           <h2 className="font-poppins font-bold text-[24px] sm:text-[28px] lg:text-[32px] leading-[48px] text-mediacrest-text-black capitalize max-w-[606px] mx-auto">
-            Digital Marketing & AI Scholarship Application
+            Call For Applications
           </h2>
           <p className="font-poppins text-[14px] sm:text-[15px] lg:text-[16px] leading-[28px] text-mediacrest-gray-medium max-w-[913px] mx-auto">
-            Apply for our Digital Marketing & AI scholarship program. Fill out the form below to be
-            considered for this opportunity to advance your career in digital marketing and
-            artificial intelligence.
+            Mediacrest Training College in the spirit of its goal to train over 5 million digitally skilled
+             professionals by 2030 is looking to train individuals interested in Digital Marketing to become 
+             Digital Marketing Champions. The program emphasizes on practical learning experiences,
+              fostering innovation and digital transformation.
           </p>
         </div>
 
@@ -146,6 +147,23 @@ export default function InterestForm() {
 
                 {/* ID Number & Area of Residence Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[18px]">
+              {/* ID Number */}
+              <div className="space-y-[5px]">
+                <label className="font-poppins text-[14px] leading-[26px] text-mediacrest-gray-dark">
+                  Gender
+                </label>
+                <input
+                  type="text"
+                  name="idNumber"
+                  value={formData.idNumber}
+                  onChange={handleChange}
+                  placeholder="Gender"
+                  className="w-full h-[53px] px-[14px] py-[15px] border border-mediacrest-border-light rounded-[8px] font-poppins text-[14px] leading-[24px] placeholder:text-[rgba(17,15,36,0.4)] focus:outline-none focus:border-mediacrest-primary"
+                  required
+                />
+              </div>
+
+
 
                   <div className="space-y-[5px]">
                     <label className="font-poppins text-[14px] leading-[26px] text-mediacrest-gray-dark">
@@ -338,7 +356,7 @@ export default function InterestForm() {
             <div className="space-y-[35px]">
               <button
                 type="submit"
-                className="bg-mediacrest-primary bg-[#d43e1e] transition-colors rounded-[8px] px-[22px] py-[11px] w-[200px]"
+                className=" bg-[#EB4823] transition-colors rounded-[8px] px-[22px] py-[11px] w-[200px]"
               >
                 <span className="font-poppins font-bold text-[15px] leading-[26px] text-white">
                   Submit Application
