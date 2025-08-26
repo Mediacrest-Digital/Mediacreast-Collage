@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import dotenv from "dotenv";
+import nodemailer from "nodemailer";
 
 // Load environment variables
 dotenv.config();
@@ -302,29 +303,7 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       });
     }
 
-    // Check if we're in test mode
-    if (process.env.TEST_MODE === 'true') {
-      console.log("⚠️  TEST MODE ENABLED: No application email will be sent!");
-      console.log("TEST MODE: Application email would be sent to:", email);
-      console.log("TEST MODE: Course application data:", { course, firstName, lastName, email, phone });
-      
-      return res.status(200).json({
-        success: true,
-        message: "⚠️ TEST MODE: Application received but NO EMAIL was sent. Please configure email credentials.",
-      });
-    }
-
-    // Check if application emails are disabled
-    if (process.env.APPLICATION_EMAIL_DISABLED === 'true') {
-      console.log("⚠️  APPLICATION EMAILS DISABLED: No application email will be sent!");
-      console.log("APPLICATION_EMAIL_DISABLED: Application email would be sent to:", email);
-      console.log("APPLICATION_EMAIL_DISABLED: Course application data:", { course, firstName, lastName, email, phone });
-      
-      return res.status(200).json({
-        success: true,
-        message: "Application received successfully! We'll contact you soon with next steps.",
-      });
-    }
+  // Emails will always be sent to applicants
 
     // Check if email credentials are configured
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS || 
@@ -525,16 +504,10 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
       replyTo: email,
     };
 
-    // Send both emails
-    console.log("Attempting to send application emails...");
-    
-    // Send to applicant
-    await transporter.sendMail(applicantMailOptions);
-    console.log("Application confirmation email sent to applicant:", email);
-    
-    // Send to admin
-    await transporter.sendMail(adminMailOptions);
-    console.log("Application notification email sent to admin:", process.env.RECIPIENT_EMAIL);
+  // Email sending deactivated for course applications
+  console.log("[DEACTIVATED] Application email sending is currently disabled.");
+  // await transporter.sendMail(applicantMailOptions);
+  // console.log("Application confirmation email sent to applicant:", email);
 
     res.status(200).json({
       success: true,
@@ -561,3 +534,30 @@ export const handleApplicationEmail = async (req: Request, res: Response) => {
     });
   }
 };
+
+// Example: Send confirmation email via SMTP
+export async function sendConfirmationEmail(req: Request, res: Response) {
+  const { fullName, email } = req.body;
+  try {
+    const transporter = nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: Number(process.env.EMAIL_PORT),
+      secure: process.env.EMAIL_SECURE === "true",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "Scholarship Application Confirmation",
+      text: `Hello ${fullName}, your application was received!`,
+    });
+
+    res.json({ success: true, message: "Confirmation email sent." });
+  } catch (err: any) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+}

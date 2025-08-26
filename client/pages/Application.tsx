@@ -115,7 +115,7 @@ export default function Index() {
     try {
       // Submit to the existing external API
       const response = await fetch(
-        "https://admin.mediacrestcollege.com/applications/api/submit/",
+        "/api/application",
         {
           method: "POST",
           headers: {

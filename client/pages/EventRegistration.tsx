@@ -104,7 +104,7 @@ export default function EventRegistration() {
       if (response.ok) {
         const result = await response.json();
         console.log("Event registration successful:", result);
-
+        
         // Reset form
         setFormData({
           eventId: eventId || "",
@@ -124,20 +124,20 @@ export default function EventRegistration() {
         // Log the response details for debugging
         console.log("Response status:", response.status);
         console.log("Response headers:", response.headers);
-
+        
         let error;
         const responseText = await response.text();
         console.log("Response text:", responseText);
-
+        
         try {
           error = JSON.parse(responseText);
         } catch (parseError) {
           // If response is not JSON (like HTML error page), create error object
-          error = {
-            error: `Server returned ${response.status}: ${response.statusText}. Please check if the API endpoint exists.`,
+          error = { 
+            error: `Server returned ${response.status}: ${response.statusText}. Please check if the API endpoint exists.` 
           };
         }
-
+        
         console.warn("Registration API error:", error);
 
         // Show specific error message from Django backend
@@ -145,14 +145,10 @@ export default function EventRegistration() {
           setErrorMessage(
             "Event not found. This event may no longer be available for registration.",
           );
-        } else if (
-          error.error === "You are already registered for this event"
-        ) {
+        } else if (error.error === "You are already registered for this event") {
           setErrorMessage("You are already registered for this event.");
         } else {
-          setErrorMessage(
-            error.error || "Registration failed. Please try again.",
-          );
+          setErrorMessage(error.error || "Registration failed. Please try again.");
         }
         setTimeout(() => setErrorMessage(null), 5000);
       }
@@ -228,7 +224,7 @@ export default function EventRegistration() {
               <div className="space-y-3">
                 {eventDate && (
                   <div className="flex items-center gap-3">
-                    <span className="text-mediacrest-orange"></span>
+                    <span className="text-mediacrest-orange">📅</span>
                     <span className="text-gray-700">
                       Date: {new Date(eventDate).toLocaleDateString()}
                     </span>
@@ -236,13 +232,13 @@ export default function EventRegistration() {
                 )}
                 {eventTime && (
                   <div className="flex items-center gap-3">
-                    <span className="text-mediacrest-orange"></span>
+                    <span className="text-mediacrest-orange">⏰</span>
                     <span className="text-gray-700">Time: {eventTime}</span>
                   </div>
                 )}
                 {eventLocation && (
                   <div className="flex items-center gap-3">
-                    <span className="text-mediacrest-orange"></span>
+                    <span className="text-mediacrest-orange">📍</span>
                     <span className="text-gray-700">
                       Location: {eventLocation}
                     </span>

@@ -42,23 +42,26 @@ const Events = () => {
 
   // Detect screen size
   useEffect(() => {
-    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
-    checkIsMobile();
-    window.addEventListener('resize', checkIsMobile);
-    return () => window.removeEventListener('resize', checkIsMobile);
-  }, []);
+    const fetchEvents = async (retryCount = 0) => {
+      const maxRetries = 3;
 
-  // Fetch events from API
-  useEffect(() => {
-    const fetchEvents = async () => {
       try {
-        const response = await fetch("https://admin.mediacrestcollege.com/events/api/", {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
+        console.log(
+          `Fetching events from: "/api/events" (attempt ${retryCount + 1})`,
+        );
+        const response = await fetch(
+          "/api/events",
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
           },
-        });
+        );
+
+        console.log("Response status:", response.status);
+        console.log("Response headers:", response.headers);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch events: ${response.status} ${response.statusText}`);
