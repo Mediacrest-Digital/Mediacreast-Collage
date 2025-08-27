@@ -12,12 +12,11 @@ import { testEmail } from "./routes/email-test";
 export function createServer() {
   const app = express();
 
-  // Middleware
   app.use(cors());
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  // Example API routes
+
   app.get("/api/ping", (_req, res) => {
     res.json({ message: "Hello from Express server v2!" });
   });
@@ -30,13 +29,13 @@ export function createServer() {
   app.post("/api/event-registration", handleLocalEventRegistration);
   app.get("/api/event-registrations", getEventRegistrations);
   app.get("/api/events", handleGetEvents);
-  app.post("/api/events/register", handleEventRegistration); // New route for external API proxy
+  app.post("/api/events/register", handleEventRegistration);
   app.get("/api/test-email", testEmail);
 
   return app;
 }
 
-// Start server if this file is run directly
+export default createServer;
 if (import.meta.url === `file://${process.argv[1]}`) {
   const app = createServer();
   const PORT = process.env.PORT || 3000;

@@ -35,9 +35,8 @@ export const handleScholarshipEmail = async (req: Request, res: Response) => {
       });
     }
 
-    // Import nodemailer dynamically to match application handler
-    const nodemailerDynamic = await import("nodemailer");
-    const transporter = nodemailerDynamic.default.createTransport({
+    // Create transporter
+    const transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST || "mail.mediacrestcollege.com",
       port: parseInt(process.env.EMAIL_PORT || "587"),
       secure: process.env.EMAIL_SECURE === "true",
@@ -51,7 +50,7 @@ export const handleScholarshipEmail = async (req: Request, res: Response) => {
       socketTimeout: 60000,
     });
 
-    // Verify transporter configuration (skip in development to match application handler)
+    // Verify transporter configuration (skip in development)
     if (process.env.NODE_ENV === 'production') {
       try {
         await transporter.verify();
@@ -76,67 +75,75 @@ export const handleScholarshipEmail = async (req: Request, res: Response) => {
     const [firstName, ...lastNameParts] = fullName.split(" ");
     const lastName = lastNameParts.join(" ") || "Applicant";
 
-    // Email content for the applicant (detailed)
+    // Email content for the applicant
     const applicantMailOptions = {
-      from: `"Mediacrest Applications" <${process.env.EMAIL_USER}>`,
+      from: `"Mediacrest Scholarship Applications" <${process.env.EMAIL_USER}>`,
       to: email,
-      subject: "Welcome to Mediacrest Training College - Scholarship Application Received!",
+      subject: "Congratulations! Your Scholarship Application Has Been Approved!",
       html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
-          <div style="background-color: #621909; color: white; padding: 30px; text-align: center;">
-            <h1 style="margin: 0; font-size: 28px;">Mediacrest Training College</h1>
-            <p style="margin: 10px 0 0 0; font-size: 16px;">Your Scholarship Application Has Been Received!</p>
+       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden;">
+
+          <!-- HEADER -->
+          <div style="padding: 20px; text-align: center; background-color: #621909; color: white;">
+            <h1 style="margin: 0; font-size: 22px; font-weight: bold;">
+              Congratulations! Your Scholarship Application Has Been Approved!
+            </h1>
           </div>
+
+          <!-- BODY -->
           <div style="padding: 30px;">
-            <h2 style="color: #621909; margin-top: 0;">Dear ${firstName} ${lastName},</h2>
+            <h2 style="color: #EB4823; margin-top: 0;">Dear ${firstName},</h2>
             <p style="font-size: 16px; line-height: 1.6; color: #333;">
-              Thank you for applying for a scholarship at Mediacrest Training College! We're excited to review your application and support your journey in the digital world.
+              I am pleased to inform you that your application for the 
+              <strong>Digital Marketing & AI Certification Course Scholarship Program</strong> 
+              at Mediacrest Training College has been approved.<br><br>
+              <strong>Congratulations!</strong> We look forward to having you on board and supporting your learning journey.
             </p>
+
+            <!-- PROGRAM DETAILS -->
             <div style="background-color: #f8f3f1; border-left: 4px solid #EB4823; padding: 20px; margin: 25px 0;">
-              <h3 style="color: #621909; margin-top: 0;">Scholarship Details</h3>
-              <p style="margin: 10px 0;"><strong>Program:</strong> Digital Marketing & AI Scholarship</p>
-              <p style="margin: 10px 0;"><strong>Status:</strong> Under Review</p>
-              <p style="margin: 10px 0 0 0; line-height: 1.6;">
-                Your application is currently under review by our admissions team. We will contact you within 48 hours with further details.
+              <h3 style="margin-top: 0;">Program Details</h3>
+              <p style="margin: 10px 0;">Classes commence on <strong>1st October 2025</strong>.</p>
+              <p style="margin: 10px 0;">Tuition fully covered by our development partners.</p>
+              <p style="margin: 10px 0;">
+                However, you will be required to pay statutory charges associated with the program. 
+                The deadline to settle these statutory charges is <strong>26th September 2025</strong>.
               </p>
+              <p style="margin: 10px 0;">This program runs for 4 weeks. Full details are in the attached document.</p>
             </div>
-            <div style="background-color: #e8f4fd; border-radius: 8px; padding: 20px; margin: 25px 0;">
-              <h3 style="color: #621909; margin-top: 0;">Next Steps:</h3>
-              <ol style="color: #333; line-height: 1.8; padding-left: 20px;">
-                <li>Admissions team will review your application within 48 hours.</li>
-                <li>You may be contacted for additional documentation or an interview.</li>
-                <li>Receive your scholarship decision and enrollment details.</li>
-                <li>Begin your educational journey with Mediacrest College!</li>
-              </ol>
-            </div>
+
+            <!-- CONTACT INFO -->
             <div style="margin: 25px 0; padding: 20px; border: 2px solid #EB4823; border-radius: 8px;">
               <h3 style="color: #621909; margin-top: 0;">Have Questions?</h3>
               <p style="margin: 10px 0; color: #333;">
                 📞 <strong>Phone:</strong> +254 725 223 669<br>
-                📧 <strong>Email:</strong> info@mediacrestcollege.com<br>
+                📧 <strong>Email:</strong> admissions@mediacrestcollege.com<br>
                 📍 <strong>Location:</strong> Office Suites, Block B - 3rd Floor Parklands Road - Nairobi
               </p>
             </div>
-            <div style="text-align: center; margin: 30px 0;">
-              <p style="font-size: 16px; color: #666;">
-                Follow us on social media for updates and tips!
+
+            <!-- SIGNATURE FOOTER -->
+            <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #EB4823; color: #333; font-size: 14px; line-height: 1.6; font-family: Arial, sans-serif;">
+              <p style="margin: 0; font-weight: bold; color:#621909;">Humphrey Otwande</p>
+              <p style="margin: 0; color:#621909;">Head of Scholarships</p>
+              <p style="margin: 0;">Mediacrest Foundation</p>
+              <p style="margin: 0;">Office Suites, Block B, 3rd Floor Parklands Rd, Nairobi</p>
+              <p style="margin: 0;">
+                Mob: <a href="tel:+254725223669" style="color:#333; text-decoration:none;">+254 725 223669</a> | 
+                <a href="https://wa.me/254725223669" style="color:#EB4823; text-decoration:none;">WhatsApp</a> | 
+                <a href="https://www.mediacrest.africa" style="color:#EB4823; text-decoration:none;">www.mediacrest.africa</a>
               </p>
-              <div style="margin: 15px 0;">
-                <a href="#" style="text-decoration: none; margin: 0 10px; color: #EB4823;">Facebook</a>
-                <a href="#" style="text-decoration: none; margin: 0 10px; color: #EB4823;">Instagram</a>
-                <a href="#" style="text-decoration: none; margin: 0 10px; color: #EB4823;">LinkedIn</a>
-              </div>
-            </div>
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; color: #666; font-size: 14px;">
-              <p><strong>Application Details:</strong></p>
-              <p>Application submitted on: ${new Date().toLocaleString()}</p>
-              <p>Contact Email: ${email}</p>
-              <p>Contact Phone: ${phone}</p>
             </div>
           </div>
-          <div style="background-color: #f5f5f5; padding: 20px; text-align: center; color: #666; font-size: 12px;">
-            <p>© 2024 Mediacrest College. All rights reserved.</p>
-            <p>This email was sent because you applied for our scholarship program.</p>
+
+          <!-- GENERIC FOOTER -->
+          <div style="background-color: #f5f5f5; padding: 20px; text-align: center; color: #666; font-size: 12px; line-height: 1.5; font-family: Arial, sans-serif;">
+            <p>© 2025 Mediacrest Foundation. All rights reserved.</p>
+            <p>You are receiving this email because you applied for our scholarship program.</p>
+            <p style="margin-top: 15px; font-size: 11px; color: #999;">
+              This email and any attachments are confidential and intended solely for the use of the individual to whom it is addressed. 
+              If you have received this email in error, please notify us immediately.
+            </p>
           </div>
         </div>
       `,
