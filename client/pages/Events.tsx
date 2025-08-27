@@ -5,7 +5,7 @@ import EventCard from "@/Component/EventCard";
 import Navbar from "../Component/Navbar";
 import Img1 from "../images/langatpic.jpg";
 import consumerpic from "../images/consumerpic.jpeg";
-import branding from "../images/branding.jpeg";
+import branding from "../images/Branding.jpeg";
 import experience from "../images/experienceTr.jpeg";
 import masterclass from "../images/masterclass.jpeg";
 import Kisiipic from "../images/Kisiipic.jpeg";

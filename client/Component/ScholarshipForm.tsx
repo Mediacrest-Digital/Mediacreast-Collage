@@ -377,7 +377,7 @@ export default function InterestForm() {
                   <div className="space-y-[5px]">
                     <label className="font-poppins text-[14px] leading-[26px] text-mediacrest-gray-dark">
                       Why are you interested in this scholarship
-                      programme and how will you use these skills in the future?
+                      program and how will you use these skills in the future?
                     </label>
                     <textarea
                       name="essay"
