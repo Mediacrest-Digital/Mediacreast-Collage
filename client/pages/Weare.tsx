@@ -26,99 +26,90 @@ export default function Weare() {
       </section> */}
 
       {/* About Section */}
-  <section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
-          {/* Images Section - Left Side */}
-          <div className="relative order-1 lg:order-1">
-            {/* Orange curved element top left - hidden on small screens */}
-            <div className="hidden sm:block absolute -top-4 sm:-top-6 lg:-top-8 -left-4 sm:-left-6 lg:-left-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-orange-500 rounded-full opacity-80"></div>
+<section className="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+  <div className="max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-start">
+      {/* Images Section - Left Side - UPDATED FOR MOBILE */}
+      <div className="relative order-1 lg:order-1 -mx-4 sm:mx-0">
+        {/* Orange curved element top left - hidden on small screens */}
+        <div className="hidden sm:block absolute -top-4 sm:-top-6 lg:-top-8 -left-4 sm:-left-6 lg:-left-8 w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-orange-500 rounded-full opacity-80"></div>
+        
+        {/* Main image collage - FULL WIDTH ON MOBILE */}
+        <div className="relative bg-white p-0 sm:p-3 md:p-4 rounded-none sm:rounded-lg">
+          {/* Main image - INCREASED HEIGHT ON MOBILE */}
+          <div className="relative mb-0 sm:mb-3 md:mb-4">
+            <img
+              src={Img3}
+              alt="Students at Mediacrest"
+              className="w-full h-80 sm:h-56 md:h-64 lg:h-full object-cover rounded-none sm:rounded-lg"
+            />
             
-            {/* Main image collage */}
-            <div className="relative bg-white p-3 sm:p-4 rounded-lg">
-              {/* Main image */}
-              <div className="relative mb-3 sm:mb-4">
-                <img
-                  src={Img3}
-                  alt="Students at Mediacrest"
-                  className="w-full h-48 sm:h-56 md:h-64 lg:h-full object-cover"
-                />
-                
-                {/* Empowering Growth banner */}
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-red-500 text-white px-2 sm:px-3 py-1  text-xs sm:text-sm font-bold shadow-lg">
-                  <div className="leading-tight">
-                    Empowering Growth.<br />
-                    Shaping Futures.
-                  </div>
-                </div>
+            {/* Empowering Growth banner */}
+            <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-red-500 text-white px-2 sm:px-3 py-1 text-xs sm:text-sm font-bold shadow-lg">
+              <div className="leading-tight">
+                Empowering Growth.<br />
+                Shaping Futures.
               </div>
-              
-              {/* Yellow decorative triangles */}
-              <div className="flex items-center space-x-2 mb-3 sm:mb-4">
-                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 transform rotate-45"></div>
-                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 transform rotate-45"></div>
-              </div>
-            </div>
-            
-            {/* Bottom right image - responsive positioning and sizing */}
-            {/* <div className="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 -right-4 sm:-right-6 lg:-right-8 w-48 h-36 sm:w-64 sm:h-72 md:w-72 md:h-54 lg:w-96 lg:h-96">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/2c5850af856ccda951a030a13ed13f674c749f46?width=696"
-                alt="Student with laptop wearing Mediacrest hoodie"
-                className="w-full h-full object-cover  shadow-lg border-24 sm:border-4 border-white"
-              />
-            </div> */}
-            
-            {/* Orange and gray decorative squares bottom - responsive sizing and positioning */}
-            <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 left-4 sm:left-6 lg:left-8 flex space-x-1 sm:space-x-2">
-              <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-orange-500"></div>
-              <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-gray-400"></div>
             </div>
           </div>
-
-          {/* Content Section - Right Side */}
-          <div className="space-y-4 sm:space-y-5 lg:space-y-6 pt-4 sm:pt-6 lg:pt-8 order-2 lg:order-2">
-            {/* WHO WE ARE badge */}
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 sm:w-4 sm:h-4 bg-orange-500"></div>
-              <span className="text-orange-500 uppercase text-xs sm:text-sm font-medium tracking-wide">
-                WHO WE ARE
-              </span>
-            </div>
-
-            {/* Main heading - responsive text sizing */}
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
-              About <span className="text-orange-500">Mediacrest</span> Training College
-            </h2>
-
-            {/* First paragraph - responsive text sizing */}
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Mediacrest Training College is a premier private learning institution located at Office 
-              Suites Block B, along Parklands Road – Nairobi, Kenya. The college is a dynamic hub 
-              for aspiring digital media, marketing, communications and technology professionals, 
-              dedicated to shaping Africa's next generation of creative talent. With a wide range of 
-              market-aligned training programs and courses, the college equips students with the 
-              practical skills, knowledge and innovative mindset needed to excel in today's fast-
-              evolving digital landscape.
-            </p>
-
-            {/* Second paragraph - responsive text sizing */}
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-              Mediacrest Training College offers specialized courses in areas like digital marketing, 
-              multimedia design, photography and videography, graphic design, software engineering, 
-              data science, cybersecurity and information technology, ensuring that graduates are 
-              prepared for both local and global opportunities. The college focuses on hands-on 
-              training, real-world industry insights and cutting-edge technology, empowering students 
-              to be adaptable, creative, and forward-thinking professionals. As a creative house, the 
-              college fosters an environment where passion meets purpose, blending technical 
-              proficiency with artistic expression. With experienced faculty, modern facilities and 
-              strong industry connections, the college is committed to molding Africa's brightest 
-              minds, helping them to thrive in competitive fields.
-            </p>
+          
+          {/* Yellow decorative triangles - HIDDEN ON MOBILE */}
+          <div className="hidden sm:flex items-center space-x-2 mb-3 sm:mb-4 mx-3 sm:mx-0">
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 transform rotate-45"></div>
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 transform rotate-45"></div>
           </div>
         </div>
+        
+        {/* Orange and gray decorative squares bottom - responsive sizing and positioning */}
+        <div className="absolute -bottom-2 sm:-bottom-3 lg:-bottom-4 left-4 sm:left-6 lg:left-8 flex space-x-1 sm:space-x-2">
+          <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-orange-500"></div>
+          <div className="w-4 h-4 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-gray-400"></div>
+        </div>
       </div>
-    </section>
+
+      {/* Content Section - Right Side - NO CHANGES */}
+      <div className="space-y-4 sm:space-y-5 lg:space-y-6 pt-4 sm:pt-6 lg:pt-8 order-2 lg:order-2">
+        {/* WHO WE ARE badge */}
+        <div className="flex items-center space-x-2">
+          <div className="w-3 h-3 sm:w-4 sm:h-4 bg-orange-500"></div>
+          <span className="text-orange-500 uppercase text-xs sm:text-sm font-medium tracking-wide">
+            WHO WE ARE
+          </span>
+        </div>
+
+        {/* Main heading - responsive text sizing */}
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+          About <span className="text-orange-500">Mediacrest</span> Training College
+        </h2>
+
+        {/* First paragraph - responsive text sizing */}
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          Mediacrest Training College is a premier private learning institution located at Office 
+          Suites Block B, along Parklands Road – Nairobi, Kenya. The college is a dynamic hub 
+          for aspiring digital media, marketing, communications and technology professionals, 
+          dedicated to shaping Africa's next generation of creative talent. With a wide range of 
+          market-aligned training programs and courses, the college equips students with the 
+          practical skills, knowledge and innovative mindset needed to excel in today's fast-
+          evolving digital landscape.
+        </p>
+
+        {/* Second paragraph - responsive text sizing */}
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          Mediacrest Training College offers specialized courses in areas like digital marketing, 
+          multimedia design, photography and videography, graphic design, software engineering, 
+          data science, cybersecurity and information technology, ensuring that graduates are 
+          prepared for both local and global opportunities. The college focuses on hands-on 
+          training, real-world industry insights and cutting-edge technology, empowering students 
+          to be adaptable, creative, and forward-thinking professionals. As a creative house, the 
+          college fosters an environment where passion meets purpose, blending technical 
+          proficiency with artistic expression. With experienced faculty, modern facilities and 
+          strong industry connections, the college is committed to molding Africa's brightest 
+          minds, helping them to thrive in competitive fields.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Mission & Vision */}
       <section className="py-12 lg:py-16 px-4 lg:px-16 bg-mediacrest-bg-light">

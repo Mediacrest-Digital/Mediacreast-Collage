@@ -15,13 +15,16 @@ export default function Index() {
     lastName: "",
     email: "",
     phone: "",
+    gender: "",
   });
 
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [genderDropdownOpen, setGenderDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const genderDropdownRef = useRef<HTMLDivElement>(null);
 
   const courses = [
     {
@@ -56,6 +59,12 @@ export default function Index() {
     },
   ];
 
+  const genderOptions = [
+    { value: "male", label: "Male" },
+    { value: "female", label: "Female" },
+    { value: "prefer-not-to-say", label: "I prefer not to say" },
+  ];
+
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -64,6 +73,12 @@ export default function Index() {
         !dropdownRef.current.contains(event.target as Node)
       ) {
         setDropdownOpen(false);
+      }
+      if (
+        genderDropdownRef.current &&
+        !genderDropdownRef.current.contains(event.target as Node)
+      ) {
+        setGenderDropdownOpen(false);
       }
     };
 
@@ -99,12 +114,20 @@ export default function Index() {
     }
   };
 
+  const handleGenderSelect = (genderValue: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      gender: genderValue,
+    }));
+    setGenderDropdownOpen(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { course, firstName, lastName, email, phone } = formData;
+    const { course, firstName, lastName, email, phone, gender } = formData;
 
-    if (!course || !firstName || !lastName || !email || !phone) {
+    if (!course || !firstName || !lastName || !email || !phone || !gender) {
       setErrorMessage("Please fill in all the fields.");
       setTimeout(() => setErrorMessage(null), 3000);
       return;
@@ -152,6 +175,7 @@ export default function Index() {
           lastName: "",
           email: "",
           phone: "",
+          gender: "",
         });
         setShowSuccess(true);
         setTimeout(() => setShowSuccess(false), 3000);
@@ -171,6 +195,10 @@ export default function Index() {
 
   const selectedCourse = courses.find(
     (course) => course.value === formData.course,
+  );
+
+  const selectedGender = genderOptions.find(
+    (option) => option.value === formData.gender,
   );
 
   return (
@@ -341,6 +369,54 @@ export default function Index() {
                     placeholder="Enter Phone Number"
                     className="w-full h-[53px] px-[14px] py-[15px] border border-[rgba(145,158,171,0.32)] rounded-[8px] text-[14px] leading-[24px] placeholder:text-[rgba(17,15,36,0.40)] focus:outline-none focus:ring-2 focus:ring-[#EB4823] focus:border-transparent"
                   />
+                </div>
+              </div>
+
+              {/* Gender Dropdown */}
+              <div className="space-y-[5px]">
+                <label className="text-[#5E5E5E] text-[14px] font-medium leading-[26px]">
+                  Gender
+                </label>
+                <div className="relative" ref={genderDropdownRef}>
+                  <button
+                    type="button"
+                    onClick={() => setGenderDropdownOpen(!genderDropdownOpen)}
+                    className="w-full h-[53px] px-[14px] py-[15px] border border-[rgba(145,158,171,0.32)] rounded-[8px] text-[14px] leading-[24px] text-left bg-transparent focus:outline-none focus:ring-2 focus:ring-[#EB4823] focus:border-[#EB4823] flex items-center justify-between"
+                  >
+                    <span
+                      className={
+                        selectedGender
+                          ? "text-black"
+                          : "text-[rgba(17,15,36,0.40)]"
+                      }
+                    >
+                      {selectedGender ? selectedGender.label : "Select Gender"}
+                    </span>
+                    <ChevronDown
+                      className={`w-[12px] h-[12px] text-[#9F9A9E] transition-transform ${genderDropdownOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  {genderDropdownOpen && (
+                    <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-[rgba(145,158,171,0.32)] rounded-[8px] shadow-lg z-50 max-h-48 overflow-y-auto">
+                      {genderOptions.map((option, index) => (
+                        <button
+                          key={option.value}
+                          type="button"
+                          onClick={() => handleGenderSelect(option.value)}
+                          className={`w-full px-[14px] py-[12px] text-left text-[14px] leading-[24px] text-black hover:bg-[#EB4823] hover:text-white transition-colors ${
+                            index === 0 ? "rounded-t-[8px]" : ""
+                          } ${
+                            index === genderOptions.length - 1
+                              ? "rounded-b-[8px]"
+                              : ""
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

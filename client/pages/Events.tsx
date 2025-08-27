@@ -3,21 +3,15 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import Footer from "@/Component/Footer";
 import EventCard from "@/Component/EventCard";
 import Navbar from "../Component/Navbar";
-import AnnouncementBanner from "../Component/AnnouncementBanner";
-import Img1 from "../images/events.png";
+import Img1 from "../images/langatpic.jpg";
+import consumerpic from "../images/consumerpic.jpeg";
+import branding from "../images/branding.jpeg";
+import experience from "../images/experienceTr.jpeg";
+import masterclass from "../images/masterclass.jpeg";
+import Kisiipic from "../images/Kisiipic.jpeg";
+import { b } from "vitest/dist/chunks/suite.d.FvehnV49.js";
 
-interface Event {
-  id: number;
-  title: string;
-  slug: string;
-  description: string;
-  date: string;
-  start_time: string;
-  end_time?: string;
-  location: string;
-  host: string;
-  poster?: string;
-}
+// Using the images that were already imported above
 
 interface EventCardProps {
   eventId?: string;
@@ -31,124 +25,190 @@ interface EventCardProps {
   link?: string;
 }
 
+// Hard coded events data using existing imported images
+const HARDCODED_EVENTS: EventCardProps[] = [
+  // Upcoming Events
+  {
+    eventId: "1",
+    month: "SEP",
+    day: "19",
+    title: "Kisii County Digital Skills & AI Program Launch",
+    time: "9:00am - 1:00pm",
+    location: "Gusii Stadium, Kisii",
+    description: "Get ready for the launch of the Kisii County Digital Skills & AI Program, proudly partnered with Mediacrest Training College. We are honored to have Kisii County Governor, HE Hon. Paul Simba Arati, as the chief guest for this exciting event",
+    imageUrl: Kisiipic,
+    link: "/events/digital-marketing-workshop"
+  },
+  // {
+  //   eventId: "2",
+  //   month: "SEP",
+  //   day: "22",
+  //   title: "Career Fair 2025",
+  //   time: "9:00 AM - 5:00 PM",
+  //   location: "Student Center",
+  //   description: "Connect with top employers and explore exciting career opportunities in various industries.",
+  //   imageUrl: branding,
+  //   link: "/events/career-fair-2025"
+  // },
+  // {
+  //   eventId: "3",
+  //   month: "OCT",
+  //   day: "5",
+  //   title: "Web Development Bootcamp",
+  //   time: "2:00 PM - 6:00 PM",
+  //   location: "Computer Lab 1",
+  //   description: "Intensive hands-on bootcamp covering modern web development technologies and best practices.",
+  //   imageUrl: experience,
+  //   link: "/events/web-development-bootcamp"
+  // },
+  // {
+  //   eventId: "4",
+  //   month: "OCT",
+  //   day: "18",
+  //   title: "Entrepreneurship Summit",
+  //   time: "1:00 PM - 7:00 PM",
+  //   location: "Conference Hall",
+  //   description: "Meet successful entrepreneurs and learn about starting your own business venture.",
+  //   imageUrl: masterclass,
+  //   link: "/events/entrepreneurship-summit"
+  // },
+  
+  // Past Events
+  {
+    eventId: "5",
+    month: "Jul",
+    day: "26",
+    title: "Digital Marketing Masterclass",
+    time: " 10:00am - 1:00pm",
+    location: "Mediacrest College, Parklands",
+    description: "From business owners to brand builders, everyone was fully engaged, making digital strategy real.",
+    imageUrl: masterclass,
+    link: "/events/alumni-networking-event"
+  },
+  {
+    eventId: "5",
+    month: "Apr",
+    day: "12",
+    title: "Branding & Identity Workshop",
+    time: "12:00pm - 4:00pm",
+    location: "HH Towers, Nairobi ",
+    description: "From practical strategies to personal branding, participants gained real skills to grow their digital presence.",
+    imageUrl: branding,
+    link: "/events/alumni-networking-event"
+  },
+  {
+    eventId: "6",
+    month: "Apr",
+    day: "22",
+    title: "Digital Marketing Training",
+    time: "10:00am - 1:00pm",
+    location: "Transnational Plaza, Nairobi ",
+    description: "Our session explored how people interact online, emerging digital trends, and strategies to handle challenges.",
+    imageUrl: experience,
+    link: "/events/tech-innovation-conference"
+  },
+  {
+    eventId: "7",
+    month: "Mar",
+    day: "28",
+    title: "Consumer Choice Awards Kenya",
+    time: "6:00pm - 11:00pm",
+    location: "Argyle Grand Hotel, Nairobi ",
+    description: "From media production to public relations, Mediacrest ensured strong coverage and lasting event visibility.",
+    imageUrl: consumerpic,
+    link: "/events/creative-design-workshop"
+  }
+];
+
 const Events = () => {
   const [upcomingEvents, setUpcomingEvents] = useState<EventCardProps[]>([]);
   const [pastEvents, setPastEvents] = useState<EventCardProps[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [upcomingCurrentIndex, setUpcomingCurrentIndex] = useState(0);
   const [pastCurrentIndex, setPastCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   // Detect screen size
   useEffect(() => {
-    const fetchEvents = async (retryCount = 0) => {
-      const maxRetries = 3;
+    const checkIsMobile = () => setIsMobile(window.innerWidth < 768);
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
-      try {
-        console.log(
-          `Fetching events from: "/api/events" (attempt ${retryCount + 1})`,
-        );
-        const response = await fetch(
-          "/api/events",
-          {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-          },
-        );
+  // Process hard coded events
+  useEffect(() => {
+    const processEvents = () => {
+      const currentDate = new Date();
+      const currentMonth = currentDate.getMonth();
+      const currentDay = currentDate.getDate();
 
-        console.log("Response status:", response.status);
-        console.log("Response headers:", response.headers);
+      const upcoming: EventCardProps[] = [];
+      const past: EventCardProps[] = [];
 
-        if (!response.ok) {
-          throw new Error(`Failed to fetch events: ${response.status} ${response.statusText}`);
+      HARDCODED_EVENTS.forEach((event) => {
+        // Simple date comparison based on month and day
+        // This is a simplified approach - in real app you'd want proper date handling
+        const eventMonthMap: { [key: string]: number } = {
+          'JAN': 0, 'FEB': 1, 'MAR': 2, 'APR': 3, 'MAY': 4, 'JUN': 5,
+          'JUL': 6, 'AUG': 7, 'SEP': 8, 'OCT': 9, 'NOV': 10, 'DEC': 11
+        };
+
+        const eventMonth = eventMonthMap[event.month];
+        const eventDay = parseInt(event.day);
+
+        // Simple logic: if event month is after current month, or same month but later day, it's upcoming
+        const isUpcoming = eventMonth > currentMonth || 
+          (eventMonth === currentMonth && eventDay > currentDay);
+
+        if (isUpcoming) {
+          upcoming.push(event);
+        } else {
+          past.push(event);
         }
+      });
 
-        const data: Event[] = await response.json();
+      // Sort upcoming events by date (earliest first)
+      upcoming.sort((a, b) => {
+        const eventMonthMap: { [key: string]: number } = {
+          'JAN': 0, 'FEB': 1, 'MAR': 2, 'APR': 3, 'MAY': 4, 'JUN': 5,
+          'JUL': 6, 'AUG': 7, 'SEP': 8, 'OCT': 9, 'NOV': 10, 'DEC': 11
+        };
+        
+        const aMonth = eventMonthMap[a.month];
+        const bMonth = eventMonthMap[b.month];
+        const aDay = parseInt(a.day);
+        const bDay = parseInt(b.day);
 
-        if (!Array.isArray(data)) {
-          throw new Error("Invalid data format received from server");
-        }
+        if (aMonth !== bMonth) return aMonth - bMonth;
+        return aDay - bDay;
+      });
 
-        const currentDate = new Date();
-        currentDate.setHours(0, 0, 0, 0);
+      // Sort past events by date (most recent first)
+      past.sort((a, b) => {
+        const eventMonthMap: { [key: string]: number } = {
+          'JAN': 0, 'FEB': 1, 'MAR': 2, 'APR': 3, 'MAY': 4, 'JUN': 5,
+          'JUL': 6, 'AUG': 7, 'SEP': 8, 'OCT': 9, 'NOV': 10, 'DEC': 11
+        };
+        
+        const aMonth = eventMonthMap[a.month];
+        const bMonth = eventMonthMap[b.month];
+        const aDay = parseInt(a.day);
+        const bDay = parseInt(b.day);
 
-        const upcoming: EventCardProps[] = [];
-        const past: EventCardProps[] = [];
+        if (bMonth !== aMonth) return bMonth - aMonth;
+        return bDay - aDay;
+      });
 
-        data.forEach((event) => {
-          const eventDate = new Date(event.date);
-          const eventMonth = eventDate.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
-          const eventDay = eventDate.getDate().toString();
-
-          // Format time
-          let timeString = "";
-          if (event.start_time) {
-            const startTime = new Date(`2000-01-01T${event.start_time}`);
-            const formattedStart = startTime.toLocaleTimeString("en-US", {
-              hour: "numeric",
-              minute: "2-digit",
-              hour12: true,
-            });
-
-            if (event.end_time) {
-              const endTime = new Date(`2000-01-01T${event.end_time}`);
-              const formattedEnd = endTime.toLocaleTimeString("en-US", {
-                hour: "numeric",
-                minute: "2-digit",
-                hour12: true,
-              });
-              timeString = `${formattedStart} - ${formattedEnd}`;
-            } else {
-              timeString = formattedStart;
-            }
-          }
-
-          const eventCardData: EventCardProps = {
-            eventId: event.id.toString(),
-            month: eventMonth,
-            day: eventDay,
-            title: event.title,
-            time: timeString,
-            location: event.location,
-            description: event.description,
-            imageUrl: event.poster || "https://cdn.builder.io/api/v1/image/assets/TEMP/573fd834a6c44528728fc81e951ce411a622e1fa?width=758",
-            link: `/events/${event.slug}`,
-          };
-
-          if (eventDate >= currentDate) {
-            upcoming.push(eventCardData);
-          } else {
-            past.push(eventCardData);
-          }
-        });
-
-        // Sort events
-        upcoming.sort((a, b) => {
-          const dateA = new Date(`${a.month} ${a.day}, ${new Date().getFullYear()}`);
-          const dateB = new Date(`${b.month} ${b.day}, ${new Date().getFullYear()}`);
-          return dateA.getTime() - dateB.getTime();
-        });
-
-        past.sort((a, b) => {
-          const dateA = new Date(`${a.month} ${a.day}, ${new Date().getFullYear()}`);
-          const dateB = new Date(`${b.month} ${b.day}, ${new Date().getFullYear()}`);
-          return dateB.getTime() - dateA.getTime();
-        });
-
-        setUpcomingEvents(upcoming);
-        setPastEvents(past);
-      } catch (err) {
-        setError(err instanceof Error ? `Failed to fetch events: ${err.message}` : "Failed to fetch events: Unknown error occurred");
-      } finally {
-        setLoading(false);
-      }
+      setUpcomingEvents(upcoming);
+      setPastEvents(past);
+      setLoading(false);
     };
 
-    fetchEvents();
+    // Simulate loading delay
+    setTimeout(() => {
+      processEvents();
+    }, 1000);
   }, []);
 
   // Navigation functions
@@ -379,23 +439,30 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white pt-12">
-      <AnnouncementBanner />
+    <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* Hero Section */}
-      <div className="relative homeImg3 h-[300px] lg:h-[600px] bg-cover bg-center flex items-center justify-center mt-0">
-        <img className="imgt" src={Img1} alt="#" />
-        <div className="absolute inset-0 bg-black bg-opacity-40" />
-        <div className="eventsText relative flex flex-col items-center justify-center h-full text-center">
-          <div className="flex flex-col items-center gap-[9px] w-[360px]">
-            <h1 className="text-white font-bold text-5xl leading-[72px]">Events</h1>
-            <nav className="txtReg text-text-muted font-normal text-base leading-7">
-              Home / About Us / Events
-            </nav>
-          </div>
-        </div>
-      </div>
+{/* Hero Section */}
+{/* Hero Section */}
+<div className="relative homeImg3 h-[250px] sm:h-[300px] lg:h-[400px] bg-cover bg-center flex items-center mt-0">
+  {/* Responsive Image */}
+  <img className="imgt w-full h-full object-cover" src={Img1} alt="Events Banner" />
+
+  {/* Dark Overlay */}
+  <div className="absolute inset-0 bg-black bg-opacity-40" />
+
+  {/* Text Section */}
+  <div className="eventsText absolute inset-0 flex flex-col items-start justify-center pl-6 sm:pl-12 lg:pl-24 text-left">
+    <div className="flex flex-col gap-[9px] max-w-[360px]">
+      <h1 className="text-white font-bold text-3xl lg:text-5xl leading-[40px] lg:leading-[60px]">
+        Events
+      </h1>
+      <nav className="txtReg text-text-muted font-normal text-base leading-7">
+        {/* Add breadcrumb or description here if needed */}
+      </nav>
+    </div>
+  </div>
+</div>
 
       {loading ? (
         <div className="py-20 text-center">
@@ -405,18 +472,6 @@ const Events = () => {
             <div className="w-4 h-4 bg-mediacrest-orange rounded-full animate-bounce" style={{ animationDelay: "0.2s" }}></div>
           </div>
           <p className="text-gray-500 mt-4 animate-pulse">Loading events...</p>
-        </div>
-      ) : error ? (
-        <div className="py-20 text-center">
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
-            <p className="text-red-700 font-medium">{error}</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="mt-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
-            >
-              Try Again
-            </button>
-          </div>
         </div>
       ) : (
         <>
